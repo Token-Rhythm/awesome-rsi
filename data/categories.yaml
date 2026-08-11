@@ -1,0 +1,80 @@
+# Catalog taxonomy. Order here is the order used in README.md and README_zh.md.
+# Only `foundations-theory` may contain pre-2025 work; see docs/curation-policy.md.
+
+- id: foundations-theory
+  name: "Foundations & Theory"
+  name_zh: "基础与理论"
+  description: "Formal results and conceptual groundwork that the rest of the field is built on: Gödel machines and self-referential architectures, tiling agents and the Löbian obstacle, limits of recursive self-improvement, and the intelligence-explosion and takeoff analyses. This is the one section that carries pre-2025 work."
+  description_zh: "支撑整个领域的形式化结果与概念基础：哥德尔机与自指架构、平铺智能体与 Löb 障碍、递归自我改进的理论极限，以及智能爆炸与起飞速度分析。这是唯一收录 2025 年之前工作的分类。"
+
+- id: self-improving-training
+  name: "Self-Improving Training"
+  name_zh: "自我改进训练"
+  description: "Weight-level self-improvement: models that generate their own training data, reward themselves, learn without labels or external verifiers, adapt at test time, or write their own update directives."
+  description_zh: "权重层面的自我改进：模型自行生成训练数据、自行给出奖励、在无标签或无外部验证器的情况下学习、在测试时自适应，或自行编写更新指令。"
+
+- id: self-play-zero-data
+  name: "Self-Play & Zero-Data Reasoning"
+  name_zh: "自博弈与零数据推理"
+  description: "Proposer and solver loops in which a model invents its own tasks at the edge of its ability and trains on them, with a code executor, a search engine, or nothing at all as the only external ground truth."
+  description_zh: "出题者与解题者的闭环：模型在自身能力边界上自造任务并据此训练，唯一的外部事实来源是代码执行器、搜索引擎，或者干脆没有。"
+
+- id: memory-experience-agents
+  name: "Memory, Experience & Skills"
+  name_zh: "记忆、经验与技能"
+  description: "Agents that improve with frozen weights by accumulating what they have done: case banks, episodic and parametric memory, distilled experience, and skill libraries that later tasks retrieve and reuse."
+  description_zh: "权重冻结、靠积累经历而变强的智能体：案例库、情景记忆与参数化记忆、蒸馏后的经验，以及可供后续任务检索复用的技能库。"
+
+- id: self-modifying-agents
+  name: "Self-Modifying Agents & Scaffolds"
+  name_zh: "自修改智能体与脚手架"
+  description: "The Gödel-machine lineage in practice: agents that rewrite their own source code, harness, and tools, search over trees or archives of their own variants, and synthesize new tools mid-task."
+  description_zh: "哥德尔机路线的工程化实践：智能体改写自身源代码、运行框架与工具，在自身变体构成的树或档案库中搜索，并在任务执行途中现场合成新工具。"
+
+- id: context-prompt-workflow
+  name: "Context, Prompt & Workflow Optimization"
+  name_zh: "上下文、提示与工作流优化"
+  description: "Optimizing everything around a frozen model: reflective prompt evolution, playbooks and context that grow with use, and automatic search over agentic workflows and compound pipelines."
+  description_zh: "在冻结模型之外做优化：反思式提示进化、随使用不断增长的操作手册与上下文，以及对智能体工作流与复合流水线的自动搜索。"
+
+- id: multi-agent-evolution
+  name: "Multi-Agent Co-Evolution"
+  name_zh: "多智能体协同进化"
+  description: "Systems where agents improve each other: shared and decentralized memory, evolving roles and topologies, population-based search over agent teams, and failure attribution feeding structural change."
+  description_zh: "让智能体互相改进的系统：共享与去中心化记忆、角色与拓扑的演化、面向智能体团队的种群搜索，以及由失败归因驱动的结构调整。"
+
+- id: automated-ai-research
+  name: "Automated AI Research & Discovery"
+  name_zh: "自动化 AI 研究与发现"
+  description: "AI running the research loop itself: discovering algorithms, kernels, and architectures, carrying out machine-learning engineering end to end, and producing scientific results without a human in the inner loop."
+  description_zh: "由 AI 自己跑通研究闭环：发现算法、算子内核与网络架构，端到端完成机器学习工程，并在内层循环中无需人类参与地产出科研结果。"
+
+- id: open-ended-evolution
+  name: "Evolutionary & Open-Ended Search"
+  name_zh: "进化式与开放式搜索"
+  description: "Evolutionary program search and open-ended generation of tasks and environments, where an LLM supplies the mutation operator and novelty or interestingness drives what gets explored next."
+  description_zh: "进化式程序搜索与任务、环境的开放式生成：由大模型充当变异算子，并以新颖性或有趣性决定下一步探索方向。"
+
+- id: surveys-position
+  name: "Surveys & Position Papers"
+  name_zh: "综述与立场论文"
+  description: "Field maps and arguments about where it should go: taxonomies of what evolves and when, roadmaps for lifelong agents, and position papers on what genuine self-improvement would require."
+  description_zh: "领域地图与方向之争：关于「演化什么、何时演化」的分类体系、终身智能体路线图，以及论证真正的自我改进究竟需要什么的立场论文。"
+
+- id: limits-failure-modes
+  name: "Limits & Failure Modes"
+  name_zh: "极限与失效模式"
+  description: "Where the loop breaks: model and knowledge collapse under recursive training, capability erosion across evolution rounds, reward hacking and verifier gaming, library drift, and generalization gaps."
+  description_zh: "闭环失效之处：递归训练下的模型与知识坍缩、多轮演化中的能力侵蚀、奖励攻击与验证器博弈、技能库漂移，以及泛化差距。"
+
+- id: safety-governance
+  name: "Safety, Control & Governance"
+  name_zh: "安全、管控与治理"
+  description: "Keeping self-improving systems governable: misevolution and emergent risk, self-replication and dangerous-capability evaluation, control protocols for untrusted models, and metrics for AI R&D automation."
+  description_zh: "让自改进系统保持可控：误演化与涌现风险、自我复制与危险能力评估、面向不可信模型的管控协议，以及衡量 AI 研发自动化程度的指标。"
+
+- id: benchmarks-infrastructure
+  name: "Benchmarks & Infrastructure"
+  name_zh: "基准与基础设施"
+  description: "What the field measures itself against and builds on: AI R&D and self-evolution benchmarks, streaming and continual evaluation, fast-rollback sandboxes, and open-source frameworks for self-improving systems."
+  description_zh: "领域赖以衡量与构建的底座：AI 研发与自我演化基准、流式与持续评估、支持快速回滚的沙箱，以及自改进系统的开源框架。"

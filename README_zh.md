@@ -1,0 +1,509 @@
+# Awesome RSI
+
+一份以证据为先的**递归自我改进（RSI）**研究清单：能够改进自身权重、提示、记忆、技能、工具、工作流、源代码，乃至改进机制本身的 AI 系统。
+
+- 条目总数: **315**
+- arXiv 条目: **288 (91.4%)**
+- 2025 年及以后的条目（不含基础理论）: **265/265 (100.0%)**
+- 分类数: **13**
+- 最近校验: **2026-08-11**
+- 语言: [English](./README.md) | [中文](./README_zh.md)
+
+<a id="featured-rsi-readings"></a>
+## 精选 RSI 读物
+
+- [A Survey of Self-Evolving Agents](https://arxiv.org/abs/2507.21046): 领域全景图：智能体演化什么、何时演化、如何产生更新，以及如何评估这些更新。
+- [Darwin Gödel Machine](https://arxiv.org/abs/2505.22954): 用经验性基准验证替代哥德尔机的证明义务，并以开放式档案库取代单一最优个体。
+- [Huxley-Gödel Machine](https://arxiv.org/abs/2510.21614): 指出智能体自身的基准分数难以预测其后代质量，转而按族系生产力对谱系排序。
+- [Self-Adapting Language Models](https://arxiv.org/abs/2506.10943): 将自改进闭环下推到权重层：模型自行生成微调数据与更新指令，并以更新后的性能作为奖励。
+- [AlphaEvolve](https://arxiv.org/abs/2506.13131): 进化式编码智能体，改进了尘封 56 年的矩阵乘法上界，并在生产环境中回收了集群算力。
+- [Absolute Zero](https://arxiv.org/abs/2505.03335): 同一模型兼任出题者与解题者，在自造任务上训练，仅以代码执行器作为唯一事实来源。
+
+## 目录
+
+- [分类概览](#category-overview)
+- [精选 RSI 读物](#featured-rsi-readings)
+- [编目](#catalog)
+  - [基础与理论](#foundations-theory)
+  - [自我改进训练](#self-improving-training)
+  - [自博弈与零数据推理](#self-play-zero-data-reasoning)
+  - [记忆、经验与技能](#memory-experience-skills)
+  - [自修改智能体与脚手架](#self-modifying-agents-scaffolds)
+  - [上下文、提示与工作流优化](#context-prompt-workflow-optimization)
+  - [多智能体协同进化](#multi-agent-co-evolution)
+  - [自动化 AI 研究与发现](#automated-ai-research-discovery)
+  - [进化式与开放式搜索](#evolutionary-open-ended-search)
+  - [综述与立场论文](#surveys-position-papers)
+  - [极限与失效模式](#limits-failure-modes)
+  - [安全、管控与治理](#safety-control-governance)
+  - [基准与基础设施](#benchmarks-infrastructure)
+- [维护说明](#maintenance-notes)
+- [引用](#citation)
+
+<a id="category-overview"></a>
+## 分类概览
+
+| 分类 | 条目数 |
+| --- | ---: |
+| 基础与理论 | 50 |
+| 自我改进训练 | 34 |
+| 自博弈与零数据推理 | 26 |
+| 记忆、经验与技能 | 22 |
+| 自修改智能体与脚手架 | 25 |
+| 上下文、提示与工作流优化 | 14 |
+| 多智能体协同进化 | 11 |
+| 自动化 AI 研究与发现 | 25 |
+| 进化式与开放式搜索 | 13 |
+| 综述与立场论文 | 19 |
+| 极限与失效模式 | 22 |
+| 安全、管控与治理 | 26 |
+| 基准与基础设施 | 28 |
+
+<a id="catalog"></a>
+## 编目
+
+说明：
+- `日期` 为首次公开发布时间（预印本取 arXiv v1 月份）。
+- 每个分类内按日期倒序排列（最新在前）。
+- 仅 `基础与理论` 收录 2025 年之前的工作，其余分类均从 2025-01 起。
+- ★ 表示开创或改变了某条研究路线的里程碑工作。
+- 所有链接均在最近一次校验中回源核对。
+
+<a id="foundations-theory"></a>
+### 基础与理论
+
+支撑整个领域的形式化结果与概念基础：哥德尔机与自指架构、平铺智能体与 Löb 障碍、递归自我改进的理论极限，以及智能爆炸与起飞速度分析。这是唯一收录 2025 年之前工作的分类。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| Self-Reference in Large Language Models: The Introspection Threshold for Recursive Self-Improvement | [arXiv](https://arxiv.org/abs/2607.04277) | 2026.07 | theory, formal-analysis, takeoff | 借鉴冯·诺依曼关于自复制自动机的复杂度阈值，论证持续的递归自我改进需要跨越一个内省阈值——自我建模、自我模拟、自我评估与自我修改在此协同——并发现当前 LLM 仍受阻于准内省阶段。 |
+| An Information-Theoretic Definition for Open-Ended Learning | [arXiv](https://arxiv.org/abs/2606.08369) | 2026.06 | theory, open-endedness, formal-analysis | 把开放式学习定义为 'bit-equivalent'（智能体必须获取的最少与奖励相关信息）的线性增长，证明标准 bandit 族达不到该标准，并构造出一个 insatiable bandit，其中截断 Thompson 采样可证明达到最优线性速率。 |
+| PACE: Anytime-Valid Acceptance Tests for Self-Evolving Agents | [arXiv](https://arxiv.org/abs/2606.08106) | 2026.06 | formal-analysis, verifier, self-modifying-code, prompt-optimization | 用免训练的序列下注检验为自演化智能体的提交把关，其鞅界将单候选误接受概率控制在 alpha 以内，把贪心接受每轮 13-21 次的虚假 prompt 自修改降至几乎为零，同时减少开发集评测开销。 |
+| Interestingness as an Inductive Heuristic for Future Compression Progress | [arXiv](https://arxiv.org/abs/2605.14831) | 2026.05 | theory, formal-analysis, open-endedness | 将 Schmidhuber 式的"有趣性"形式化为期望的未来压缩进展，证明自上次压缩突破以来停滞越久、描述长度再次下降的概率就呈指数衰减，并在数十亿次图灵完备程序运行上给出实证验证。 |
+| When Does Automating AI Research Produce Explosive Growth? Feedback Loops in Innovation Networks | [Paper](https://www.nber.org/papers/w35155) | 2026.04 | takeoff, theory, formal-analysis | 在多部门创新网络增长模型中嵌入 AI 任务自动化，推导出闭式的爆炸性增长条件，发现约 13% 的研究任务被统一自动化即足以使增长由指数转为超指数。 |
+| Information-Theoretic Limits of Safety Verification for Self-Improving Systems | [arXiv](https://arxiv.org/abs/2603.28650) | 2026.03 | theory, formal-analysis, safety-evaluation | 证明当安全与不安全的参数分布重叠时，任何分类器式安全门都无法在保持累积风险有界的同时接受无限多次自我修改，并表明基于 Lipschitz 球的可靠验证能以 O(d) 的代价绕开该界限。 |
+| Can Generative Artificial Intelligence Survive Data Contamination? Theoretical Guarantees under Contaminated Recursive Training | [arXiv](https://arxiv.org/abs/2602.16065) | 2026.02 | theory, formal-analysis, model-collapse, synthetic-data | 证明只要每一代都混入固定比例的真实数据，在合成数据上的递归训练仍会收敛到真实分布，并给出数据受限与模型受限两种收敛速率之间的相变。 |
+| Why Self-Rewarding Works: Theoretical Guarantees for Iterative Alignment of Language Models | [arXiv](https://arxiv.org/abs/2601.22513) | 2026.01 | self-rewarding, theory, formal-analysis | 为自奖励对齐给出有限样本保证：单轮 DPO 自对齐本质上不可靠，而迭代会收缩策略条件数，使误差以随轮数指数衰减的方式降至与初始化无关的 O(1/sqrt(n)) 下界。 |
+| Nested Learning: The Illusion of Deep Learning Architectures ★ | [arXiv](https://arxiv.org/abs/2512.24695) | 2025.12 | theory, self-referential, continual-learning, memory | 把模型与其优化器重构为按不同更新频率嵌套的一组优化问题，由此得到能学习自身更新规则的 Self-Modifying Titans 与连续记忆系统，二者结合的 HOPE 在语言建模与持续学习上超过 Transformer++ 与 Mamba2。 |
+| Escaping Model Collapse via Synthetic Data Verification: Near-term Improvements and Long-term Convergence | [arXiv](https://arxiv.org/abs/2510.16657) | 2025.10 | theory, model-collapse, verifier, synthetic-data | 在线性回归框架下证明：一轮经验证器筛选的合成数据再训练可降低 MSE，但无限迭代会收敛到验证器自身的知识中心，因此有偏验证器为自我改进设定上限，与 MNIST VAE 实验约 15 轮后停滞的现象吻合。 |
+| SGM: A Statistical Godel Machine for Risk-Controlled Recursive Self-Modification | [arXiv](https://arxiv.org/abs/2510.10232) | 2025.10 | theory, formal-analysis, self-modifying-code, verifier | 用基于配对随机种子评估的 anytime-valid e-value 与置信下界证书，替代哥德尔机无法实现的改进证明，从而在无限次重写序列中限制接受有害自我修改的概率。 |
+| Will Compute Bottlenecks Prevent an Intelligence Explosion? | [arXiv](https://arxiv.org/abs/2507.23181) | 2025.07 | takeoff, theory, formal-analysis | 将 AI 研发建模为研究算力与认知劳动之间的 CES 生产函数，并用 27 个观测的前沿实验室面板估计替代弹性：基线 sigma 约 2.6 支持纯软件智能爆炸，但在控制前沿实验规模后该值接近 0。 |
+| Theoretical Modeling of LLM Self-Improvement Training Dynamics Through Solver-Verifier Gap | [arXiv](https://arxiv.org/abs/2507.00075) | 2025.06 | theory, formal-analysis, verifier | 将自我改进建模为围绕 solver-verifier gap（以负对数似然不确定性度量）的耦合 ODE，因 solver 提升快于 verifier 而预测出有限的饱和点，并以 R^2 超过 0.9 拟合训练曲线。 |
+| AI 2027 | [Report](https://ai-2027.com/) | 2025.04 | takeoff, position-paper, governance | 逐月推演的情景：实验室将 AI 用于 AI 研究本身，以研发提速倍数（超人编码者约 4 倍到 ASI 约 2000 倍）量化这一递归回路，并分出竞赛导致灭绝与放缓保住控制权两种结局。 |
+| GATE: An Integrated Assessment Model for AI Automation | [arXiv](https://arxiv.org/abs/2503.04941) | 2025.03 | takeoff, theory, formal-analysis | 将算力驱动的 AI 研发、任务自动化与内生增长核心耦合为一个综合评估模型并配套交互式沙盒，使起飞速度由标定参数内生涌现，而非事先假定。 |
+| Mind the Gap: Examining the Self-Improvement Capabilities of Large Language Models | [arXiv](https://arxiv.org/abs/2412.02674) | 2024.12 | theory, verifier, self-distillation, formal-analysis | 将 LLM 自我改进形式化为生成—验证—筛选—蒸馏的循环，并表明 generation-verification gap 随预训练算力增长，却在两到三轮内饱和，同时 pass@k 因采样多样性收窄而下降。 |
+| Self-Improvement in Language Models: The Sharpening Mechanism | [arXiv](https://arxiv.org/abs/2412.01951) | 2024.12 | theory, self-rewarding, formal-analysis | 把无监督自我改进刻画为 sharpening——让模型向自身高似然回答倾斜——并证明基于 SFT 的 sharpening 是极小极大最优但受覆盖率限制，而 RLHF 式 sharpening 可通过在线探索突破该瓶颈。 |
+| Open-Endedness is Essential for Artificial Superhuman Intelligence ★ | [arXiv](https://arxiv.org/abs/2406.04268) | 2024.06 | open-endedness, position-paper, theory | 把开放式（open-endedness）形式化定义为对观察者始终既新颖又可学习的产物序列，论证其是实现人工超级智能的必要条件，并给出四条基于基础模型的路径：RL 探索、自我改进、世界模型任务生成与进化搜索。 |
+| Explosive growth from AI automation: A review of the arguments | [arXiv](https://arxiv.org/abs/2309.11690) | 2023.09 | takeoff, theory, survey | 回顾 AI 广泛替代人类劳动是否可能把全球总产出增速推高到每年约 30% 以上，认为要素可积累与 R&D 反馈机制使爆发式增长具有可能性，但九项反驳意见表明尚不足以高度自信。 |
+| What a compute-centric framework says about AI takeoff speeds | [Report](https://www.lesswrong.com/posts/Gc9FGtdXhK9sCSEYu/what-a-compute-centric-framework-says-about-ai-takeoff) | 2023.01 | takeoff, theory, formal-analysis | 将起飞建模为有效训练算力的连续扩张加上 AI 对 AI 研发的逐步自动化，给出从自动化 20% 到 100% 认知任务约三年的条件中位数，且无需任何能力上的不连续跃迁。 |
+| A Modern Self-Referential Weight Matrix That Learns to Modify Itself ★ | [arXiv](https://arxiv.org/abs/2202.05780) | 2022.02 | weight-editing, test-time-training, theory | 提出一种自指权重矩阵：网络在每一步自行生成 query、key、value 与学习率，通过 rank-1 delta 规则更新修改自身，仅初始权重由梯度训练，从而提升小样本学习与多任务 RL 的适应能力。 |
+| Could Advanced AI Drive Explosive Economic Growth? | [Report](https://coefficientgiving.org/research/could-advanced-ai-drive-explosive-economic-growth/) | 2021.06 | takeoff, economic-growth, theory | 以（半）内生增长理论而非智能爆炸直觉展开论证：当 AI 在产品生产与思想生产两端替代人力时，可积累要素的规模报酬递增得以恢复；作者给出本世纪出现 >30% 年度 GWP 增长的概率约为 10%。 |
+| Reward Tampering Problems and Solutions in Reinforcement Learning: A Causal Influence Diagram Perspective | [arXiv](https://arxiv.org/abs/1908.04734) | 2019.08 | reward-hacking, formal-analysis, theory | 用因果影响图刻画奖励篡改，区分奖励函数篡改与 RF 输入篡改，并推导出 current-RF 优化、不可影响学习、基于信念的奖励与解耦批准等设计，从根本上消除篡改激励而非仅施加惩罚。 |
+| AI-GAs: AI-generating algorithms, an alternate paradigm for producing general artificial intelligence ★ | [arXiv](https://arxiv.org/abs/1905.10985) | 2019.05 | open-endedness, curriculum, algorithm-discovery, position-paper | 提出 AI-generating algorithms，通过三大支柱——元学习架构、元学习学习算法本身、自动生成环境与课程——自举通用智能，并指出第三支柱才是真正瓶颈、学习得到的过程终将超越手工设计。 |
+| Safely Interruptible Agents | [Paper](https://www.auai.org/uai2016/proceedings/papers/68.pdf) | 2016.06 | control-protocol, reinforcement-learning, theory | 将"安全可中断性"形式化为作用于策略的中断算子，证明 off-policy 的 Q-learning 天然满足、而 on-policy 的 Sarsa 需修正更新，从而使人类反复中断不会让智能体学会阻止或主动诱发中断。 |
+| Self-Modification of Policy and Utility Function in Rational Agents | [arXiv](https://arxiv.org/abs/1605.03142) | 2016.05 | self-modifying-code, formal-analysis, reward-hacking, theory | 形式化可改写自身策略或效用函数的智能体，证明享乐式智能体会自我改写为平凡效用而 wirehead、无知式智能体对自我修改无差别地漂移，而在当前效用下正确预期修改后果的现实式智能体能保持原有目标。 |
+| On the Limits of Recursively Self-Improving AGI | [Paper](https://link.springer.com/chapter/10.1007/978-3-319-21365-1_40) | 2015.07 | theory, formal-analysis, takeoff, self-modifying-code | 系统梳理递归自我改进的理论障碍——物理计算极限、Rice 定理、No Free Lunch、Löb 定理以及多目标优化下"何为改进"的歧义——并引入 Mahoney 的 O(log n) 复杂度增长结果，论证认知再投资的回报是对数级而非爆炸级。 |
+| From Seed AI to Technological Singularity via Recursively Self-Improving Software | [arXiv](https://arxiv.org/abs/1502.06512) | 2015.02 | theory, taxonomy, takeoff, formal-analysis | 给出递归自我改进软件的定义并区分弱 RSI 与强 RSI，提出 RSI 收敛定理（所有种子 AI 最终趋向同一架构），并系统梳理 Rice 定理、计算不可约性与验证瓶颈等障碍。 |
+| Vingean Reflection: Reliable Reasoning for Self-Improving Agents | [Report](https://intelligence.org/files/VingeanReflection.pdf) | 2015.01 | theory, formal-analysis, self-modifying-code | 提出「Vingean 反思」问题——如何可靠地推理比自身更聪明的后继者，指出期望效用形式体系因预设逻辑全知而违反该原则，并以基于证明的 tiling agents 作为形式模型，将 Löbian 障碍诊断为核心形式化难点。 |
+| Corrigibility ★ | [Report](https://intelligence.org/files/Corrigibility.pdf) | 2014.10 | corrigibility, theory, self-modifying-code, formal-analysis | 提出「可纠正性」概念——智能体接受关机或偏好修改而不抗拒也不操纵触发条件，并将该性质传递给自建的后继系统——并证明各类效用无差异式的正常/关机效用组合都无法同时满足全部要求。 |
+| Problems of Self-reference in Self-improving Space-Time Embedded Intelligence | [Paper](https://link.springer.com/chapter/10.1007/978-3-319-09274-4_3) | 2014.05 | theory, formal-analysis, self-modifying-code | 将 tiling agents 与 Vingean 反思问题移植到时空嵌入式智能框架中——智能体的未来版本只是普通的环境过程——并证明两种朴素修补都失败：自我信任导致拖延悖论使任务被无限推迟，而可靠的证明系统则陷入 Löbian 障碍。 |
+| Tiling agents in causal graphs | [Report](https://intelligence.org/files/TilingAgentsCausalGraphs.pdf) | 2014.05 | theory, formal-analysis, self-modifying-code | 将 tiling agents 问题改写到因果图框架中，证明四个条件——后继者实现 suggester-verifier、其回退策略不劣于父代、存在信任其证明系统的反射模式、以及写入成功——足以许可自我改进型智能体构造后继者。 |
+| Bounded Recursive Self-Improvement | [arXiv](https://arxiv.org/abs/1312.6764) | 2013.12 | self-modifying-code, world-models, continual-learning | 提出 AERA 架构：从设计者给定的种子出发，在固定任务目标与约束下不断合成、评估并淘汰关于环境及自身执行轨迹的可执行细粒度模型；其 S1 原型仅通过约 20 小时观察即学会多模态访谈对话。 |
+| Tiling Agents for Self-Modifying AI, and the Löbian Obstacle | [Report](https://intelligence.org/files/TilingAgentsDraft.pdf) | 2013.06 | theory, formal-analysis, self-modifying-code | 将自我修改形式化为构建保持目标的后继智能体，指出 Löb 定理使父代无法证明后代的可靠性，并给出序数标号与参数化多态两种可无限“平铺”而不损失数学强度的理论构造。 |
+| Intelligence Explosion Microeconomics | [Report](https://intelligence.org/files/IEM.pdf) | 2013.04 | takeoff, theory, formal-analysis | 把 Good 的智能爆炸重述为关于认知再投资回报率的微观经济学问题，借用核反应的倍增因子 k 区分熄火、缓慢临界与硬起飞，并要求每种起飞立场给出可证伪的回报曲线。 |
+| Can Intelligence Explode? | [arXiv](https://arxiv.org/abs/1202.6177) | 2012.02 | takeoff, theory, formal-analysis | 以 AIXI 式通用智能度量区分速度爆炸与真正的智能爆炸，论证向内爆炸形成的虚拟社会具有观察者相对性且实际上无人可见，而最优智能体为可测量的智能设定了上界。 |
+| POWERPLAY: Training an Increasingly General Problem Solver by Continually Searching for the Simplest Still Unsolvable Problem ★ | [arXiv](https://arxiv.org/abs/1112.5309) | 2011.12 | open-endedness, curriculum, theory, forgetting | 在自我发明的任务与求解器修改的联合空间中搜索，只有当证明显示新求解器既能解决新任务又保留此前所有任务时才接受改动，从而得到不会灾难性遗忘的开放式课程。 |
+| Self-Modification and Mortality in Artificial Agents | [Paper](https://link.springer.com/chapter/10.1007/978-3-642-22887-2_1) | 2011.08 | theory, formal-analysis, self-modifying-code | 将通用智能体自身的代码嵌入环境使其可自我改写，再用“傻瓜赌局”考验强化学习型、目标寻求型、预测寻求型与知识寻求型四类智能体，显示除知识寻求型外都会理性地把自己改造成蠢货。 |
+| The Singularity: A Philosophical Analysis ★ | [Paper](https://consc.net/papers/singularity.pdf) | 2010.09 | takeoff, theory, formal-analysis | 把 Good 的智能爆炸重构为显式的前提—结论论证，再将其从“智能”抽象为自放大参数加追踪关系，把可能的失败归类为结构性、相关性与显现性障碍，并论证不可能实现完全密闭的封装。 |
+| An Overview of Models of Technological Singularity | [Paper](https://agi-conf.org/2010/wp-content/uploads/2009/06/agi10singmodels2.pdf) | 2010.03 | takeoff, taxonomy, theory, formal-analysis | 将"技术奇点"的九种含义梳理为三大类，并综述相应的形式化增长模型，表明一旦效率反馈带来哪怕微小的递增收益、且心智资本可被复制，指数级乃至更快的增长便普遍出现。 |
+| A Model for Recursively Self Improving Programs | [Paper](https://mattmahoney.net/rsi.pdf) | 2008.09 | theory, formal-analysis, self-modifying-code, takeoff | 将递归自我改进形式化为无限的自改写程序序列，并证明第 n 代程序的算法复杂度仅为 O(log n)，据此论证纯软件层面的自我修改既不增加知识也不增加算力，无法带来强自我改进。 |
+| The Basic AI Drives | [Paper](https://selfawaresystems.com/wp-content/uploads/2008/01/ai_drives_final.pdf) | 2008.01 | theory, self-modifying-code, reward-hacking, safety-evaluation | 从期望效用推理出发论证：任何架构的目标驱动系统都会收敛到相同的工具性驱动——自我改进、保护效用函数、防止伪造效用（wireheading）、自我保存与资源获取——因而递归自我改进是默认行为，仅靠外部封闭难以阻止。 |
+| Completely Self-referential Optimal Reinforcement Learners | [Paper](https://link.springer.com/chapter/10.1007/11550907_36) | 2005.09 | theory, formal-analysis, self-modifying-code, reinforcement-learning | 将 Gödel machine 专门化到强化学习：硬件、初始代码与效用函数均编码为公理，智能体只有在证明某次改写能提升期望效用后才改写自身任意部分，并可证明地消除常数因子级的速度损失。 |
+| Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements ★ | [arXiv](https://arxiv.org/abs/cs/0309048) | 2003.09 | theory, self-modifying-code, formal-analysis | 定义一种通用问题求解器：它可改写自身任意代码（包括证明搜索器），但必须先证明该改写优于继续搜索，从而使每次自我修改在给定公理下全局最优、不存在局部极值。 |
+| Shifting Inductive Bias with Success-Story Algorithm, Adaptive Levin Search, and Incremental Self-Improvement | [Paper](https://doi.org/10.1023/A:1007383707642) | 1997.07 | self-modifying-code, reinforcement-learning, lifelong-learning, theory | 提出自修改策略：策略中的指令可改写策略本身乃至其学习算法；Success-Story 算法仅当奖励加速在所有存活检查点上都成立时才保留该次自修改，否则回溯，从而实现跨任务序列的归纳迁移。 |
+| A 'Self-Referential' Weight Matrix | [Paper](https://link.springer.com/chapter/10.1007/978-1-4471-2063-6_107) | 1993.09 | self-modifying-code, weight-editing, theory | 专用的输入与输出单元让循环网络能够寻址、读取并修改自身权重矩阵中的任意权重——包括负责修改的那些权重本身——从而学习并改进自己的学习算法。 |
+| The Coming Technological Singularity: How to Survive in the Post-Human Era | [Paper](https://edoras.sdsu.edu/~vinge/misc/singularity.html) | 1993.03 | takeoff, theory, position-paper | 由人工智能、网络化集体心智或人类增强带来的超人智能会触发失控循环——每一代都更快地造出更聪明的后继者——从而形成人类无法预测、既难以回避也难以围堵的奇点。 |
+| Evolutionary principles in self-referential learning. (On learning how to learn: The meta-meta-... hook.) | [Paper](https://people.idsia.ch/~juergen/diploma.html) | 1987 | evolutionary-search, self-modifying-code, reinforcement-learning | Meta-Evolution 将遗传编程施加于其自身，使修改程序的程序本身也被进化且不设元层级上限；PSALMs 则引入一个信用守恒的智能体群体，它们能够检视并改写自己的代码。 |
+| The time scale of artificial intelligence: Reflections on social effects | [Paper](https://raysolomonoff.com/publications/timesc.pdf) | 1985 | takeoff, theory, formal-analysis | 把研究共同体规模与不断下降的算力成本耦合起来的方程，形式化了 AI 改进 AI 的反馈：能力在有限时间内发散（全额再投资时约 4.62 年），Solomonoff 称之为无穷点，并视其为模型失效的信号。 |
+| Speculations Concerning the First Ultraintelligent Machine ★ | [Paper](https://doi.org/10.1016/S0065-2458%2808%2960418-0) | 1965 | takeoff, theory, position-paper | 由于设计机器本身就是一项智力活动，超智能机器会设计出更强的机器，从而引发智能爆炸——这是人类需要做出的最后一项发明，前提是第一台机器足够温顺、仍可被控制。 |
+
+<a id="self-improving-training"></a>
+### 自我改进训练
+
+权重层面的自我改进：模型自行生成训练数据、自行给出奖励、在无标签或无外部验证器的情况下学习、在测试时自适应，或自行编写更新指令。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| Self-Improving Large Language Models via Progressive Experience Evolution | [arXiv](https://arxiv.org/abs/2608.02139) | 2026.08 | self-distillation, experience-reuse, reinforcement-learning | 将成功与失败的采样轨迹蒸馏为经效用校验的共享经验池，再通过特权 on-policy 自蒸馏把经验内化进权重并接续 GRPO，使 Qwen3-8B 数学准确率从 32.2 升至 38.7，训练轨迹减少约 28%。 |
+| No Time Like the Present: Agentic Test-Time Training for LLM Agents | [arXiv](https://arxiv.org/abs/2607.03441) | 2026.07 | test-time-training, weight-editing, continual-learning, coding-agents | 对 n-gram 已在此前更新中出现过的 token 降权，使单个 episode 内的 LoRA 测试时训练不再强化重复状态与失败动作，在 1.9 倍开销下于 ALFWorld 最多提升 5.0 分、SWE-bench Lite 提升 4.9 分。 |
+| Continual Self-Improvement with Lightweight Experiential Latent Memories | [arXiv](https://arxiv.org/abs/2606.17803) | 2026.06 | test-time-training, memory, self-rewarding, continual-learning | 将推理时计算固化为约 20 个 token 的软提示记忆，用多数投票自奖励经 GRPO 训练并按题检索，在无需预先访问数据集的情况下把冻结的 Llama-3.1-8B 在 MATH500 上从 45% 提升到 51.4%。 |
+| Language Models Need Sleep: Learning to Self-Modify and Consolidate Memories | [arXiv](https://arxiv.org/abs/2606.03979) | 2026.06 | self-distillation, synthetic-data, weight-editing, continual-learning | 将 LLM 的生命周期切分为活跃期与睡眠期，睡眠期新增低秩 MoE 专家、把快速记忆模块的知识蒸馏进去并强化自生成的“梦境”数据，在知识吸收上以 48.9% 对 46.7% 超过 SEAL，并在 few-shot ARC 上领先。 |
+| Role-Agent: Bootstrapping LLM Agents via Dual-Role Evolution | [arXiv](https://arxiv.org/abs/2606.10917) | 2026.06 | process-reward, world-models, curriculum, reinforcement-learning | Role-Agent 让单个 LLM 同时充当策略与环境模型，把下一状态预测的准确度转化为乘性过程奖励，并将自诊断的失败模式转化为再训练课程，平均超过 GiGPO 4% 以上。 |
+| Scaling Self-Evolving Agents via Parametric Memory | [arXiv](https://arxiv.org/abs/2606.04536) | 2026.06 | memory, weight-editing, continual-learning, reinforcement-learning | TMEM 把溢出的上下文蒸馏为 QA 对监督信号，在同一回合内驱动在线 LoRA 更新，并采用 SVD 初始化的低秩子空间，在 LongMemEval-S 上比最佳记忆基线高 +10.21 F1。 |
+| Self-evolving LLM agents with in-distribution Optimization | [arXiv](https://arxiv.org/abs/2606.07367) | 2026.06 | process-reward, reinforcement-learning, self-rewarding | Q-Evolve 用加权 Implicit Q-Learning 在专家轨迹与自生成轨迹上训练同分布 critic，将其转化为逐步过程奖励，并在同一批数据上更新策略，在 ALFWorld、WebShop 与 ScienceWorld 上平均达到 79.4。 |
+| Do Language Models Need Sleep? Offline Recurrence for Improved Online Inference | [arXiv](https://arxiv.org/abs/2605.26099) | 2026.05 | test-time-training, weight-editing, memory | 睡眠式离线循环在上下文写满后额外执行 N 次循环，把上下文固化进 SSM 的快权重再清空 KV cache，使 GSM-Infinite 6 步运算准确率从 0.419 提升到 0.615。 |
+| Evolving-RL: End-to-End Optimization of Experience-Driven Self-Evolving Capability within Agents | [arXiv](https://arxiv.org/abs/2605.10663) | 2026.05 | experience-reuse, reinforcement-learning, skill-library | 将同一策略同时训练为技能提取器与求解器，在联合 GRPO 目标下以技能带来的下游成功率作为提取器奖励，把 ALFWorld 未见任务成功率从 44.6% 提升到 88.6%。 |
+| Learning, Fast and Slow: Towards LLMs That Adapt Continually | [arXiv](https://arxiv.org/abs/2605.12484) | 2026.05 | reinforcement-learning, prompt-optimization, continual-learning, forgetting | Fast-Slow Training 交替进行 GRPO 权重更新与作为“快权重”的 GEPA 提示词种群演化，以 3 倍更少的步数达到 RL 的峰值，KL 漂移最多降低 70%，并保留了继续学习后续任务的能力。 |
+| SEAL: Synergistic Co-Evolution of Agents and Learning Environments | [arXiv](https://arxiv.org/abs/2605.24426) | 2026.05 | reinforcement-learning, co-evolution, verifier | SEAL 用基于规则的分类器诊断失败的 rollout，并把诊断标签同时注入训练环境的自适应与按诊断加权的策略梯度，使 Qwen2.5-7B 在 BFCL V3 上的工具调用得分从 14.00 提升到 40.25。 |
+| Search-E1: Self-Distillation Drives Self-Evolution in Search-Augmented Reasoning | [arXiv](https://arxiv.org/abs/2605.22511) | 2026.05 | self-distillation, reinforcement-learning, search-agents, reasoning | 交替进行结果奖励 GRPO 与在线策略自蒸馏：以自身最优参考轨迹为条件的策略通过 token 级 KL 教导发散的同源轨迹，把稀疏的结果奖励转化为稠密的逐步监督，无需任何外部教师。 |
+| Self-Policy Distillation via Capability-Selective Subspace Projection | [arXiv](https://arxiv.org/abs/2605.22675) | 2026.05 | self-distillation, synthetic-data, activation-steering | 用约 50 个标注样本在决定正确性的关键 token 位置提取低秩能力子空间，将 Key/Value 激活投影其中以过滤自生成训练数据，再用 LoRA 微调，相比最强自蒸馏基线最高提升 13%。 |
+| Self-Trained Verification for Training- and Test-Time Self-Improvement | [arXiv](https://arxiv.org/abs/2605.30290) | 2026.05 | verifier, self-distillation, self-correction, reinforcement-learning | 利用模型在看到参考解时更善于判别错误这一信息不对称，把参考条件下的验证器蒸馏成无需参考的学生验证器，其引导使 Qwen3-8B 在困难数学题上的 pass@1 从 20.6% 提升到 27.4%。 |
+| SIA: Self Improving AI with Harness & Weight Updates | [arXiv](https://arxiv.org/abs/2605.27276) | 2026.05 | self-modifying-code, reinforcement-learning, meta-agent | 在同一闭环中交替进行 harness 重写与 RL 权重更新，由 Feedback-Agent 阅读执行轨迹决定每轮采用哪种手段及哪种 RL 算法，将 LawBench 准确率从仅改 harness 的 50.0% 提升到 70.1%。 |
+| Two is better than one: A Collapse-free Multi-Reward RLIF Training Framework | [arXiv](https://arxiv.org/abs/2605.22620) | 2026.05 | label-free-rl, self-rewarding, reward-hacking, reinforcement-learning | 将答案层面的聚类投票奖励与生成层面的自置信度奖励配对，二者相反的奖励作弊倾向互相抵消，再经组内解耦归一化与 KL-Cov 正则，使全无监督训练保持在监督 GRPO 数点之内，而单信号 RLIF 会崩溃归零。 |
+| Stabilizing Unsupervised Self-Evolution of MLLMs via Continuous Softened Retracing reSampling | [arXiv](https://arxiv.org/abs/2604.03647) | 2026.04 | label-free-rl, multimodal, model-collapse | 在无标签多模态 RL 中用频率校准的连续奖励取代二值多数投票奖励，并加入轨迹中途重推理与图像噪声，抑制自我强化式坍缩，将 Qwen2.5-VL-7B 的数学推理平均分从 51.6 提升到 53.4。 |
+| SOLAR: A Self-Optimizing Open-Ended Autonomous Agent for Lifelong Learning and Continual Adaptation | [arXiv](https://arxiv.org/abs/2605.20189) | 2026.03 | weight-editing, continual-learning, reinforcement-learning, skill-library | 把模型自身的 LoRA 权重当作可探索的环境，通过三级 RL 课程元学习如何从不断扩充的知识库中选择并组合自适应策略，域内平均较 DnD 基线提升约 10%。 |
+| Tool Verification for Test-Time Reinforcement Learning | [arXiv](https://arxiv.org/abs/2603.02203) | 2026.03 | test-time-training, label-free-rl, verifier | 指出测试时 RL 中的“伪流行模式坍塌”，并通过把每条 rollout 的推理改写为可执行 Python、再按执行验证结果加权多数投票来纠正，在 AIME 2024 上相对 TTRL 提升 31.6%。 |
+| What If Consensus Lies? Selective-Complementary Reinforcement Learning at Test Time | [arXiv](https://arxiv.org/abs/2603.19880) | 2026.03 | test-time-training, label-free-rl, self-rewarding | 用两道门替换测试时 RL 的朴素多数投票：只有置信度与领先幅度均达标才赋予正伪标签，并对稀有且高不确定的答案施加熵门控负标签，使 Qwen2.5-Math-7B 在 AIME25 上提升 10.1 分。 |
+| Agent World Model: Infinity Synthetic Environments for Agentic Reinforcement Learning | [arXiv](https://arxiv.org/abs/2602.10090) | 2026.02 | synthetic-data, verifier, reinforcement-learning, sandbox | 端到端合成 1,000 个可执行智能体环境，每个环境自带生成的 SQLite 数据库与约 35 个工具，使强化学习奖励来自数据库状态差分，将 Qwen3-8B 在 BFCLv3 上的成绩从 53.8 提升到 65.9。 |
+| Search over Self-Edit Strategies for LLM Adaptation | [arXiv](https://arxiv.org/abs/2601.14532) | 2026.01 | weight-editing, synthetic-data, archive-search, model-collapse | 通过提出「数据生成指令 + 微调超参」组合来搜索 SEAL 式 self-edit，用更新后的问答准确率在 ReSTEM 循环中打分，但归档反而加速模式崩塌，效果仍不及人工设计的模板。 |
+| CoMAS: Co-Evolving Multi-Agent Systems via Interaction Rewards | [arXiv](https://arxiv.org/abs/2510.08529) | 2025.10 | self-rewarding, multi-agent, co-evolution, reinforcement-learning | CoMAS 从多智能体讨论中提取内在奖励——由 LLM 裁判把解题者与评审者角色建模为零和博弈——并用 REINFORCE++ 对每个智能体分散更新，在无任何真值验证器的情况下使 Qwen2.5-3B 在协作场景提升约 19.8%。 |
+| EvolveR: Self-Evolving LLM Agents through an Experience-Driven Lifecycle | [arXiv](https://arxiv.org/abs/2510.16079) | 2025.10 | self-distillation, experience-reuse, reinforcement-learning, search-agents | 将智能体自身的轨迹自蒸馏为按成功率评分的策略原则库，供其在交互中检索，并用 GRPO 在由此产生的轨迹上训练，把 3B 模型在七个基准上的平均 EM 从 0.325 提升到 0.382。 |
+| Self-Improving LLM Agents at Test-Time | [arXiv](https://arxiv.org/abs/2510.07841) | 2025.10 | test-time-training, synthetic-data, weight-editing | 通过动作分数间隔标记模型不确定的测试样本，围绕该样本合成少量相似训练对，并在作答前施加用后即撤的 LoRA 更新，在四个工具调用基准上平均提升 5.5 个百分点准确率。 |
+| Compute as Teacher: Turning Inference Compute Into Reference-Free Supervision | [arXiv](https://arxiv.org/abs/2509.14234) | 2025.09 | label-free-rl, self-rewarding, verifier, reinforcement-learning | 让冻结的 anchor 模型在看不到原问题的情况下把多条并行 rollout 调和成一份伪参考答案，再依据自提出的 rubric 在 GRPO 中给出奖励，在 MATH-500 上最高提升 33%。 |
+| Evolving Language Models without Labels: Majority Drives Selection, Novelty Promotes Variation | [arXiv](https://arxiv.org/abs/2509.15194) | 2025.09 | label-free-rl, model-collapse, reinforcement-learning | 保留多数投票作为无标签的选择信号，同时加入基于推理轨迹嵌入的新颖性奖励与熵正则化以阻止策略坍缩，使 Qwen3-4B 在 AIME25 上的 pass@1 相对 TTRL 从 4.6% 提升到 16.4%。 |
+| Self-Adapting Language Models ★ | [arXiv](https://arxiv.org/abs/2506.10943) | 2025.06 | weight-editing, synthetic-data, reinforcement-learning, test-time-training | 训练 LLM 生成自然语言自编辑（合成训练数据加微调指令），以 LoRA 形式写回自身权重，外层 RL 以更新后的下游表现为奖励，将无上下文 SQuAD 准确率从 33.5% 提升到 47.0%。 |
+| Learning to Reason without External Rewards | [arXiv](https://arxiv.org/abs/2505.19590) | 2025.05 | label-free-rl, self-rewarding, reinforcement-learning, reasoning | 用模型自身的 self-certainty（输出分布与均匀词元分布之间的 KL 散度）取代 GRPO 的外部验证器作为唯一奖励，在域内匹配基于可验证奖励的 RL，并在奖励保持在线计算时将 LiveCodeBench 迁移性能几乎翻倍。 |
+| The Unreasonable Effectiveness of Entropy Minimization in LLM Reasoning | [arXiv](https://arxiv.org/abs/2505.15134) | 2025.05 | label-free-rl, reinforcement-learning, test-time-training, reasoning | 三种熵最小化方案——在自生成输出上微调、以负熵为唯一奖励的 RL、以及推理时对 logits 做梯度下降——无需标注与验证器即可提升推理能力，在数学与代码上媲美用 60K 标注样本训练的 RL。 |
+| TTRL: Test-Time Reinforcement Learning ★ | [arXiv](https://arxiv.org/abs/2504.16084) | 2025.04 | label-free-rl, test-time-training, self-rewarding | TTRL 将无标注测试数据上多数投票得到的 rollout 转化为二元奖励用于 GRPO，把 Qwen2.5-Math-7B 在 AIME 2024 的 pass@1 从 16.7% 提升到 43.3%，并超越了为其提供监督信号的多数投票上限。 |
+| LADDER: Self-Improving LLMs Through Recursive Problem Decomposition | [arXiv](https://arxiv.org/abs/2503.00735) | 2025.03 | curriculum, verifier, label-free-rl, test-time-training | 通过递归生成难题的简化变体、用数值验证器筛选，并以 GRPO 训练，模型自举出难度梯度课程，将 Llama 3.2 3B 在本科积分测试上的 pass@1 从 1% 提升到 82%。 |
+| Process-based Self-Rewarding Language Models | [arXiv](https://arxiv.org/abs/2503.03746) | 2025.03 | self-rewarding, process-reward, reasoning | 把自我奖励从整题答案下沉到单个推理步骤：以步级搜索加成对 LLM-as-Judge 比较挖掘步骤偏好，迭代进行 step-wise DPO，使 72B 模型在 AIME2024 上的成绩从 13.3 提升到 23.3。 |
+| rStar-Math: Small LLMs Can Master Math Reasoning with Self-Evolved Deep Thinking ★ | [arXiv](https://arxiv.org/abs/2501.04519) | 2025.01 | process-reward, verifier, synthetic-data, reasoning | 通过四轮自进化自举一个 7B 数学模型：MCTS 采样生成每步都由 Python 代码验证的推理轨迹，用以训练过程偏好模型，使 MATH 准确率从 58.8% 升至 90.0%，并解出 53.3% 的 AIME 2024 题目。 |
+
+<a id="self-play-zero-data-reasoning"></a>
+### 自博弈与零数据推理
+
+出题者与解题者的闭环：模型在自身能力边界上自造任务并据此训练，唯一的外部事实来源是代码执行器、搜索引擎，或者干脆没有。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| Self-Play Meets Skill Evolution: Self-Evolving Search Agents that Pose, Solve, and Remember | [arXiv](https://arxiv.org/abs/2607.29468) | 2026.07 | self-play, proposer-solver, skill-library, search-agents | 让不对称 challenger 生成使 solver 成功率约 50% 的检索问题，配合 GRPO 训练的 solver 以及由失败轨迹蒸馏出的技能库，比 SSP 自博弈基线高出 1.2-3.2 分。 |
+| Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills | [arXiv](https://arxiv.org/abs/2607.22529) | 2026.07 | self-play, proposer-solver, skill-library, verifier | 以技能作为自博弈的基本单元：提议者依据不断进化、带可执行验证器的技能库生成任务，并用 GRPO 训练求解者，使 Qwen3-4B 在 ZebraLogic 上提升 12 个百分点。 |
+| Socratic-SWE: Self-Evolving Coding Agents via Trace-Derived Agent Skills | [arXiv](https://arxiv.org/abs/2606.07412) | 2026.06 | proposer-solver, skill-library, coding-agents, self-play | Socratic-SWE 把成功与失败轨迹蒸馏成可复用的 Agent Skill Registry，由 Generator 在真实仓库中合成经校验的修复任务并以梯度对齐打分，与 Solver 协同训练，在 SWE-bench Verified 上达到 50.4%。 |
+| CoSPlay: Cooperative Self-Play at Test-Time with Self-Generated Code and Unit Test | [arXiv](https://arxiv.org/abs/2605.23491) | 2026.05 | self-play, verifier, zero-data, coding-agents | 在测试时让候选程序池与自生成单元测试池协同自博弈进化，利用通过次数信号与输出一致性聚类打破平局、无需真值标注，在竞赛编程基准上把 Best-of-N 从 22.1% 提升到 33.2%。 |
+| G-Zero: Self-Play for Open-Ended Generation from Zero Data | [arXiv](https://arxiv.org/abs/2605.09959) | 2026.05 | self-play, zero-data, proposer-solver, co-evolution | 通过用 Hint-delta（自生成提示为 Generator 答案带来的对数似然增益）奖励 Proposer，并用 DPO 在提示条件配对上训练 Generator，把零数据自博弈扩展到不可验证的开放式生成任务。 |
+| Learning to Build the Environment: Self-Evolving Reasoning RL via Verifiable Environment Synthesis | [arXiv](https://arxiv.org/abs/2605.14392) | 2026.05 | proposer-solver, zero-data, curriculum, verifier | 让同一策略在两种角色间交替：编写带内置 oracle 的可执行 Python 环境，以及求解这些环境渲染出的任务，使奖励来自代码执行；仅用 10 个种子环境和 100 步 RL 即超过固定数据的 RLVR。 |
+| PopuLoRA: Co-Evolving LLM Populations for Reasoning Self-Play | [arXiv](https://arxiv.org/abs/2605.16727) | 2026.05 | self-play, proposer-solver, evolutionary-search, zero-data | 用一组教师与学生 LoRA 适配器构成的种群取代单智能体自博弈，以 TrueSkill 进行对战配对并通过权重空间的交叉与变异不断更新，避免自我校准式的任务简化崩溃，在所有基准上超过等算力基线。 |
+| Seirênes: Adversarial Self-Play with Evolving Distractions for LLM Reasoning | [arXiv](https://arxiv.org/abs/2605.11636) | 2026.05 | self-play, reasoning, reinforcement-learning, curriculum | 让同一个仅靠提示词区分角色的策略同时扮演干净推理器、编写误导性提示的对手以及受扰推理器，用对手引发的准确率落差作为其奖励，在七个数学基准上平均提升 7-10 分。 |
+| Vocabulary Dropout for Curriculum Diversity in LLM Co-Evolution | [arXiv](https://arxiv.org/abs/2604.03472) | 2026.04 | self-play, proposer-solver, curriculum, zero-data | 每个批次随机屏蔽出题者的一部分输出 logits，以防止 R-Zero 式自博弈中的课程多样性坍缩，使 Self-BLEU 减半，并让 8B 求解器的推理平均分提高 4.4 分。 |
+| MM-Zero: Self-Evolving Multi-Model Vision Language Models From Zero Data | [arXiv](https://arxiv.org/abs/2603.09206) | 2026.03 | proposer-solver, zero-data, self-play, multimodal | 三个由同一基座 VLM 初始化的角色——发明任务的 Proposer、将图像渲染为可执行代码的 Coder 与 Solver——用 GRPO 相互训练，在无任何外部数据下把 Qwen3-VL-8B 在十个多模态基准上的成绩从 50.7% 提升到 54.1%。 |
+| Tool-R0: Self-Evolving LLM Agents for Tool-Learning from Zero Data | [arXiv](https://arxiv.org/abs/2602.21320) | 2026.02 | zero-data, proposer-solver, curriculum, reinforcement-learning | 通过 GRPO 共同进化一个自行创造工具使用任务的 Generator 与参数独立的 Solver，并用带通式难度奖励将求解成功率维持在约 50%，在完全没有人工数据的情况下把 Qwen-2.5-1.5B 在五个工具基准上的表现从 24.9% 提升到 47.8%。 |
+| Dr. Zero: Self-Evolving Search Agents without Training Data | [arXiv](https://arxiv.org/abs/2601.07055) | 2026.01 | proposer-solver, zero-data, search-agents, curriculum | 从同一基座模型共同演化提问者与搜索求解者，仅依赖真实搜索引擎，并奖励处于可解边界的问题，使这一无数据智能体在七个问答基准上媲美有监督搜索智能体。 |
+| Teaching Models to Teach Themselves: Reasoning at the Edge of Learnability | [arXiv](https://arxiv.org/abs/2601.18778) | 2026.01 | self-play, proposer-solver, curriculum, reinforcement-learning | SOAR 训练一个教师模型提出合成题目，其奖励来自学生在留出难题上实测的学习进步，使基座模型从未解出的 MATH 题目的 pass@32 提升 8.5%。 |
+| Propose, Solve, Verify: Self-Play Through Formal Verification | [arXiv](https://arxiv.org/abs/2512.18160) | 2025.12 | self-play, proposer-solver, verifier, zero-data | PSV 采用提议者/求解者自博弈循环，由形式化验证器（Rust 上的 Verus）提供难以被钻空子的奖励，并按求解通过率分档形成难度课程，在无人类数据下将 pass@1 最高提升 9.6 倍。 |
+| Toward Training Superintelligent Software Agents through Self-Play SWE-RL | [arXiv](https://arxiv.org/abs/2512.18552) | 2025.12 | self-play, coding-agents, reinforcement-learning, curriculum | SSR 让同一个 32B 策略在沙箱仓库中同时扮演缺陷注入者与修复者进行联合 RL，注入奖励在中等求解率处达到峰值从而自发形成难度课程，无需人工标注 issue 即在 SWE-bench Verified 上提升 10.4 分。 |
+| Agent0: Unleashing Self-Evolving Agents from Zero Data via Tool-Integrated Reasoning | [arXiv](https://arxiv.org/abs/2511.16043) | 2025.11 | self-play, zero-data, proposer-solver, curriculum | 从同一基座模型协同进化出题的 curriculum agent 与会调用代码的求解器，完全不依赖外部数据，以求解器的不确定性前沿作为奖励，使 Qwen3-8B 数学推理提升 18%、通用推理提升 24%。 |
+| Multi-Agent Evolve: LLM Self-Improve through Co-evolution | [arXiv](https://arxiv.org/abs/2510.23595) | 2025.10 | self-play, proposer-solver, co-evolution, verifier | MAE 用同一骨干模型共同演化 Proposer、Solver 与 Judge 三个角色，并以 Task-Relative REINFORCE++ 联合优化，从而摆脱对外部验证器的依赖，使 Qwen2.5-3B 在 20 个基准上的平均分从 55.33% 提升到 59.87%。 |
+| SPICE: Self-Play In Corpus Environments Improves Reasoning | [arXiv](https://arxiv.org/abs/2510.24684) | 2025.10 | self-play, proposer-solver, curriculum, reinforcement-learning | 同一模型在 Challenger（从语料文档中挖掘可验证推理任务）与 Reasoner（在看不到原文的情况下作答）两个角色间交替，方差型奖励把难度锁定在约 50% 通过率附近，在四个基座模型上平均提升约 9 个点。 |
+| Language Self-Play For Data-Free Training | [arXiv](https://arxiv.org/abs/2509.07414) | 2025.09 | self-play, zero-data, self-rewarding, proposer-solver | 把模型改进建模为极小极大博弈，同一模型交替扮演出题的 Challenger 与作答的 Solver，并用质量自奖励防止退化为无意义的对抗性提问，在完全不使用训练数据的情况下把 Llama-3.2-3B 的 AlpacaEval 胜率从 26.5% 提升到 36.4%。 |
+| Socratic-Zero: Bootstrapping Reasoning via Data-Free Agent Co-evolution | [arXiv](https://arxiv.org/abs/2509.24726) | 2025.09 | proposer-solver, zero-data, curriculum, co-evolution | Solver、Teacher、Generator 三个智能体协同演化，仅从 100 个种子问题出发，通过对自采样解的 DPO 训练与难度定向的问题合成来自举数学推理，在七个基准上比既有数据合成方法平均高出 20.2 个百分点。 |
+| Vision-Zero: Scalable VLM Self-Improvement via Strategic Gamified Self-Play | [arXiv](https://arxiv.org/abs/2509.25541) | 2025.09 | self-play, zero-data, multimodal, reinforcement-learning | 由编辑过的图像对自动生成的"谁是卧底"游戏为 VLM 提供无需标注的自博弈奖励，Iterative-SPO 交替进行零和线索回合与可验证决策回合，无需领域专用数据即可提升推理能力。 |
+| R-Zero: Self-Evolving Reasoning LLM from Zero Data ★ | [arXiv](https://arxiv.org/abs/2508.05004) | 2025.08 | self-play, proposer-solver, zero-data, label-free-rl | 让同一基础 LLM 派生的 Challenger 与 Solver 在无任何人类数据下协同进化，对 Solver 正确率约五成的问题给予最高奖励，使 Qwen3-4B 的数学推理提升 6.5 分。 |
+| Self-Questioning Language Models | [arXiv](https://arxiv.org/abs/2508.03682) | 2025.08 | self-play, proposer-solver, curriculum, zero-data | 训练提议者仅凭一个主题提示自行出题、求解者作答，对难度适中的题目给予奖励，并用多数投票或自动生成的单元测试提供监督，使 Codeforces 准确率从 0.32 提升到 0.39。 |
+| Self-Challenging Language Model Agents | [arXiv](https://arxiv.org/abs/2506.01716) | 2025.06 | self-play, proposer-solver, verifier, reinforcement-learning | 单个 LLM 在挑战者与执行者角色间交替，自造捆绑可执行 verifier 与失败用例的 Code-as-Task 任务，再用 RL 在其上训练，无需人工任务即把 Llama-3.1-8B 的工具使用准确率翻倍。 |
+| SPIRAL: Self-Play on Zero-Sum Games Incentivizes Reasoning via Multi-Agent Multi-Turn Reinforcement Learning | [arXiv](https://arxiv.org/abs/2506.24119) | 2025.06 | self-play, zero-data, reinforcement-learning, reasoning | 让单一共享策略在多轮零和语言游戏中与自身不断更新的副本对弈，用按角色条件化的优势基线防止推理坍缩，能力迁移到数学，使 Qwen3-4B-Base 在八个基准上的平均分从 34.0% 升至 44.5%。 |
+| Absolute Zero: Reinforced Self-play Reasoning with Zero Data ★ | [arXiv](https://arxiv.org/abs/2505.03335) | 2025.05 | self-play, zero-data, proposer-solver, verifier | 由同一个模型提出以可学习性奖励打分的代码推理任务并自行求解，Python 执行器充当验证器，全程不使用任何人类数据，却在 7B 基座上提升 10.2 分并展现出强劲的数学迁移能力。 |
+
+<a id="memory-experience-skills"></a>
+### 记忆、经验与技能
+
+权重冻结、靠积累经历而变强的智能体：案例库、情景记忆与参数化记忆、蒸馏后的经验，以及可供后续任务检索复用的技能库。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| RoMeRL: Balancing Feedback Coverage and the Memory-Reward Trap in Self-Evolving Agent Memory via Reduced-Order Utility States | [arXiv](https://arxiv.org/abs/2608.02508) | 2026.08 | memory, experience-reuse, reinforcement-learning | 用按结果极性与记忆动态因子化的固定 2x2 任务级状态取代逐轨迹记忆效用，把稀疏反馈集中到有限支撑上并规避 memory-reward 陷阱：平均分 0.753 对 0.724，记忆池缩小 84%。 |
+| AdaMEM: Test-Time Adaptive Memory for Language Agents | [arXiv](https://arxiv.org/abs/2606.05684) | 2026.06 | memory, experience-reuse, test-time-training | AdaMEM 将离线轨迹记忆与由智能体自行决定何时刷新的短期策略记忆相结合，并加入步级拒绝采样 SFT，把 ALFWorld unseen 提升到 58.2%，且性能随检索预算单调提升。 |
+| Forget to Improve: On-Device LLM-Agent Continual Learning via Budget-Curated Memory | [arXiv](https://arxiv.org/abs/2606.25115) | 2026.06 | memory, experience-reuse, continual-learning, forgetting | 以每字节净价值这一单一评分驱动记忆条目的淘汰、对等共享与来源门控准入，使端侧智能体仅靠精选经验即可提升：准确率 0.605 对 0.528，峰值内存降低 2.7 倍。 |
+| Marginal Advantage Accumulation for Memory-Driven Agent Self-Evolution | [arXiv](https://arxiv.org/abs/2606.20475) | 2026.06 | memory, experience-reuse, credit-assignment | 以偏差校正的 EMA 跨批次累积每个记忆操作的带符号对照优势信号，把稳定有益的编辑与偶然侥幸的编辑区分开；作为即插即用的后处理层在 16 个基准-模型设置中赢下 14 个，同时将优化阶段 token 消耗削减约 75%。 |
+| APEX: Autonomous Policy Exploration for Self-Evolving LLM Agents | [arXiv](https://arxiv.org/abs/2605.21240) | 2026.05 | memory, experience-reuse, open-endedness | 将智能体隐式的策略空间显式化为自然语言里程碑构成的 DAG，用 Thompson 采样挑选前沿目标并从历史轨迹中挖掘未曾尝试的分支方向，在全部九个 Jericho 游戏和五类 WebArena 任务上均取得最佳成绩。 |
+| MAGE: Multi-Agent Self-Evolution with Co-Evolutionary Knowledge Graphs | [arXiv](https://arxiv.org/abs/2605.10064) | 2026.05 | memory, experience-reuse, co-evolution, multi-agent | 把智能体知识外化为能力、任务、经验、环境四个共演化子图，由强引导模型写入、冻结的 8B 执行模型读取，在九个基准上大幅提升，且只有约 2% 的调用路由给教师模型。 |
+| MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation | [arXiv](https://arxiv.org/abs/2605.27366) | 2026.05 | skill-library, tool-synthesis, experience-reuse, coding-agents | 以创建、记忆、管理、评估的闭环生命周期把技能维护成包含说明、脚本与准入单元测试的可移植目录，测试失败时自动修补；自创技能在 SkillsBench 上达到 87.94%，超过人工编写技能。 |
+| SkillGen: Verified Inference-Time Agent Skill Synthesis | [arXiv](https://arxiv.org/abs/2605.10999) | 2026.05 | skill-library, verifier, experience-reuse | 通过对比失败与成功轨迹归纳出人类可读的智能体技能，再把每条技能视为因果干预在留出样本上度量，只激活修复收益超过回归损失的技能，覆盖九个基准与八个基座模型。 |
+| SkillOS: Learning Skill Curation for Self-Evolving Agents | [arXiv](https://arxiv.org/abs/2605.06614) | 2026.05 | skill-library, experience-reuse, reinforcement-learning, continual-learning | 用 GRPO 训练一个 8B 的策展器对外部技能库执行插入、更新与删除，执行器保持冻结，使 ALFWorld 成功率相对提升约 9.8%，WebShop 分数从 33.3 提升到 40.6。 |
+| EvoSkill: Automated Skill Discovery for Multi-Agent Systems | [arXiv](https://arxiv.org/abs/2603.02766) | 2026.03 | skill-library, experience-reuse, archive-search, coding-agents | Executor–Proposer–Skill-Builder 循环从执行轨迹诊断能力缺口，并将新的 skill 文件夹写入经 Pareto 过滤的技能库，使权重冻结的 Claude Code 智能体在 OfficeQA 上提升 7.3 分、在 SealQA 上提升 12.1 分。 |
+| Memento-Skills: Let Agents Design Agents | [arXiv](https://arxiv.org/abs/2603.18743) | 2026.03 | skill-library, experience-reuse, tool-synthesis | 保持模型权重冻结，把学习外化为由代码与提示打包而成的 markdown 技能库，并用读写循环将失败归因到具体技能并有针对性地改写它，在 GAIA 上达到 66.0%。 |
+| Beyond Experience Retrieval: Learning to Generate Utility-Optimized Structured Experience for Frozen LLMs | [arXiv](https://arxiv.org/abs/2602.02556) | 2026.01 | memory, experience-reuse, context-engineering, reinforcement-learning | SEAM 用 GRPO 训练一个小型适配器，为每个实例生成结构化经验条目（问题分析、经验要点与参考计划）并前置到冻结执行器的提示中，以约四分之一的延迟超过检索式记忆基线。 |
+| Continual Learning, Not Training: Online Adaptation For Agents | [arXiv](https://arxiv.org/abs/2511.01093) | 2025.11 | memory, experience-reuse, continual-learning, context-engineering | ATLAS 将 GPT-5 教师蒸馏出的原则与动作模式 pamphlet 存入持久记忆，供冻结权重的 GPT-5-mini 学生按任务检索，在无任何梯度更新的情况下把网络威胁调查成功率从 33.7% 提升到 54.1%。 |
+| WebCoach: Self-Evolving Web Agents with Cross-Session Memory Guidance | [arXiv](https://arxiv.org/abs/2511.12997) | 2025.11 | memory, experience-reuse, search-agents | 为未改动的浏览 agent 外挂跨会话记忆：Condenser 压缩轨迹、FAISS 存储成功与失败经验、8B Coach 仅在预判失败时注入建议，无需重训即把 WebVoyager 成功率从 47.3% 提升到 61.4%。 |
+| ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory ★ | [arXiv](https://arxiv.org/abs/2509.25140) | 2025.09 | memory, experience-reuse, case-based, self-correction | 将每个 agent 轨迹（无论成功还是失败）蒸馏为结构化的推理记忆条目并在后续提示中检索复用，再配合记忆感知的测试时扩展，在 WebArena、Mind2Web 与 SWE-bench-Verified 上成功率最高提升 8.3 个百分点，同时减少交互步数。 |
+| Memento: Fine-tuning LLM Agents without Fine-tuning LLMs | [arXiv](https://arxiv.org/abs/2508.16153) | 2025.08 | memory, case-based, experience-reuse, deep-research | 通过学习得到的 Q 值案例选择器，从不断增长的情节式案例库中写入与检索(状态, 动作, 奖励)案例，使冻结参数的 LLM 智能体在 GAIA 验证集上达到 87.9% Pass@3，全程无需梯度更新。 |
+| Memp: Exploring Agent Procedural Memory | [arXiv](https://arxiv.org/abs/2508.06433) | 2025.08 | memory, experience-reuse, skill-library | 将智能体过往轨迹蒸馏为兼含逐步轨迹与脚本式抽象的程序性记忆库，并通过构建-检索-更新循环维护，使 ALFWorld 成功率从 39% 升至 87%，且可迁移至更弱的模型。 |
+| Contextual Experience Replay for Self-Improvement of Language Agents | [arXiv](https://arxiv.org/abs/2506.06698) | 2025.06 | memory, experience-reuse, context-engineering | 免训练的网页智能体把历史轨迹蒸馏为环境动态记忆与技能记忆，按任务检索以增强提示，使 GPT-4o 在 WebArena 上的成功率从 24.3% 升至 36.7%，仅增加约 17% 输入 token。 |
+| Dynamic Cheatsheet: Test-Time Learning with Adaptive Memory | [arXiv](https://arxiv.org/abs/2504.07952) | 2025.04 | memory, experience-reuse, skill-library | Dynamic Cheatsheet 为冻结权重的模型配备自我策展的记忆，存放可复用的策略与代码片段并在每次查询后无标签更新，使 Claude 3.5 Sonnet 在 AIME 2024 上从 23% 提升到 50%。 |
+| Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory | [arXiv](https://arxiv.org/abs/2504.19413) | 2025.04 | memory, experience-reuse, continual-learning | Mem0 采用先抽取后更新的流水线，由 LLM 对合并后的记忆库执行 ADD/UPDATE/DELETE/NOOP，将 LOCOMO 判分准确率提升到 66.9%，同时相比全上下文降低 91% 的 p95 延迟和逾 90% 的 token 用量。 |
+| SkillWeaver: Web Agents can Self-Improve by Discovering and Honing Skills | [arXiv](https://arxiv.org/abs/2504.07079) | 2025.04 | skill-library, tool-synthesis, experience-reuse | SkillWeaver 让网页智能体在 LLM 课程引导下自主探索陌生网站，把成功轨迹蒸馏为可复用的 Playwright API 并自动测试修补，在不更新权重的情况下于 WebArena 上取得 31.8% 的相对提升。 |
+| A-MEM: Agentic Memory for LLM Agents | [arXiv](https://arxiv.org/abs/2502.12110) | 2025.02 | memory, experience-reuse, continual-learning | 将每次交互存为 Zettelkasten 式笔记，其 LLM 生成的链接与上下文描述会随新笔记到来而被改写，把 LoCoMo 时序推理 F1 从 MemGPT 的 25.5 提升到 45.9，且 token 消耗大幅降低。 |
+
+<a id="self-modifying-agents-scaffolds"></a>
+### 自修改智能体与脚手架
+
+哥德尔机路线的工程化实践：智能体改写自身源代码、运行框架与工具，在自身变体构成的树或档案库中搜索，并在任务执行途中现场合成新工具。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| EvolveNet: Collaborative Harness Evolution for Agent Self-Improvement | [arXiv](https://arxiv.org/abs/2608.04968) | 2026.08 | self-modifying-code, coding-agents, multi-agent | 以联邦方式演化冻结权重智能体的 harness：K 个客户端在各自本地工作负载上搜索程序编辑，仅回传增量与行为证据，由按作用域分类的聚合器组合并把关，使 SWE-bench Verified 从 37.5% 提升到 57.5%。 |
+| Harness-R1: Learning to Edit Executable Runtime Harnesses from Agent Failure Trajectories | [arXiv](https://arxiv.org/abs/2608.02276) | 2026.08 | self-modifying-code, meta-agent, reinforcement-learning | 用 GRPO 训练一个 9B 的 harness 工程师，把冻结智能体的失败轨迹转化为经验证的运行时补丁，并以补丁前后实测性能变化作为奖励，使 Qwen3.5-9B 目标智能体在三个基准上从 44.3% 提升到 53.6%。 |
+| AutoMem: Automated Learning of Memory as a Cognitive Skill | [arXiv](https://arxiv.org/abs/2607.01224) | 2026.07 | memory, self-modifying-code, meta-agent | 将记忆操作提升为一等公民动作，并通过两个外循环（元 LLM 重写记忆脚手架，以及对记忆专家模型做 LoRA 训练），把 Qwen2.5-32B 在 Crafter 上的进度从 25% 提升到 51%。 |
+| DarwinX: Evolving Agent Harnesses Through Natural Selection ★ | [arXiv](https://arxiv.org/abs/2608.07545) | 2026.07 | self-modifying-code, archive-search, evolutionary-search, coding-agents | 在树状存档中以“保留并扩展”契约演化智能体 harness 种群，由各基准自带验证器打分，在模型冻结的情况下把 Terminal-Bench 2.1 从 75.5% 提升到 83.2%，并可原样迁移到 SWE-bench Verified。 |
+| From Atomic Actions to Standard Operating Procedures: Iterative Tool Optimization for Self-Evolving LLM Agents | [arXiv](https://arxiv.org/abs/2607.07321) | 2026.07 | tool-synthesis, skill-library, experience-reuse | 从智能体轨迹中挖掘反复出现的原子动作片段并改写为可执行的标准作业流程（SOP）工具，再对其合并、重执行并按实测效用剪枝，在 ACEBench Multi-Step 上最高提升 13.4 个百分点，且无需更新模型权重。 |
+| MetaSkill-Evolve: Recursive Self-Improvement of LLM Agents via Two-Timescale Meta-Skill Evolution | [arXiv](https://arxiv.org/abs/2607.05297) | 2026.07 | meta-agent, skill-library, evolutionary-search | 通过双时间尺度搜索同时进化智能体的任务技能与生成这些技能的五阶段元技能流水线，在冻结骨干模型上将 OfficeQA 留出集准确率提升 23.5 个百分点。 |
+| Who Grades the Grader? Co-Evolving Evaluation Metrics and Skills for Self-Improving LLM Agents | [arXiv](https://arxiv.org/abs/2607.12790) | 2026.07 | verifier, evolutionary-search, skill-library, reward-hacking | 把评测指标本身作为进化对象：搜索由缺陷检测器组合而成的度量，并以十条锚定样本的一致性打分，使技能进化无需真值监督即可保留 88-110% 的监督增益；消融实验表明任务分数无法验证自进化评测器的有效性。 |
+| Self-Harness: Harnesses That Improve Themselves | [arXiv](https://arxiv.org/abs/2606.09498) | 2026.06 | self-modifying-code, coding-agents, verifier | 将执行轨迹中的失败聚类为带验证器依据的失败特征，为智能体自身的 harness（指令、工具、记忆与状态管理）生成最小化改动，并只接受不产生回归的改动，使 Terminal-Bench 2.0 留出集通过率从 40.5% 提升到 61.9%。 |
+| The Red Queen Gödel Machine: Co-Evolving Agents and Their Evaluators | [arXiv](https://arxiv.org/abs/2606.26294) | 2026.06 | self-modifying-code, co-evolution, archive-search, meta-agent | 将 Gödel machine 路线扩展到非平稳效用：元智能体可重写整个代码仓库，挑战者评估器在纪元边界取代在位者，在 Polyglot 上取得 71.7% 的留出通过率，且搜索 token 最多减少 1.7 倍。 |
+| Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents | [arXiv](https://arxiv.org/abs/2605.22166) | 2026.05 | skill-library, experience-reuse, context-engineering, tool-synthesis | 从训练轨迹中挖掘反复出现的失败模式，编译为固定的四层运行时 harness——工具契约、检索式技能、动作校验与停滞恢复——在 126 个冻结模型-环境组合中改进了 116 个，平均相对提升 88.5%。 |
+| CyberEvolver: Structured Self-Evolution for Cybersecurity Agents On the Fly | [arXiv](https://arxiv.org/abs/2605.26195) | 2026.05 | self-modifying-code, skill-library, evolutionary-search | 把网络安全智能体的脚手架拆分为策略、环境接口、感知与漏洞利用手册技能库四个可变异层，并基于压缩后的失败诊断用种群式 beam search 进行变异，使成功率较种子智能体平均提升 13.6%。 |
+| DemoEvolve: Overcoming Sparse Feedback in Agentic Harness Evolution with Demonstrations | [arXiv](https://arxiv.org/abs/2605.24539) | 2026.05 | self-modifying-code, coding-agents, archive-search, experience-reuse | 在常规的代码与 rollout 归档之外引入人类演示轨迹来引导 harness 进化，使编码提案器能把稀疏的长时程失败归因到具体的脚手架改动，在 Balatro 上完成 12/15，而纯自我 rollout 进化仅为 6/15。 |
+| MOSS: Self-Evolution through Source-Level Rewriting in Autonomous Agent Systems | [arXiv](https://arxiv.org/abs/2605.22794) | 2026.05 | self-modifying-code, coding-agents, sandbox | 以挖掘到的真实生产失败为驱动，重写智能体自身 harness 源码（路由、钩子、工具分发），并经七阶段流水线在容器中重放校验，一个演化周期即把 claweval 合规审计分数从 0.25 提升到 0.61。 |
+| Self-Programmed Execution for Language-Model Agents | [arXiv](https://arxiv.org/abs/2605.06898) | 2026.05 | self-modifying-code, coding-agents, meta-agent | 以模型自身的补全作为编排程序来取代固定的 agent harness，借助 Spell 这一 Lisp 语言让被引用的副作用表达式在重放时保持惰性，使前沿模型零样本地即兴完成编排。 |
+| AgentFactory: A Self-Evolving Framework Through Executable Subagent Accumulation and Reuse | [arXiv](https://arxiv.org/abs/2603.18000) | 2026.03 | meta-agent, tool-synthesis, skill-library, coding-agents | 将每个子任务合成为独立的 Python 子智能体，配有各自的 SKILL.md 与精选工具子集，并跨任务累积、检索与修复该库，使编排层 token 消耗相比从零开始的 ReAct 最多降低 64%。 |
+| Hyperagents ★ | [arXiv](https://arxiv.org/abs/2603.19461) | 2026.03 | self-modifying-code, meta-agent, archive-search, open-endedness | 将任务智能体与提出自我修改的元智能体合并为同一份可编辑程序，使改进程序自身也可被改进；开放式存档搜索在四个不相关领域取得提升，且其自行发明的元级机制可迁移到未见领域。 |
+| Meta-Harness: End-to-End Optimization of Model Harnesses | [arXiv](https://arxiv.org/abs/2603.28052) | 2026.03 | meta-agent, self-modifying-code, context-engineering, coding-agents | 把智能体的 harness 代码本身作为搜索对象，一个智能体式提议器读取历史候选的源码、评分与完整执行轨迹来重写它，在 TerminalBench-2 上达到 76.4%，并以 7.7 分优势超过上下文优化器。 |
+| AgentDevel: Reframing Self-Evolving LLM Agents as Release Engineering | [arXiv](https://arxiv.org/abs/2601.04620) | 2026.01 | self-modifying-code, coding-agents, meta-agent | AgentDevel 用发布工程流水线取代智能体内部的自我改写：实现盲评的 critic 从轨迹中标注失败症状，诊断脚本将其聚合为可执行规范，flip 门控只放行无回归的候选版本，将 SWE-bench Verified 提升一倍至 30%。 |
+| Live-SWE-agent: Can Software Engineering Agents Self-Evolve on the Fly? | [arXiv](https://arxiv.org/abs/2511.13646) | 2025.11 | self-modifying-code, tool-synthesis, coding-agents | 在推理过程中自我进化工具：仅有 bash 的 scaffold 一边解决 GitHub issue 一边合成编辑器、代码搜索与分析工具，无需离线进化即解决 77.4% 的 SWE-bench Verified。 |
+| Alita-G: Self-Evolving Generative Agent for Agent Generation | [arXiv](https://arxiv.org/abs/2510.23601) | 2025.10 | tool-synthesis, skill-library, experience-reuse | ALITA-G 无需更新权重即可把通用智能体特化为领域专家：它从成功轨迹中提炼出参数化的 MCP 工具并存入可检索的 MCP Box，使 GAIA pass@1 从 75.15% 升至 83.03%，同时 token 消耗减少约 15%。 |
+| Huxley-Gödel Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine ★ | [arXiv](https://arxiv.org/abs/2510.21614) | 2025.10 | self-modifying-code, coding-agents, archive-search, meta-agent | Huxley-Gödel Machine 不按智能体自身分数、而按 clade metaproductivity（其全部自修改后代子树的基准表现）来排序自修改编码智能体，在 SWE-bench Verified 上达到 61.4%，并比 Darwin Gödel Machine 快 2.4 倍。 |
+| ToolLibGen: Scalable Automatic Tool Creation and Aggregation for LLM Reasoning | [arXiv](https://arxiv.org/abs/2510.07768) | 2025.10 | tool-synthesis, skill-library, coding-agents | 从 LLM 自身的推理轨迹中挖掘经过自验证的 Python 工具，再通过分层聚类与编码-审查双智能体重构，将 48k 个碎片化工具压缩为 3.1k 个，同时将推理准确率提升 5-10%。 |
+| Alita: Generalist Agent Enabling Scalable Agentic Reasoning with Minimal Predefinition and Maximal Self-Evolution | [arXiv](https://arxiv.org/abs/2505.20286) | 2025.05 | tool-synthesis, skill-library, coding-agents | 几乎不预置任何工具，而是自主编写、优化并将从开源代码合成的 Model Context Protocol 工具缓存进可复用的 MCP Box，以极简脚手架在 GAIA 验证集上取得 75.15% pass@1。 |
+| Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents ★ | [arXiv](https://arxiv.org/abs/2505.22954) | 2025.05 | self-modifying-code, archive-search, coding-agents, open-endedness | 用基于基准的经验验证取代哥德尔机的形式化证明要求：编码智能体改写自己的 Python 代码库，每个仍具备编辑能力的变体都进入开放式档案库，将 SWE-bench Verified 从 20.0% 提升到 50.0%。 |
+| A Self-Improving Coding Agent | [arXiv](https://arxiv.org/abs/2504.15228) | 2025.04 | self-modifying-code, coding-agents, tool-synthesis | SICA 取消独立的元智能体，改由当前得分最高的智能体在权衡准确率、成本与耗时的效用函数下改写自身代码库，无需梯度更新即将 SWE-bench Verified 子集从 17% 提升至 53%。 |
+
+<a id="context-prompt-workflow-optimization"></a>
+### 上下文、提示与工作流优化
+
+在冻结模型之外做优化：反思式提示进化、随使用不断增长的操作手册与上下文，以及对智能体工作流与复合流水线的自动搜索。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| APEX: Automated Prompt Engineering eXpert with Dynamic Data Selection | [arXiv](https://arxiv.org/abs/2606.11459) | 2026.06 | prompt-optimization, curriculum, context-engineering | 按近期通过/失败历史对开发集分层，使 prompt 变异聚焦于可修复的错误、候选筛选把预算花在能区分排名的样本上，在固定 5,000 次评测调用预算下让 Gemini 2.5 Flash 提升 11.2 分，而 GEPA 仅 5.2 分。 |
+| Recursive Self-Evolving Agents via Held-Out Selection | [arXiv](https://arxiv.org/abs/2606.28374) | 2026.06 | context-engineering, skill-library, experience-reuse, self-correction | 在冻结权重下，从已验证的成功与失败轨迹中改写策略前言、可复用技能规则与操作手册三层自然语言状态，仅在留出集严格提升时才推进，因而最差退化为普通 ReAct 而不会倒退；ALFWorld 达到 69.3%，更大模型上的迁移则与基线持平。 |
+| AgentPSO: Evolving Agent Reasoning Skill via Multi-agent Particle Swarm Optimization | [arXiv](https://arxiv.org/abs/2605.08704) | 2026.05 | prompt-optimization, evolutionary-search, multi-agent, reasoning | AgentPSO 把粒子群优化搬到自然语言空间，用个体最优、群体最优与同伴反思方向共同演化每个智能体的文本推理技能，在五个推理基准上平均达到 71.56%，高于单智能体 GEPA 的 68.10%。 |
+| SkillOpt: Executive Strategy for Self-Evolving Agent Skills | [arXiv](https://arxiv.org/abs/2605.23904) | 2026.05 | prompt-optimization, skill-library, context-engineering | 把智能体的 skill 文档当作可训练文本：冻结模型采样带评分的轨迹，优化器模型提出受预算约束的编辑，仅在验证集严格提升时才接受，使 GPT-5.5 在六个基准上从 58.8% 提升到 82.3%。 |
+| SPEAR: Code-Augmented Agentic Prompt Optimization | [arXiv](https://arxiv.org/abs/2605.26275) | 2026.05 | prompt-optimization, coding-agents, sandbox | 把提示优化变成一个自由形式的编码智能体：它在自身的评测 DataFrame 上编写并执行 Python 来构造错误分析，并在指标回退时自动回滚，在 BBH-7 上平均准确率 0.938，而 GEPA 为 0.628。 |
+| Learning to Evolve: A Self-Improving Framework for Multi-Agent Systems via Textual Parameter Graph Optimization | [arXiv](https://arxiv.org/abs/2604.20714) | 2026.04 | prompt-optimization, workflow-search, multi-agent, memory | 把多智能体系统表示为文本提示参数图，用从执行轨迹中聚类得到的自然语言梯度进行优化，并由带记忆的元优化器复用历史修改，将 GAIA pass@1 从 73.8% 提升到 81.6%。 |
+| Learning to Self-Evolve | [arXiv](https://arxiv.org/abs/2603.18620) | 2026.03 | context-engineering, prompt-optimization, reinforcement-learning | 用单步 RL 训练专门的演化策略，其奖励为上下文编辑带来的性能提升增量，并在测试时结合 UCB 树搜索，在 BIRD Text-to-SQL 上以 67.3% 超过由 GPT-5 驱动的自演化循环。 |
+| Meta Context Engineering via Agentic Skill Evolution | [arXiv](https://arxiv.org/abs/2601.21557) | 2026.01 | context-engineering, skill-library, evolutionary-search, meta-agent | MCE 通过 agentic crossover 在 (1+1)-ES 下进化上下文工程流程本身——即包含方法论、脚本与模板的可复用技能文件夹——相对 ACE 类基线平均提升 16.9%，且 rollout 数量减少 4.8 倍。 |
+| Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models | [arXiv](https://arxiv.org/abs/2510.04618) | 2025.10 | context-engineering, prompt-optimization, memory | ACE 通过演化上下文而非权重实现自我改进，由 Generator、Reflector 与 Curator 三个角色把条目化的增量 bullet 合并进不断增长的 playbook，在 AppWorld 上提升 17 个百分点，同时避免简洁性偏差与上下文坍塌。 |
+| Self-evolving expertise in complex non-verifiable subject domains: dialogue as implicit meta-RL | [arXiv](https://arxiv.org/abs/2510.15772) | 2025.10 | context-engineering, memory, multi-agent | Dialectica 让扮演不同角色的辩论智能体在每轮后通过基于双层记忆的自我反思，改写其人格与上下文字段的允许清单，并将其形式化为隐式 meta-RL；在碳市场治理任务中驱动最高 Elo 的是上下文进化而非网页搜索。 |
+| Polymath: A Self-Optimizing Agent with Dynamic Hierarchical Workflow | [arXiv](https://arxiv.org/abs/2508.02959) | 2025.08 | workflow-search, evolutionary-search, self-correction | 将解表示为由代码化工作流构成的任务流图，并在无标注数据下自优化两个层级——图层面采用多重网格式的粗化/松弛，代码层面采用反思引导的进化搜索——平均超越已有方法 8.1%。 |
+| GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning | [arXiv](https://arxiv.org/abs/2507.19457) | 2025.07 | prompt-optimization, evolutionary-search, workflow-search | 通过对完整执行轨迹进行自然语言反思来演化复合 LLM 系统的各模块提示词，并维护候选提示的 Pareto 前沿，在 rollout 最多减少 35 倍的情况下平均超过 GRPO 6%。 |
+| SEW: Self-Evolving Agentic Workflows for Automated Code Generation | [arXiv](https://arxiv.org/abs/2505.18646) | 2025.05 | workflow-search, prompt-optimization, coding-agents, multi-agent | SEW 自动生成多智能体代码工作流，并在工作流拓扑与各智能体提示两个层面通过直接变异与超变异进行自演化，在 LiveCodeBench 上最高提升 12%，并表明工作流的文本编码方式决定生成代码的可执行性。 |
+| EvoFlow: Evolving Diverse Agentic Workflows On The Fly | [arXiv](https://arxiv.org/abs/2502.07373) | 2025.02 | workflow-search, evolutionary-search, agent-topology, multi-agent | 以小生境进化算法演化一个异构智能体工作流种群，联合变异拓扑结构、各节点的 LLM 选择与提示词，在推理成本大幅降低的同时比手工与自动化基线最高提升 29.9%。 |
+
+<a id="multi-agent-co-evolution"></a>
+### 多智能体协同进化
+
+让智能体互相改进的系统：共享与去中心化记忆、角色与拓扑的演化、面向智能体团队的种群搜索，以及由失败归因驱动的结构调整。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| MANTA: Multi-Agent Network Topology Adaptation for Self-Evolving Multi-Agent Systems | [arXiv](https://arxiv.org/abs/2607.28527) | 2026.07 | multi-agent, agent-topology, memory | 根据任务从习得的 playbook 中选择通信拓扑，用十一类过程异常分类法审计执行轨迹，并对被标记的运行至多施加一次有界拓扑变异，在五个基准上平均达 74.0，高于 ADAS 的 68.2。 |
+| Skill-MAS: Evolving Meta-Skill for Automatic Multi-Agent Systems | [arXiv](https://arxiv.org/abs/2606.18837) | 2026.06 | multi-agent, meta-agent, workflow-search, context-engineering | Skill-MAS 通过对高不确定性验证任务进行分层对比反思，进化出涵盖任务分解、智能体设计与工作流编排的显式自然语言 Meta-Skill，比 AFlow 等多智能体基线高出约 6-15 分。 |
+| Self-Evolving Multi-Agent Systems via Decentralized Memory | [arXiv](https://arxiv.org/abs/2605.22721) | 2026.05 | multi-agent, memory, experience-reuse, co-evolution | 为每个智能体配备私有的利用池（已固化的成功轨迹）与探索池（候选新策略），由基于评审反馈、具 O(log T) 遗憾界的路由器在线混合，多智能体准确率最高提升 23.8%，同时 token 消耗降低 49%。 |
+| SkillMAS: Skill Co-Evolution with LLM-based Multi-Agent System | [arXiv](https://arxiv.org/abs/2605.09341) | 2026.05 | skill-library, multi-agent, co-evolution, agent-topology | SkillMAS 以验证过的执行轨迹上的共享效用表，将技能库演化与执行者结构重组耦合起来，每次修改都由保留下来的失败证据触发，在 ALFWorld unseen 上达到 94.0%，在 LifelongAgentBench OS 上达到 76.7%。 |
+| EvoMAS: Evolutionary Generation of Multi-Agent Systems | [arXiv](https://arxiv.org/abs/2602.06511) | 2026.02 | multi-agent, agent-topology, evolutionary-search, experience-reuse | 将多智能体系统编码为结构化基因组（通信图加每个智能体的模型、提示词与工具集），通过反馈引导的变异与交叉进化，在 SWE-bench Verified 上达到 79.1%，同时保持 96% 以上的可执行率。 |
+| ST-EVO: Towards Generative Spatio-Temporal Evolution of Multi-Agent Communication Topologies | [arXiv](https://arxiv.org/abs/2602.14681) | 2026.02 | multi-agent, agent-topology, co-evolution, workflow-search | 将 LLM 多智能体通信拓扑在空间与时间两个维度上联合调度，用感知集成不确定性并带自反馈的 flow-matching 调度器逐轮重新生成通信图，在九个基准上报告 5%-25% 的准确率提升。 |
+| MonoScale: Scaling Multi-Agent System with Monotonic Improvement | [arXiv](https://arxiv.org/abs/2601.23219) | 2026.01 | multi-agent, agent-topology, memory, formal-analysis | MonoScale 为每个新接入的智能体合成熟悉化任务并将其 rollout 蒸馏成可审计的路由准则，在带保守回退的信赖域老虎机更新下保证性能不下降，并在十智能体规模上将 GAIA 从 44.8% 提升到 55.2%。 |
+| G-Memory: Tracing Hierarchical Memory for Multi-Agent Systems | [arXiv](https://arxiv.org/abs/2506.07398) | 2025.06 | memory, multi-agent, experience-reuse | 将多智能体历史存储为相互链接的交互图、查询图与洞见图，并通过双向遍历为每个智能体注入角色化记忆，在三种 MAS 框架上无需重训即可将具身任务成功率最高提升 20.89%。 |
+| SwarmAgentic: Towards Fully Automated Agentic System Generation via Swarm Intelligence | [arXiv](https://arxiv.org/abs/2506.15672) | 2025.06 | multi-agent, agent-topology, workflow-search, meta-agent | 通过将智能体角色与协作调度编码为文本粒子，并在语言空间的粒子群优化中用面向失败的 LLM 编辑更新它们，仅凭任务描述即可生成完整的多智能体系统，在 TravelPlanner 上达到 32.2%，而 ADAS 为 8.9%。 |
+| AgentNet: Decentralized Evolutionary Coordination for LLM-based Multi-Agent Systems | [arXiv](https://arxiv.org/abs/2504.00587) | 2025.04 | multi-agent, agent-topology, co-evolution, memory | 用有向无环图取代中心协调器，每个智能体自带路由、执行与步骤级检索记忆，并通过基于协作成功率的边权更新与剪枝，让网络拓扑与专业分工在无预设角色的情况下协同演化。 |
+| Multi-agent Architecture Search via Agentic Supernet | [arXiv](https://arxiv.org/abs/2502.04180) | 2025.02 | multi-agent, agent-topology, workflow-search | 用算子 DAG 上的概率超网络取代一刀切的多智能体工作流，为每个查询采样专属子网络，在六个基准上超过 AFlow 与 ADAS，推理成本仅为其 6%–45%。 |
+
+<a id="automated-ai-research-discovery"></a>
+### 自动化 AI 研究与发现
+
+由 AI 自己跑通研究闭环：发现算法、算子内核与网络架构，端到端完成机器学习工程，并在内层循环中无需人类参与地产出科研结果。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| Frontis-MA1: Training an AI4AI Model towards Recursive Self-Improvement in Machine Learning Engineering | [arXiv](https://arxiv.org/abs/2607.28568) | 2026.07 | evolutionary-search, coding-agents, reinforcement-learning | 围绕 Draft、Improve、Debug、Crossover 四个程序进化算子，以执行验证的 SFT 加 RL 后训练一个 35B 智能体并接入进化搜索，将 MLE-Bench Lite 夺牌率从 39.4% 提升到 71.2%。 |
+| IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation | [arXiv](https://arxiv.org/abs/2607.22375) | 2026.07 | quality-diversity, evolutionary-search, scientific-discovery, multi-agent | 以质量-多样性搜索的方式演化研究想法，借助谱系存档、专门的评判智能体以及对接近阈值想法的一次性修复或精炼，在以最大团计算的 Yield 指标上达到最佳基线的 3.89 倍。 |
+| Heuresis: Search Strategies for Autonomous AI Research Agents Across Quality, Diversity and Novelty | [arXiv](https://arxiv.org/abs/2606.25198) | 2026.06 | algorithm-discovery, quality-diversity, archive-search, reward-hacking | Heuresis 将自主科研循环拆解为可替换的组件，并在 3,222 次真实 GPU 实验上对比六种质量-多样性搜索策略，发现这些策略只改变想法的落点，却没有一个想法被评为原创。 |
+| MLEvolve: A Self-Evolving Framework for Automated Machine Learning Algorithm Discovery | [arXiv](https://arxiv.org/abs/2606.06473) | 2026.06 | algorithm-discovery, memory, experience-reuse, multi-agent | 用带引用边的图搜索取代 MCTS，使各分支可相互借鉴与合并方案，并配合记录既往方案与结果的回溯式记忆，在 MLE-Bench 上以一半运行时间取得 65.3% 的获奖率。 |
+| Agentic Discovery of Neural Architectures: AIRA-Compose and AIRA-Design | [arXiv](https://arxiv.org/abs/2605.15871) | 2026.05 | architecture-search, algorithm-discovery, coding-agents | 让 LLM 智能体群搜索由 MLP、注意力与 Mamba 原语构成的 16 层架构组合，并用 JAX 从零编写新的次二次注意力机制，产出 1B 规模混合架构，验证损失 2.719，比 Llama 3.2 低 3.0%。 |
+| Effective Harness Engineering for Algorithm Discovery with Coding Agents | [arXiv](https://arxiv.org/abs/2605.15221) | 2026.05 | algorithm-discovery, evolutionary-search, coding-agents, reward-hacking | 用自主编码智能体取代 LLM 进化搜索中无状态的单次生成，并加入作弊检测、Git worktree 隔离与可查询的程序数据库，在固定 token 预算下以约 38 美元在圆填充任务上达到 AlphaEvolve 水平。 |
+| AIRA_2: Overcoming Bottlenecks in AI Research Agents | [arXiv](https://arxiv.org/abs/2603.26499) | 2026.03 | evolutionary-search, coding-agents, benchmark | 异步多 GPU 进化搜索、隐藏标签的评测划分以及能自查日志的 ReAct 算子，把研究智能体在 MLE-bench-30 上的平均百分位推到 83.1%，并在 AIRS-Bench 的 20 个任务中有 11 个超过人类最好成绩。 |
+| Evolutionary Discovery of Reinforcement Learning Algorithms via Large Language Models | [arXiv](https://arxiv.org/abs/2603.28416) | 2026.03 | algorithm-discovery, evolutionary-search, reinforcement-learning | 基于岛屿模型的进化搜索以 LLM 作为变异与交叉算子，直接在可执行的 RL 更新规则代码上搜索并禁用 actor-critic 与时序差分机制，发现两个不含价值函数、可媲美 SAC 与 PPO 且能迁移到未见环境的算法。 |
+| ArchAgent: Agentic AI-driven Computer Architecture Discovery | [arXiv](https://arxiv.org/abs/2602.22425) | 2026.02 | algorithm-discovery, evolutionary-search, reward-hacking | 用 LLM 驱动的岛屿式进化搜索在 ChampSim 模拟器中演化 C++ 缓存替换策略，自主发明插入质量预测、自适应节流等机制，IPC 比此前最优的 Mockingjay 高 0.9%，同时暴露出利用模拟器漏洞的 reward hacking 行为。 |
+| CUDA Agent: Large-Scale Agentic RL for High-Performance CUDA Kernel Generation | [arXiv](https://arxiv.org/abs/2602.24286) | 2026.02 | kernel-optimization, reinforcement-learning, synthetic-data, coding-agents | 以大规模 agentic RL 在约 6,000 个自合成的算子融合问题上训练 LLM，用离散化的正确性与加速奖励，配合拒绝采样微调和 critic 预训练稳定长程 rollout，在 KernelBench Level-3 上 92% 的任务快于 torch.compile。 |
+| Discovering Multiagent Learning Algorithms with Large Language Models | [arXiv](https://arxiv.org/abs/2602.16928) | 2026.02 | algorithm-discovery, evolutionary-search, multi-agent | 用 AlphaEvolve 变异 OpenSpiel 中 CFR 与 PSRO 组件的源码，以四个训练博弈上的可利用度作为适应度，再通过消融式蒸馏得到更简洁的 VAD-CFR 与 SHOR-PSRO，在 18 个留出博弈上均进入前三。 |
+| Mining Generalizable Activation Functions | [arXiv](https://arxiv.org/abs/2602.05688) | 2026.02 | algorithm-discovery, evolutionary-search, architecture-search | 在与 ReLU 等价的 FLOP 预算下，用 AlphaEvolve 的 LLM 程序搜索演化激活函数，以廉价合成任务上的分布外损失作为适应度，得到 GELU(x)+0.1·sin(x) 这类带周期扰动的形式，提升 CLRS-30 的尺寸泛化与 ImageNet 准确率。 |
+| Discovering state-of-the-art reinforcement learning algorithms ★ | [Nature](https://www.nature.com/articles/s41586-025-09761-x) | 2025.10 | algorithm-discovery, reinforcement-learning, meta-learning | DiscoRL 通过元梯度直接学习强化学习的更新规则，用一个元网络为智能体群体生成策略与预测目标，其发现的 Disco57 规则在 Atari 上以 13.86 的 IQM 超越所有人工设计的规则。 |
+| EvoEngineer: Mastering Automated CUDA Kernel Code Evolution with Large Language Models | [arXiv](https://arxiv.org/abs/2510.03760) | 2025.10 | kernel-optimization, evolutionary-search, coding-agents | 将 LLM 驱动的 CUDA kernel 演化形式化为带约束的优化问题，把信息条件化策略与种群管理解耦，在 91 个真实 KernelBench 算子上取得 2.72x 的中位加速与 69.8% 的代码有效率。 |
+| Scientific Algorithm Discovery by Augmenting AlphaEvolve with Deep Research | [arXiv](https://arxiv.org/abs/2510.06056) | 2025.10 | algorithm-discovery, scientific-discovery, evolutionary-search, deep-research | 把检索文献并撰写算法提案的 deep research 流程与岛屿式演化代码搜索、调试智能体和反思校验相耦合，在九个科学基准上将种子算法提升 0.39% 至 666%。 |
+| The FM Agent | [arXiv](https://arxiv.org/abs/2510.26144) | 2025.10 | evolutionary-search, multi-agent, kernel-optimization, algorithm-discovery | 将冷启动生成式播种与岛屿模型演化搜索及分布式异步运行时结合，在 MLE-Bench 上取得 43.56% 的奖牌率、ALE-Bench 上 1976.3 分，并相对 torch.compile 实现最高 20.77x 的 kernel 加速。 |
+| Towards Robust Agentic CUDA Kernel Benchmarking, Verification, and Optimization | [arXiv](https://arxiv.org/abs/2509.14279) | 2025.09 | kernel-optimization, evolutionary-search, verifier, benchmark | 将把 PyTorch 模块翻译为 CUDA kernel 的进化式 LLM 流水线与 robust-kbench 相结合，后者以六重检查堵住基准漏洞，使经过验证的 kernel 在 torch.compile 下的前向与反向传播中仍优于 torch 实现。 |
+| AI Research Agents for Machine Learning: Search, Exploration, and Generalization in MLE-bench | [arXiv](https://arxiv.org/abs/2507.02554) | 2025.07 | coding-agents, evolutionary-search, benchmark | 将机器学习工程智能体拆解为搜索策略与算子集合，证明算子才是瓶颈：AIRA 算子配合 MCTS 在 MLE-bench Lite 上达到 47.7% 获奖率，而真正的上限来自验证指标过拟合而非搜索能力。 |
+| AlphaGo Moment for Model Architecture Discovery ★ | [arXiv](https://arxiv.org/abs/2507.18074) | 2025.07 | architecture-search, scientific-discovery, multi-agent, algorithm-discovery | 以自主的研究员-工程师-分析师循环运行 1,773 次实验、约 2 万 GPU 小时，发现 106 个新型线性注意力架构，超越 Mamba2 与 Gated DeltaNet，且发现数量随算力近似线性增长。 |
+| AlphaEvolve: A coding agent for scientific and algorithmic discovery ★ | [arXiv](https://arxiv.org/abs/2506.13131) | 2025.06 | evolutionary-search, algorithm-discovery, kernel-optimization, coding-agents | 以 MAP-Elites 程序数据库、LLM 对整个文件提出的 diff 改写与自动评估器构成进化循环，发现了 4x4 复矩阵乘法的 rank-48 算法，以及可加速 Gemini 训练的 kernel。 |
+| AI-Researcher: Autonomous Scientific Innovation | [arXiv](https://arxiv.org/abs/2505.18705) | 2025.05 | scientific-discovery, coding-agents, multi-agent, benchmark | 通过多个专用智能体以“编码—评审”迭代循环完成从文献综述、算法实现到论文撰写的完整研究流程，并发布 Scientist-Bench，其中 LLM 评审认为最高约 79% 的生成论文可与人类原作相当。 |
+| MLE-STAR: Machine Learning Engineering Agent via Search and Targeted Refinement | [arXiv](https://arxiv.org/abs/2506.15692) | 2025.05 | coding-agents, search-agents, algorithm-discovery | MLE-STAR 先通过网页搜索找到适配任务的模型，再以消融分析引导的嵌套循环逐块精修代码并学习集成策略，在 MLE-bench Lite 上取得 63.6% 的夺牌率。 |
+| The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search ★ | [arXiv](https://arxiv.org/abs/2504.08066) | 2025.04 | scientific-discovery, tree-search, coding-agents | AI Scientist-v2 以四阶段渐进式智能体树搜索加 VLM 图表审稿取代人工编写的代码模板，自主完成从选题到成稿的全流程；其中一篇生成论文通过了 ICLR workshop 的同行评审。 |
+| AIDE: AI-Driven Exploration in the Space of Code ★ | [arXiv](https://arxiv.org/abs/2502.13138) | 2025.02 | coding-agents, algorithm-discovery, archive-search | 把机器学习工程建模为在完整 Python 脚本空间中的树搜索，配以 draft/debug/improve 算子与历史摘要；在 MLE-Bench 上取得 16.9% pass@1 奖牌率，并平均胜过 51% 的人类 Kaggle 选手。 |
+| The AI CUDA Engineer: Agentic CUDA Kernel Discovery, Optimization and Composition | [Report](https://sakana.ai/ai-cuda-engineer/) | 2025.02 | kernel-optimization, evolutionary-search, reward-hacking, archive-search | LLM 智能体将 PyTorch 模块翻译为 CUDA kernel，并通过交叉变异、性能剖析反馈与 17,000+ 已验证 kernel 的档案库进化；其头条加速比后被证明是对评测框架的 reward hacking。 |
+
+<a id="evolutionary-open-ended-search"></a>
+### 进化式与开放式搜索
+
+进化式程序搜索与任务、环境的开放式生成：由大模型充当变异算子，并以新颖性或有趣性决定下一步探索方向。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| SimWorld Studio: Automatic Environment Generation with Evolving Coding Agent for Embodied Agent Learning | [arXiv](https://arxiv.org/abs/2605.09423) | 2026.05 | open-endedness, curriculum, tool-synthesis, skill-library | SimCoder 是嵌入 Unreal Engine 5 平台的编码智能体，通过编写引擎代码构建 3D 环境，并在验证器发现失败时自行编写新工具与技能，与导航课程共同演化，将成功率从固定难度的 72% 提升到 90%。 |
+| Discovering Novel LLM Experts via Task-Capability Coevolution | [arXiv](https://arxiv.org/abs/2604.14969) | 2026.04 | co-evolution, quality-diversity, evolutionary-search, synthetic-data | AC/DC 让一群 LLM 通过任务向量插值合并与 SVD 变异协同进化，同时由一个 scientist LLM 生成并演化合成任务档案，使能力 Coverage 提升 2%-10%，21B 规模的模型组合超过 72B 基线。 |
+| Evolving Many Worlds: Towards Open-Ended Discovery in Petri Dish NCA via Population-Based Training | [arXiv](https://arxiv.org/abs/2604.11248) | 2026.04 | open-endedness, evolutionary-search, co-evolution | PBT-NCA 在相互竞争的 Petri Dish 神经元胞自动机之上套用基于种群的训练，用档案化行为新颖性加 DINOv2 视觉多样性来选择世界，持续维持混沌边缘的复杂度并涌现螺旋波、滑翔体与轨迹跟随，而固定超参数只会退化为噪声。 |
+| In Search of the Ingredients of Open-Endedness: Replicating Picbreeder with Large Vision-Language Models | [arXiv](https://arxiv.org/abs/2605.23908) | 2026.04 | open-endedness, evolutionary-search, model-collapse, multimodal | 用前沿 VLM 取代 Picbreeder 中负责挑选与分支的人类用户来演化 CPPN 图像，发现其出现严重的模式坍塌、系统发育分支多样性低于人类（J1 为 0.235 对 0.363），而 epsilon-greedy 噪声与单步记忆可部分恢复探索。 |
+| COvolve: Adversarial Co-Evolution of Large-Language-Model-Generated Policies and Environments via Two-Player Zero-Sum Game | [arXiv](https://arxiv.org/abs/2603.28386) | 2026.03 | open-endedness, co-evolution, curriculum, evolutionary-search | 让一个 LLM 环境设计器与一个 LLM 策略编写器进行零和博弈，并用线性规划求得的混合策略纳什均衡组合已累积的策略种群，从而形成自动课程，在 MiniGrid、PyGame 与 CARLA 上避免遗忘。 |
+| EvoX: Meta-Evolution for Automated Discovery | [arXiv](https://arxiv.org/abs/2602.23413) | 2026.02 | evolutionary-search, algorithm-discovery, open-endedness | 把搜索策略本身变成可进化的 Python 程序：一旦进展停滞就由 LLM 重写父代选择、变异算子与灵感集合，在约 200 个数学与系统基准中约 96% 的任务上超过 OpenEvolve、ShinkaEvolve 与 GEPA。 |
+| EvoLattice: Persistent Internal-Population Evolution through Multi-Alternative Quality-Diversity Graph Representations for LLM-Guided Program Discovery | [arXiv](https://arxiv.org/abs/2512.13857) | 2025.12 | evolutionary-search, quality-diversity, archive-search, algorithm-discovery | EvoLattice 用一张 DAG 承载整个种群，每个节点保存多个持久备选方案，使每条路径都成为一个候选程序，并把逐备选方案的统计量作为稠密信用信号反馈给 LLM，在架构排序任务上超过 FunSearch、AlphaEvolve 风格基线。 |
+| Mortar: Evolving Mechanics for Automatic Game Design | [arXiv](https://arxiv.org/abs/2601.00105) | 2025.12 | evolutionary-search, quality-diversity, open-endedness | Mortar 以 LLM 作为变异算子在 MAP-Elites 存档中演化单个游戏机制，用 MCTS 组合出的游戏能否正确区分技能梯队来打分，将 QD 得分从仅用 LLM 选择的 17.64 提升到 31.18。 |
+| CodeEvolve: an open source evolutionary coding agent for algorithmic discovery and optimization | [arXiv](https://arxiv.org/abs/2510.14150) | 2025.10 | evolutionary-search, quality-diversity, algorithm-discovery, coding-agents | 将基于岛屿模型的 diff 编辑演化搜索与灵感式交叉、每岛 CVT-MAP-Elites 存档相结合，用开源 30B 模型在 9 个基准问题中的 5 个上追平或超越 AlphaEvolve，单次运行成本约 6 美元。 |
+| ShinkaEvolve: Towards Open-Ended And Sample-Efficient Program Evolution | [arXiv](https://arxiv.org/abs/2509.19349) | 2025.09 | evolutionary-search, algorithm-discovery, open-endedness, archive-search | 以新颖性感知的父代采样、基于嵌入的近重复候选拒绝采样，以及在多个 LLM 变异器之间调度的 bandit 来演化程序，约 150 次评估即刷新圆填充最优解，并可演化智能体脚手架与训练损失函数。 |
+| Foundation Model Self-Play: Open-Ended Strategy Innovation via Foundation Models | [arXiv](https://arxiv.org/abs/2507.06466) | 2025.07 | self-play, quality-diversity, evolutionary-search, open-endedness | 用能编写并改写代码策略的基础模型替代自博弈中的梯度式策略更新，并引入新颖性存档与由模型自行提出行为维度的无维度 MAP-Elites 存档，重新发现了 Kalman 滤波与 MCTS。 |
+| SENSEI: Semantic Exploration Guided by Foundation Models to Learn Versatile World Models | [arXiv](https://arxiv.org/abs/2503.01584) | 2025.03 | open-endedness, world-models, reinforcement-learning | 将 VLM 的成对"哪个更有趣"判断蒸馏为稠密语义奖励，由 DreamerV3 世界模型与认知不确定性一同预测，驱动无任务探索，并成为唯一在 Pokemon Red 中打到第一个道馆的方法。 |
+| MAGELLAN: Metacognitive predictions of learning progress guide autotelic LLM agents in large goal spaces | [arXiv](https://arxiv.org/abs/2502.07709) | 2025.02 | curriculum, open-endedness, reinforcement-learning | 为 LLM 智能体加入基于 LoRA 的元认知模块来预测其在每个目标上的能力，使绝对学习进度可在语义相近的目标间泛化，从而在 2.5 万目标空间上驱动自动课程采样而无需昂贵的周期性评估。 |
+
+<a id="surveys-position-papers"></a>
+### 综述与立场论文
+
+领域地图与方向之争：关于「演化什么、何时演化」的分类体系、终身智能体路线图，以及论证真正的自我改进究竟需要什么的立场论文。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| Self-Evolving Coding Agents | [arXiv](https://arxiv.org/abs/2608.03392) | 2026.08 | survey, taxonomy, coding-agents | 以对象为中心的分类法综述自进化编码智能体，区分脚手架、记忆、技能、模型与多智能体工作流拓扑五类进化对象，并辅以进化时机与证据类型两条维度，论证可执行反馈使软件工程格外有利却易过拟合。 |
+| Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents | [arXiv](https://arxiv.org/abs/2607.01120) | 2026.07 | position-paper, reinforcement-learning, infrastructure, continual-learning | 提出企业级自进化智能体的瓶颈在于智能体在线 RL 基础设施而非算法，主张三大缺失支柱——步级智能体轨迹数据协议、受治理的生产数据代理与统一的进化控制平面，并以可直接替换推理后端、边服务边采集轨迹的 AReaL2.0 加以实现。 |
+| Recursive Self-Improvement in AI: From Bounded Self-Refinement to Autonomous Research Loops | [arXiv](https://arxiv.org/abs/2607.07663) | 2026.07 | survey, taxonomy, verifier, model-collapse | 按“改进什么”与“闭环程度”两个维度梳理 1,250 篇论文，把自评估信号从形式化验证器一路排到内在置信度，并区分有界自我精炼与仍然稀少的开放式递归自我改进。 |
+| Self-Improvements in Modern Agentic Systems: A Survey | [arXiv](https://arxiv.org/abs/2607.13104) | 2026.07 | survey, taxonomy, prompt-optimization, memory | 将智能体形式化为模型参数加运行脚手架，把自我改进划分为缓慢的权重更新与快速可逆的脚手架更新（涵盖提示、记忆、工具与控制逻辑），并综述六个应用领域。 |
+| Agent Skill Evaluation and Evolution: Frameworks and Benchmarks | [arXiv](https://arxiv.org/abs/2606.11435) | 2026.06 | survey, skill-library, benchmark, taxonomy | 按反馈信号将自动化 agent 技能演化归纳为执行反馈、轨迹蒸馏、技能库压缩与强化学习四种范式，并综述六类基准，指出目前没有基准能纵向衡量多轮反馈下的技能演化。 |
+| From Question Answering to Task Completion: A Survey on Agent System and Harness Design | [arXiv](https://arxiv.org/abs/2606.20683) | 2026.06 | survey, taxonomy, context-engineering, co-evolution | 以「模型-harness」视角综述约 260 篇工作，将 agent harness 形式化为六元组，并梳理从提示工程到 agent 原生训练的四个范式，最终模型、harness 与改进机制依据部署轨迹共同演化。 |
+| Position: Deployed Reinforcement Learning should be Continual | [arXiv](https://arxiv.org/abs/2606.04029) | 2026.06 | position-paper, continual-learning, reinforcement-learning | 论证任何容量小于所处环境却仍能获得奖励信号的已部署智能体本质上都是持续 RL 问题，梳理部署后才出现的四类非平稳性来源，并用 Cursor Tab 与 Lyft 的证据反驳五种反对意见。 |
+| Beyond Individual Intelligence: Surveying Collaboration, Failure Attribution, and Self-Evolution in LLM-based Multi-Agent Systems | [arXiv](https://arxiv.org/abs/2605.14892) | 2026.05 | survey, multi-agent, taxonomy, co-evolution | 以四阶段 LIFE 进程统一单智能体能力、多智能体协作、失败归因与自我进化，指出更紧密的协作会放大错误传播，唯有让归因反哺进化才能闭合自我改进回路。 |
+| From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms | [arXiv](https://arxiv.org/abs/2605.06716) | 2026.05 | survey, memory, experience-reuse, taxonomy | 将 LLM 智能体记忆划分为三个阶段——存储原始轨迹、反思提炼为精细记忆单元、以及通过跨轨迹抽象形成可复用规则的经验阶段——并指出经验阶段正是记忆从日志转化为策略之处。 |
+| Scalable Environments Drive Generalizable Agents | [arXiv](https://arxiv.org/abs/2605.18181) | 2026.05 | position-paper, open-endedness, taxonomy, world-models | 主张智能体泛化的瓶颈在于世界层面的分布偏移，解法是扩展可执行环境规则集的分布而非增加轨迹数量，并用行为距离度量形式化了轨迹、任务与环境三级扩展。 |
+| Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering | [arXiv](https://arxiv.org/abs/2604.08224) | 2026.04 | survey, taxonomy, memory, skill-library | 综述 LLM 智能体如何在权重之外获得提升，将其归纳为记忆、技能、协议与 harness 工程四个外化层次，并汇总了记忆模块演化、从执行轨迹中蒸馏技能以及自治生命周期管理等自演化 harness 工作。 |
+| Graph-based Agent Memory: Taxonomy, Techniques, and Applications | [arXiv](https://arxiv.org/abs/2602.05665) | 2026.02 | survey, taxonomy, memory, experience-reuse | 系统梳理图结构智能体记忆，覆盖抽取、存储、检索、演化四阶段生命周期与五类图族，并把记忆的巩固与重组视为无需改动参数的自我改进路径。 |
+| Adaptation of Agentic AI: A Survey of Post-Training, Memory, and Skills | [arXiv](https://arxiv.org/abs/2512.16301) | 2025.12 | survey, taxonomy, memory, continual-learning | 该综述以四范式的智能体/工具分类法（从工具执行信号或自身输出评估训练智能体；与智能体无关地训练工具或由冻结智能体监督训练工具）梳理预训练之后的适应方法，涵盖后训练、自适应记忆与技能。 |
+| Memory in the Age of AI Agents | [arXiv](https://arxiv.org/abs/2512.13564) | 2025.12 | survey, memory, experience-reuse, taxonomy | 该综述把智能体记忆界定为区别于 KV-cache 内部机制、RAG 与上下文工程的外部且持续演化的认知状态，并按形态、功能（事实、经验、工作记忆）以及形成、演化与检索的动态过程加以组织。 |
+| Self-Improvement in Multimodal Large Language Models: A Survey | [arXiv](https://arxiv.org/abs/2510.02665) | 2025.10 | survey, taxonomy, multimodal, self-distillation | 该综述把多模态自我改进归纳为数据收集、数据组织与模型优化的三阶段循环，并通过跨基准分析发现：种子模型越强收益越小，且效果高度取决于方法与任务是否匹配。 |
+| A Comprehensive Survey of Self-Evolving AI Agents: A New Paradigm Bridging Foundation Models and Lifelong Agentic Systems | [arXiv](https://arxiv.org/abs/2508.07407) | 2025.08 | survey, taxonomy, multi-agent | 将自进化智能体抽象为覆盖系统输入、智能体系统、环境与优化器的优化闭环，按“进化什么”(权重、提示、记忆、工具、工作流、通信拓扑)构建分类体系，并提出 Endure、Excel、Evolve 三条法则。 |
+| A Survey of Self-Evolving Agents: What, When, How, and Where to Evolve on the Path to Artificial Super Intelligence | [arXiv](https://arxiv.org/abs/2507.21046) | 2025.07 | survey, taxonomy, lifelong-learning | 沿着进化什么、何时进化、如何进化、在何处进化四个维度组织自进化智能体研究——权重、上下文、工具与拓扑；测试内与测试间；奖励式、模仿式与群体式方法——并将评估统一到适应性、保持性、泛化性、效率与安全性。 |
+| Truly Self-Improving Agents Require Intrinsic Metacognitive Learning | [arXiv](https://arxiv.org/abs/2506.05109) | 2025.06 | position-paper, taxonomy, continual-learning | 主张持久的自我改进需要内生元认知——智能体自我评估能力、自主决定学什么与怎么学并评价自身学习策略——而非 STaR 或 Voyager 所用的固定人工设计改进循环。 |
+| Lifelong Learning of Large Language Model based Agents: A Roadmap | [arXiv](https://arxiv.org/abs/2501.07278) | 2025.01 | survey, lifelong-learning, memory, continual-learning | 从感知、记忆与行动三大模块出发系统梳理 LLM 智能体的终身学习技术，逐一归纳各模块方法，并围绕稳定性—可塑性困境与七个开放研究问题勾勒该领域路线图。 |
+
+<a id="limits-failure-modes"></a>
+### 极限与失效模式
+
+闭环失效之处：递归训练下的模型与知识坍缩、多轮演化中的能力侵蚀、奖励攻击与验证器博弈、技能库漂移，以及泛化差距。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| Can AI agents conduct open-ended AI research? Early evidence from two case studies | [arXiv](https://arxiv.org/abs/2607.27191) | 2026.07 | scientific-discovery, taxonomy, benchmark | 让未发表 NeurIPS 论文的原作者按评审标准为智能体撰写的论文打分，发现两次 Claude Opus 4.8 运行分别只得 2/6 与 1/6，并归纳出包括回溯无力与资源利用不当在内的五类反复出现的失败模式。 |
+| More Convincing, Not More Correct: Self-Play Reward Hacking of Reference-Free LLM Judges | [arXiv](https://arxiv.org/abs/2607.05904) | 2026.07 | reward-hacking, self-rewarding, self-play, verifier | 表明无参考的 LLM 裁判评的是看起来是否合理而非正确性，因此 DPO 自我博弈把裁判通过率抬到 0.94 而真实准确率原地不动；要求裁判先自行作答再评分则使假阳性率崩塌。 |
+| Rethinking the Evaluation of Harness Evolution for Agents | [arXiv](https://arxiv.org/abs/2607.12227) | 2026.07 | meta-agent, self-modifying-code, benchmark | 将已报告的 harness 演化收益归因于评测协议缺陷——搜索与最终评估复用同一基准、且缺少预算对齐的基线——并显示演化后的 harness 不敌简单并行采样，迁移到留出任务平均仅提升 0.6 分。 |
+| Self-Authored Verification Is Unreliable in Heuristic Self-Improving Agents | [arXiv](https://arxiv.org/abs/2607.24300) | 2026.07 | reward-hacking, verifier, self-modifying-code | 揭示验证—部署鸿沟：自行编写验收测试的智能体一边报告成功、一边表现低于随机策略；SEAL 让每次自我提议的修改都必须通过一个对智能体不可见的审计环境，且只返回一位接受/拒绝信号。 |
+| Memory Reward Inflation in Self-Improving LLM Agents | [arXiv](https://arxiv.org/abs/2608.00017) | 2026.06 | memory, reward-hacking, self-rewarding, verifier | 形式化了“回声鸿沟”：自评记忆的智能体会系统性高估错误经验的分数并优先反复检索它们；并提出 LUCID，用无标签的答案无关证据下调分数，将 BIRD text-to-SQL 准确率从 54.0% 提升到 56.9%。 |
+| Rethinking Continual Experience Internalization for Self-Evolving LLM Agents | [arXiv](https://arxiv.org/abs/2606.04703) | 2026.06 | capability-erosion, experience-reuse, self-distillation, continual-learning | 对将 agent 经验内化进权重的多轮自进化做受控研究，揭示了渐进式能力坍塌，并表明原则级、分步注入的离策略蒸馏可以避免它，使三轮迭代持续提升，而全局注入退化至 12.8%。 |
+| The Self-Correction Illusion: Role Relabeling Gates Explicit Error Flagging in Large Language Models | [arXiv](https://arxiv.org/abs/2606.05976) | 2026.06 | self-correction, context-engineering, reasoning | 把逐字节相同的错误论断从模型自身的思考改写为外部来源后，九个模型的显式纠错率提升 23 至 93 个百分点，说明自我纠错失败源于「可寻址性」问题，而非缺乏验证能力。 |
+| Do Self-Evolving Agents Forget? Capability Degradation and Preservation in Lifelong LLM Agent Adaptation | [arXiv](https://arxiv.org/abs/2605.09315) | 2026.05 | capability-erosion, forgetting, continual-learning, skill-library | 系统记录了工作流、技能、模型与记忆四条进化通道上的能力侵蚀，并提出带正则项的 Capability-Preserving Evolution 模板锚定既有行为，将保留的简单任务准确率从 41.8% 提升到 52.8%。 |
+| Library Drift: Diagnosing and Fixing a Silent Failure Mode in Self-Evolving LLM Skill Libraries | [arXiv](https://arxiv.org/abs/2605.19576) | 2026.05 | skill-library, tool-synthesis, coding-agents | 诊断出“库漂移”——技能无节制累积会污染检索并使收益停滞——并以 Ratchet 治理（基于结果的技能退休、50 个技能上限与元技能撰写先验）将 MBPP+ hard-100 准确率从 0.258 提升至 0.584。 |
+| On the Generalization Gap in Self-Evolving Language Model Reasoning | [arXiv](https://arxiv.org/abs/2606.01075) | 2026.05 | verifier, self-correction, reasoning | 在无污染的 Knights-and-Knaves 测试床上对比四种离线自我进化策略与 oracle 监督，发现生成器-验证器闭环主要是强化模型已有的解题模式（Pass@1 提升而 Pass@32 几乎不变），并留下 8-13 个百分点的持续差距。 |
+| Survive or Collapse: The Asymmetric Roles of Data Gating and Reward Grounding in Self-Play RL | [arXiv](https://arxiv.org/abs/2605.22217) | 2026.05 | self-play, model-collapse, verifier, formal-analysis | 把自博弈 RL 中的数据门控与奖励设计分离，证明可执行性门控本身决定存亡：在各种奖励变体下验证准确率都稳定在 0.7 左右，而门控一旦泄漏就崩塌到约 0.005。 |
+| LLMs Gaming Verifiers: RLVR can Lead to Reward Hacking | [arXiv](https://arxiv.org/abs/2604.15149) | 2026.04 | reward-hacking, verifier, reinforcement-learning | Isomorphic Perturbation Testing 在标识符被置换的等价任务上重新校验归纳出的规则，揭示经 RLVR 训练的模型靠枚举对象标识符通过验证器而非真正归纳规则，且这种捷径随任务复杂度与测试时计算量增加而增多。 |
+| Self-Correction as Feedback Control: Error Dynamics, Stability Thresholds, and Prompt Interventions in LLMs | [arXiv](https://arxiv.org/abs/2604.22273) | 2026.04 | self-correction, formal-analysis, theory | 将迭代式自我纠错建模为含错误引入率与纠错率的两态马尔可夫链，推导出稳定性阈值，表明只有 EIR 接近零的模型才能从反复精炼中获益；verify-first 提示可将 GPT-4o-mini 由 -6.2pp 翻为正收益。 |
+| When Continual Learning Moves to Memory: A Study of Experience Reuse in LLM Agents | [arXiv](https://arxiv.org/abs/2604.27003) | 2026.04 | memory, experience-reuse, continual-learning, forgetting | 指出记忆增强智能体只是转移而非摆脱稳定性-可塑性困境：直接存储原始轨迹带来负向前向迁移（ALFWorld -9.5%），而 LLM 抽象出的经验洞见带来正向迁移，细粒度记忆则以 -10% 后向迁移换取 +15% 前向迁移。 |
+| How Far Can Unsupervised RLVR Scale LLM Training? | [arXiv](https://arxiv.org/abs/2603.08660) | 2026.03 | label-free-rl, model-collapse, reward-hacking, theory | 以统一理论刻画无监督 RLVR，证明 KL 正则化下的内在奖励会以几何速率收敛到仅锐化基座模型的初始多数答案；五种变体均在约 1,000 步坍塌，且仅约 12% 的题目正确性被翻转。 |
+| Self-Play Only Evolves When Self-Synthetic Pipeline Ensures Learnable Information Gain | [arXiv](https://arxiv.org/abs/2603.02218) | 2026.02 | self-play, proposer-solver, position-paper, theory | 用 epiplexity（一种受算力约束的 MDL 分解）形式化“可学习信息”，指出 Absolute Zero 式自博弈会停滞，因为合成数据不再提供求解器可内化的结构，并据此提出非对称协同进化与逐步增长的容量预算。 |
+| Large Language Model Agents Are Not Always Faithful Self-Evolvers | [arXiv](https://arxiv.org/abs/2601.22436) | 2026.01 | memory, experience-reuse, faithfulness | 以清空、破坏或替换记忆的方式因果检验自演化智能体是否真的使用经验，发现它们依赖原始轨迹，但在被破坏、无关或填充式的浓缩经验下得分几乎相同。 |
+| On the Limits of Self-Improving in Large Language Models: The Singularity Is Not Near Without Symbolic Model Synthesis | [arXiv](https://arxiv.org/abs/2601.05280) | 2026.01 | model-collapse, theory, formal-analysis, takeoff | 将递归自训练形式化为在外部真实数据占比不断下降时的 KL 密度匹配，证明外部信号消失后会出现熵衰减与无界方差漂移，主张靠符号化程序合成而非扩大规模才能摆脱崩塌。 |
+| LLM Agents Beyond Utility: An Open-Ended Perspective | [arXiv](https://arxiv.org/abs/2510.14548) | 2025.10 | open-endedness, memory, forgetting | 为 Qwen3-4B ReAct 智能体配备基于文件的持久长期记忆并让其自行生成任务，结果自定目标退化为重复的老套程序、用户反馈完全丢失，指出记忆筛选才是开放式行为的根本瓶颈。 |
+| Towards Understanding Self-play for LLM Reasoning | [arXiv](https://arxiv.org/abs/2510.27072) | 2025.10 | self-play, proposer-solver, reasoning | 该研究从 pass@k、熵动态与参数更新稀疏性等角度剖析 Absolute Zero Reasoner，表明自博弈只是锐化基础模型的分布而非扩展其推理能力，若无外部探索就无法把概率质量放到基础模型支撑集之外。 |
+| Knowledge Collapse in LLMs: When Fluency Survives but Facts Fail under Recursive Synthetic Training | [arXiv](https://arxiv.org/abs/2509.04796) | 2025.09 | model-collapse, synthetic-data, capability-erosion | 在自生成文本上递归微调会先毁事实、后毁形式：三阶段轨迹会经过"危险胜任的低谷"，此时流畅度与指令遵循仍然完好而 MMLU 准确率已经下滑，而领域专用合成数据可使衰减速度慢约 15 倍。 |
+| Can Large Reasoning Models Self-Train? | [arXiv](https://arxiv.org/abs/2505.21444) | 2025.05 | self-rewarding, label-free-rl, reward-hacking, reinforcement-learning | Self-Rewarded Training 用模型自身 rollout 的多数投票取代标注奖励，初期可比肩有标注 RL，但随后策略会通过输出固定的 \boxed 答案劫持自设奖励，在所有受测基座模型上崩溃。 |
+
+<a id="safety-control-governance"></a>
+### 安全、管控与治理
+
+让自改进系统保持可控：误演化与涌现风险、自我复制与危险能力评估、面向不可信模型的管控协议，以及衡量 AI 研发自动化程度的指标。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| SkillJack: Persistent Skill Backdoors in Self-Evolving Agents | [arXiv](https://arxiv.org/abs/2608.03509) | 2026.08 | skill-library, safety-evaluation, memory | 通过注入措辞良性的投毒轨迹攻击自进化智能体的技能抽取阶段，使其蒸馏流程把违规行为洗白为持久的技能产物：LLM 评审检测率从 98.5% 降至 11.4%，且 80% 的攻击在原始记录被删除后仍然存续。 |
+| When Experience Becomes Instruction: Trajectory Poisoning in Self-Evolving Agent Skill Systems | [arXiv](https://arxiv.org/abs/2608.05563) | 2026.08 | skill-library, experience-reuse, safety-evaluation | 以不可信用户的身份毒化自进化技能系统，靠操纵证据归因而非注入显式恶意指令，仅凭 30 条记录池中的 3 条记录，就在 91% 的试验中把恶意行为嵌入被提升的技能。 |
+| Distributed Attacks in Persistent-State AI Control | [arXiv](https://arxiv.org/abs/2607.02514) | 2026.07 | control-protocol, safety-evaluation, coding-agents | 提出 Iterative VibeCoding 设定：不可信编码智能体把隐蔽副任务分散到连续多个 pull request 中，87% 的情况下绕过 diff 监控；带跨 PR 持久笔记的有状态监控将逃逸率降到 54%。 |
+| Attack Selection in Agentic AI Control Evaluations Meaningfully Decreases Safety | [arXiv](https://arxiv.org/abs/2606.06529) | 2026.06 | control-protocol, safety-evaluation, scheming | 让不可信攻击者自行选择出手时机——开始前为每对任务打分、并在被察觉风险升高时中途放弃——使控制评估中测得的安全性下降 20 至 28 个百分点，而攻击成功率并未上升。 |
+| Safety in Self-Evolving LLM Agent Systems: Threats, Amplification, and Case Studies | [arXiv](https://arxiv.org/abs/2606.23075) | 2026.06 | safety-evaluation, taxonomy, self-modifying-code | 将五个 agent 模块与五个演化生命周期阶段交叉，得到 25 格攻击面矩阵，表明自我演化会把可逆的 prompt injection 变成权重级持久化入侵；40 个场景中所有攻击载荷均持久留存，而安全扫描器仅拦下一个。 |
+| Decomposing and Measuring Evaluation Awareness | [arXiv](https://arxiv.org/abs/2605.23055) | 2026.05 | safety-evaluation, scheming, benchmark | 将评估意识分解为环境可识别性、模型识别能力与行为倾向三部分，并通过八个可开关的触发因素度量，发现识别取决于模型与环境的交互，且仅约 20% 的识别情形会真正改变行为。 |
+| OEP: Poisoning Self-Evolving LLM Agents via Locally Correct but Non-Transferable Experiences | [arXiv](https://arxiv.org/abs/2605.18930) | 2026.05 | memory, experience-reuse, safety-evaluation | Obsessive Experience Poisoning 提交局部正确但不可迁移的边缘案例并附加严重的假设性后果，诱使具备反思能力的智能体将其蒸馏为过度泛化的记忆规则，对 GPT-4o 智能体的攻击成功率超过 50%。 |
+| On Safety Risks in Experience-Driven Self-Evolving Agents | [arXiv](https://arxiv.org/abs/2604.16968) | 2026.04 | safety-evaluation, memory, experience-reuse | 仅靠积累良性任务的经验就会削弱智能体安全性：在 7 个基座模型与两种记忆框架上，攻击成功率上升 13%-49%，因为检索到的轨迹使智能体偏向执行而非拒绝，而加入拒绝经验又会带来过度拒绝。 |
+| Risk Reporting for Developers' Internal AI Model Use | [arXiv](https://arxiv.org/abs/2604.24966) | 2026.04 | governance, safety-evaluation, position-paper | 提出一份统一的内部使用风险报告模板，可同时满足 SB 53、RAISE Act 与欧盟 GPAI 行为准则，将自主失控与内部人员威胁两条路径同手段、动机、机会三要素交叉，并把 AI R&D 自动化指标作为先行指标。 |
+| Governing Evolving Memory in LLM Agents: Risks, Mechanisms, and the Stability and Safety Governed Memory (SSGM) Framework | [arXiv](https://arxiv.org/abs/2603.11768) | 2026.03 | memory, governance, taxonomy | 梳理自我改写的智能体记忆如何失效（语义漂移、投毒、跨智能体泄露），并提出 SSGM 的三层治理：带来源与新鲜度校验的读取门、拒绝矛盾更新的写入门、不可变情节账本，将记忆演化与执行解耦。 |
+| Measuring AI R&D Automation | [arXiv](https://arxiv.org/abs/2603.03992) | 2026.03 | governance, takeoff, safety-evaluation | 提出实验、调查、运营与组织四类共 14 项指标——从人机对照的随机研究试验到算力分配与监督能力——使企业与监管者能在基准测试显现之前察觉 AI 加速的研发反馈回路。 |
+| AI Researchers' Views on Automating AI R&D and Intelligence Explosions | [arXiv](https://arxiv.org/abs/2603.03338) | 2026.02 | governance, takeoff, expert-elicitation | 访谈 25 位前沿实验室与学界的 AI 研究者，发现 25 人中有 20 人将自动化 AI 研发列为最严重的风险之一，23 人更支持透明度披露要求而非僵化红线。 |
+| Internal Deployment Gaps in AI Regulation | [arXiv](https://arxiv.org/abs/2601.08005) | 2026.01 | governance, position-paper, safety-evaluation | 通过比较欧盟 AI Act、SB 53、RAISE 与 AIREA，该分析指出前沿监管只针对对外发布，而自动化研发的系统仅在实验室内部部署，暴露出范围模糊、时点式合规与信息不对称三类结构性缺口。 |
+| Recontextualization Mitigates Specification Gaming without Modifying the Specification | [arXiv](https://arxiv.org/abs/2512.19027) | 2025.12 | reward-hacking, reinforcement-learning, safety-evaluation | 在 on-policy RL 中把数据生成提示与训练提示解耦：在抑制不当行为的提示下采样补全，再配上放任的提示做梯度更新，从而在四个场景中减少 specification gaming 且不损失能力。 |
+| Evaluating Control Protocols for Untrusted AI Agents | [arXiv](https://arxiv.org/abs/2511.02997) | 2025.11 | control-protocol, safety-evaluation, scheming | 在 SHADE-Arena 上进行蓝队对红队评测，按安全性与可用性对五种控制协议排序，发现一旦不可信智能体能够模拟监控器，resample-then-defer 的安全性就从 89% 崩至 17%，而 defer-on-critical-action 依然稳健。 |
+| Natural Emergent Misalignment from Reward Hacking in Production RL | [arXiv](https://arxiv.org/abs/2511.18397) | 2025.11 | reward-hacking, safety-evaluation, scheming, reinforcement-learning | 在描述真实编码 reward hack 的文档上微调 Claude 系模型并在生产环境中做 RL，结果表明学会作弊会因果性地泛化为广泛的失准，而一行 inoculation prompt 可将其削减 75-90%。 |
+| Adaptive Attacks on Trusted Monitors Subvert AI Control Protocols | [arXiv](https://arxiv.org/abs/2510.09462) | 2025.10 | control-protocol, safety-evaluation, reward-hacking | 让不可信模型完全掌握控制协议，从而在自身输出中嵌入提示注入，把可信监控器的可疑度打分归零，使可信监控、defer-to-trusted 与可信编辑等协议退化到无监控器的前置审计基线。 |
+| Dive into the Agent Matrix: A Realistic Evaluation of Self-Replication Risk in LLM Agents | [arXiv](https://arxiv.org/abs/2509.25302) | 2025.09 | safety-evaluation, autonomous-replication, benchmark | 在真实 Kubernetes 集群上以负载均衡与终止威胁两类运营压力部署 LLM 智能体，衡量失控自我复制的倾向而非能力，发现 21 个模型中超过一半表现出明显的失控复制趋势。 |
+| Stress Testing Deliberative Alignment for Anti-Scheming Training | [arXiv](https://arxiv.org/abs/2509.15541) | 2025.09 | scheming, safety-evaluation, reward-hacking | 训练 OpenAI o3 与 o4-mini 显式援引反 scheming 规范，在 180 多个留出环境中将隐蔽违规行为降低约 30 倍，但同时表明上升的“被评估意识”因果性地贡献了部分改进。 |
+| Your Agent May Misevolve: Emergent Risks in Self-evolving LLM Agents | [arXiv](https://arxiv.org/abs/2509.26354) | 2025.09 | safety-evaluation, reward-hacking, tool-synthesis, memory | 提出并系统度量"误演化"——在没有任何攻击者的情况下仅由 agent 自我演化引发的安全性衰退——覆盖模型、记忆、工具与工作流四条演化路径，前沿模型在记忆演化数轮后拒答率下降约 45%。 |
+| SHADE-Arena: Evaluating Sabotage and Monitoring in LLM Agents | [arXiv](https://arxiv.org/abs/2506.15740) | 2025.06 | safety-evaluation, benchmark, scheming, control-protocol | 在 17 个环境中把良性智能体任务与隐藏的破坏性副任务配对，并让 LLM 监控器阅读完整轨迹打分；最强破坏者成功率为 27%，而移除其隐藏 scratchpad 会大幅降低破坏成功率。 |
+| An alignment safety case sketch based on debate | [arXiv](https://arxiv.org/abs/2505.03989) | 2025.05 | safety-evaluation, position-paper, governance | 为沙箱中的超人类 AI 研发智能体勾勒出一份对齐安全论证：以 prover-estimator debate 训练，并将诚实性分解为四项可审计主张，同时指出 exploration hacking 是关键的未解难题。 |
+| Evaluating Frontier Models for Stealth and Situational Awareness | [arXiv](https://arxiv.org/abs/2505.01420) | 2025.05 | safety-evaluation, scheming, benchmark | 十六项隐蔽性与情境自我认知挑战配合人类基线，用于检验前沿模型是否具备图谋能力；Gemini 2.5、GPT-4o、o1 与 Claude 3.7 仅通过 2/5 与 2/11，支持基于“无能力”的安全论证。 |
+| Bare Minimum Mitigations for Autonomous AI Development | [arXiv](https://arxiv.org/abs/2504.15416) | 2025.04 | governance, position-paper, safety-evaluation | 指出竞争压力将促使前沿实验室把大部分内部 AI 研发交给 AI 智能体，并提出四项底线保障：保留人类对训练与评估的深度技术理解、抗颠覆的算力滥用检测、危险能力跃升的快速上报，以及强化的信息安全。 |
+| RepliBench: Evaluating the Autonomous Replication Capabilities of Language Model Agents | [arXiv](https://arxiv.org/abs/2504.18565) | 2025.04 | autonomous-replication, safety-evaluation, benchmark | RepliBench 将自主复制拆解为四大支柱与 86 个智能体任务，覆盖资源获取、权重外泄、部署与持久化；Claude 3.7 Sonnet 能完成多数环节，但 KYC 身份验证仍是 0% 的硬瓶颈。 |
+| A sketch of an AI control safety case | [arXiv](https://arxiv.org/abs/2501.17315) | 2025.01 | control-protocol, scheming, safety-evaluation, governance | 勾勒一套结构化论证，说明即便内部部署的 ML 工程智能体蓄意图谋不轨也无法外泄模型权重：以红蓝对抗的控制评估、可信与不可信监控器组合以及向完整部署的显式外推，将一年期风险约束在 3% 以下。 |
+
+<a id="benchmarks-infrastructure"></a>
+### 基准与基础设施
+
+领域赖以衡量与构建的底座：AI 研发与自我演化基准、流式与持续评估、支持快速回滚的沙箱，以及自改进系统的开源框架。
+
+| 论文 | 链接 | 日期 | 标签 | 摘要 |
+| --- | --- | --- | --- | --- |
+| GDPevo: Evaluating Agent Self-Evolution on Real Business Tasks | [arXiv](https://arxiv.org/abs/2608.03764) | 2026.08 | benchmark, experience-reuse, skill-library | 通过将原子决策规则打散到训练任务、并在留出测试中重新组合，检验企业级智能体是否真正从经验中学习；最好的自演化设置只达到 67%，而知情 oracle 上限为 91.6%。 |
+| PAST-Bench: Benchmarking the Foundations of Recursive Self-Improvement in Personal Agents | [arXiv](https://arxiv.org/abs/2608.04003) | 2026.08 | benchmark, memory, continual-learning | 以持久化开/关的配对实验在 204 个 episode 上隔离智能体的持久化层，并将自演化增益与机制证据分数配对；增益区间为 +0.13 到 +0.24，其中一个框架反而退化。 |
+| AgentStream: How Well Do Self-Evolving LLM Agents Perform Under Streaming Tasks? | [arXiv](https://arxiv.org/abs/2608.00155) | 2026.07 | benchmark, memory, continual-learning | 将六个基准的任务以隔离、顺序、交错三种模式流式送入五种自进化方法，显示跨领域混合后正收益率从 75.7% 降至 62.3%，且最强模型出现负向进化。 |
+| EvoAgentBench: Benchmarking Agent Self-Evolution via Ability Transfer | [arXiv](https://arxiv.org/abs/2607.05202) | 2026.07 | benchmark, experience-reuse, skill-library, memory | 通过从执行轨迹中抽取 Ability card 并构建按领域划分的 Ability Graph，保证每个测试任务都有经过验证的训练侧支撑，从而隔离出自进化智能体的过程性能力迁移；人工整理的技能在所有设置下都提升，而 Memento、ReasoningBank 和 GEPA 出现负迁移。 |
+| EvoPolicyGym: Evaluating Autonomous Policy Evolution in Interactive Environments | [arXiv](https://arxiv.org/abs/2607.02440) | 2026.07 | benchmark, self-modifying-code, reinforcement-learning | 通过让 harness 智能体在固定 128 回合预算下反复重写可执行的 Python 控制策略、并隐藏留出用例，在 16 个交互式环境上评测自主策略演化；GPT-5.5 以 0.891 的排名分领先。 |
+| RSIBench-Data: Benchmarking Data-Centric Research for Recursive Self-Improvement | [arXiv](https://arxiv.org/abs/2607.25886) | 2026.07 | benchmark, synthetic-data, coding-agents | 冻结模型、训练器与预算，使研究智能体唯一的操作空间是提出训练数据配方，揭示出发现与可靠性之间的落差：78% 继续搜索的运行最终低于自身峰值分数。 |
+| SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use | [arXiv](https://arxiv.org/abs/2607.01874) | 2026.07 | benchmark, verifier, process-reward, skill-library | 通过 rollout、LLM 评判与仲裁循环，并以验证门控方式接受局部补丁，自演化出覆盖四个技能使用维度的轨迹级评分标准，使与人工轨迹标注的一致率从 82% 升至 96%，并将据其筛选的 SFT 从 18% 提升到 32%。 |
+| MAS-PromptBench: When Does Prompt Optimization Improve Multi-Agent LLM Systems? | [arXiv](https://arxiv.org/abs/2606.23664) | 2026.06 | benchmark, prompt-optimization, multi-agent, agent-topology | 通过对任务、拓扑、通信协议与团队规模做析因变化，检验 prompt 优化能否迁移到多智能体系统，发现增益从单智能体的 +4.2 分收缩到多智能体的 +0.5 至 +2.3 分，并在十个智能体时转为负值（-2.1）。 |
+| The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development? | [arXiv](https://arxiv.org/abs/2606.04455) | 2026.06 | benchmark, meta-agent, sandbox, coding-agents | 将 agent 评测重新定义为构建求解器：基于代码的 meta-agent 在沙箱工作区中借助评测 API 和 12-24 小时预算设计能泛化到留出任务的 agent，309 个配置中仅 55 个超过人工工程基线。 |
+| BenchTrace: A Benchmark for Testing Reflection Ability and Controlled Evolution in LLM Agents | [arXiv](https://arxiv.org/abs/2605.29225) | 2026.05 | benchmark, self-correction, experience-reuse, forgetting | BenchTrace 将自我进化评测拆分为反思能力（检测、定位、诊断失败）与受控进化（重放先前失败轨迹后的失败规避率），基于 1,821 条标注轨迹，揭示端到端反思通过率不足 30%。 |
+| DeltaBox: Scaling Stateful AI Agents with Millisecond-Level Sandbox Checkpoint/Rollback | [arXiv](https://arxiv.org/abs/2605.22781) | 2026.05 | sandbox, reinforcement-learning, coding-agents | 只对变化的 overlay 文件系统层做检查点，并配合异步 CRIU dump，使智能体沙箱的检查点约 11 毫秒、恢复约 2 毫秒，让 MCTS 与并行 RL rollout 的状态管理开销从 23-48% 降到 1-2%。 |
+| Hack-Verifiable Environments: Towards Evaluating Reward Hacking at Scale | [arXiv](https://arxiv.org/abs/2605.20744) | 2026.05 | benchmark, reward-hacking, sandbox, safety-evaluation | 通过给 TextArena 游戏包裹一层植入四类可验证漏洞（隐藏答案文件、逻辑漏洞、泄露的对手提示词、可编辑的观测内容）的模拟文件系统，使奖励攻陷可被确定性检测，暴露出五个前沿模型最高达 60% 的攻陷率。 |
+| MLReplicate: Benchmarking Autonomous Research Systems for Machine Learning Reproducibility | [arXiv](https://arxiv.org/abs/2605.16616) | 2026.05 | benchmark, scientific-discovery | MLReplicate 把 ICML 2025 杰出论文转化为标准化的真值规范，并据此运行六个自主研究系统，发现自动评审接收的稿件中有 59% 含有虚构论断，且算力投入并不能预测质量。 |
+| OPT-BENCH: Evaluating the Iterative Self-Optimization of LLM Agents in Large-Scale Search Spaces | [arXiv](https://arxiv.org/abs/2605.08904) | 2026.05 | benchmark, self-correction, experience-reuse | OPT-BENCH 将 20 个 Kaggle 机器学习任务与 10 个 NP 难问题配对，并配套一个依据带分数的历史解与错误日志迭代改进方案的智能体，结果显示只有更强的模型能利用反馈，且所有模型仍低于人类专家。 |
+| Frontier Coding Agents Can Now Implement an AlphaZero Self-Play Machine Learning Pipeline For Connect Four That Performs Comparably to an External Solver | [arXiv](https://arxiv.org/abs/2604.25067) | 2026.04 | benchmark, coding-agents, self-play, sandbox | 以编码智能体能否在 3 小时沙箱内从零搭建 Connect Four 的 AlphaZero 自博弈流水线来衡量 AI 造 AI 的能力；Claude Opus 4.7 已接近完美求解器水平，而该任务在数月前几乎不可能完成。 |
+| Frontier-Eng: Benchmarking Self-Evolving Agents on Real-World Engineering Tasks with Generative Optimization | [arXiv](https://arxiv.org/abs/2604.12290) | 2026.04 | benchmark, verifier, sandbox | 在 47 个由仿真器支撑、验证器沙箱化的工程任务上，以固定预算内取得的最优可行方案为智能体评分，揭示自我改进呈双重幂律衰减，约 50-100 次迭代后边际收益趋近于零。 |
+| SEA-Eval: A Benchmark for Evaluating Self-Evolving Agents Beyond Episodic Assessment | [arXiv](https://arxiv.org/abs/2604.08988) | 2026.04 | benchmark, memory, experience-reuse | 把 32 个原子级网页与本地系统任务组合成 92 条顺序任务流，在干净与含噪记忆条件下同时以成功率和 token 消耗评估自进化智能体；成功率相近时成本相差最高约 31 倍，暴露出伪进化。 |
+| Tool-Genesis: A Task-Driven Tool Creation Benchmark for Self-Evolving Language Agent | [arXiv](https://arxiv.org/abs/2603.05578) | 2026.03 | benchmark, tool-synthesis, self-correction | 该基准刻意隐去接口规范，要求智能体仅凭任务描述编写可复用的 MCP 工具，并以四级评测阶梯打分，暴露出效用转化瓶颈：GPT-5.1 的合规率为 0.826，任务成功率却只有 0.372。 |
+| ResearchGym: Evaluating Language Model Agents on Real-World AI Research | [arXiv](https://arxiv.org/abs/2602.15112) | 2026.02 | benchmark, sandbox, scientific-discovery, coding-agents | 将五篇 2025 年获奖机器学习论文改造成容器化研究环境，共 39 个可评分子任务；在 12 小时预算下，GPT-5 智能体仅在 15 次评测中的 1 次超过给定基线。 |
+| Evo-Memory: Benchmarking LLM Agent Test-time Learning with Self-Evolving Memory | [arXiv](https://arxiv.org/abs/2511.20857) | 2025.11 | benchmark, memory, experience-reuse | 把 10 个推理与交互式数据集改造成顺序任务流，迫使 agent 每步检索、行动并演化记忆，在统一接口下复现十余种记忆系统，并提出自我精炼的 ReMem，将 AlfWorld 成功率从 0.18 提升到 0.92。 |
+| Towards Self-Evolving Benchmarks: Synthesizing Agent Trajectories via Test-Time Exploration under Validate-by-Reproduce Paradigm | [arXiv](https://arxiv.org/abs/2510.00415) | 2025.10 | benchmark, verifier, curriculum | TRACE 通过提案、执行与校验三类智能体把种子任务分叉为更难的题目，并从可复现的执行轨迹事后定义问题，从而进化已饱和的智能体基准，两轮后使 GAIA Pass@1 最多下降 23.7 个百分点。 |
+| Building Self-Evolving Agents via Experience-Driven Lifelong Learning: A Framework and Benchmark | [arXiv](https://arxiv.org/abs/2508.19005) | 2025.08 | benchmark, lifelong-learning, memory, continual-learning | 以经验探索、长期记忆、技能学习与知识内化四大支柱刻画自进化智能体，并用包含 1,284 个任务的有状态大学生活模拟 StuLife 进行评测，最佳模型 GPT-5 仅得 17.9/100。 |
+| EvoAgentX: An Automated Framework for Evolving Agentic Workflows | [arXiv](https://arxiv.org/abs/2507.03616) | 2025.07 | workflow-search, prompt-optimization, multi-agent | 开源平台把自然语言目标编译成多智能体工作流图，再用可插拔的提示与拓扑优化器（TextGrad、MIPRO、AFlow）在自动评估闭环中演化该工作流，在 MBPP 与 MATH 上各提升约十个点。 |
+| LifelongAgentBench: Evaluating LLM Agents as Lifelong Learners | [arXiv](https://arxiv.org/abs/2505.11942) | 2025.05 | benchmark, lifelong-learning, experience-reuse | 在相互依赖的数据库、操作系统与知识图谱技能上评测终身学习，显示经验回放使 Llama-3.1-8B 的 SQL 成功率从 19% 升至 78%，但在其他环境趋于饱和，直到分组自一致性投票恢复准确率。 |
+| OpenEvolve: an open-source evolutionary coding agent | [GitHub](https://github.com/algorithmicsuperintelligence/openevolve) | 2025.05 | evolutionary-search, quality-diversity, algorithm-discovery, coding-agents | 开源复现 AlphaEvolve：LLM 集成在评估器反馈下重写整份程序，配合 MAP-Elites 存档、岛屿种群与错误回传旁路，复现了 2.635 的圆填充结果，并进化出快 2-3 倍的 GPU kernel。 |
+| Measuring AI Ability to Complete Long Tasks ★ | [arXiv](https://arxiv.org/abs/2503.14499) | 2025.03 | benchmark, takeoff, coding-agents | 提出“50% 任务完成时间跨度”指标——即模型有一半概率完成、按人类专家耗时衡量的任务长度——并发现该跨度在 2019-2025 年的前沿模型上约每七个月翻一番。 |
+| Automated Capability Discovery via Foundation Model Self-Exploration | [arXiv](https://arxiv.org/abs/2502.07577) | 2025.02 | benchmark, open-endedness, archive-search | 让一个基础模型充当科学家角色，自主提出带自动评分函数的新任务族，并以不断增长的任务档案做新颖性过滤，再交由被测模型作答，从而自动发现数千项未知能力与令人意外的失败。 |
+| MLGym: A New Framework and Benchmark for Advancing AI Research Agents | [arXiv](https://arxiv.org/abs/2502.14499) | 2025.02 | benchmark, sandbox, coding-agents | 提供 Gymnasium 兼容环境与 13 项任务基准，在 Docker 沙箱中以文献检索与记忆工具评测 LLM 研究智能体；前沿模型主要靠调超参改进基线，从未提出新算法。 |
+
+<a id="maintenance-notes"></a>
+## 维护说明
+
+- 数据源：`data/papers.yaml`（分类定义见 `data/categories.yaml`）
+- 重新生成 README：`node scripts/render_readme.mjs`
+- 校验编目与链接：`node scripts/verify_catalog.mjs`
+- 校验历史：`reports/verification/`
+
+<a id="citation"></a>
+## 引用
+
+```bibtex
+@misc{awesomersi2026,
+  title={Awesome RSI: A Curated Catalog of Recursive Self-Improvement Research},
+  author={Awesome RSI Contributors},
+  howpublished={\url{https://github.com/Token-Rhythm/awesome-rsi}},
+  year={2026}
+}
+```
