@@ -9,7 +9,7 @@ Do not edit `README.md` or `README_zh.md` by hand; both are rendered from `data/
 ```bash
 node scripts/render_readme.mjs      # regenerate both README files
 node scripts/verify_catalog.mjs     # schema, duplicates, date window, style
-node scripts/verify_catalog.mjs --links   # additionally re-resolve every URL
+node scripts/verify_catalog.mjs --links --repos   # additionally re-resolve every URL and repository
 ```
 
 Only Node.js 18+ is required; the toolchain has no dependencies.
@@ -26,6 +26,7 @@ Append a record to `data/papers.yaml`:
   date: 2025-05
   venue: arXiv
   authors: Zhang et al.
+  repo: jennyzzt/dgm
   category: self-modifying-agents
   tags: [self-modifying-code, open-ended-archive, coding-agents]
   landmark: true
@@ -38,6 +39,7 @@ Field rules:
 - `id` — kebab-case, unique, stable once merged.
 - `url` — `https`, pointing at the canonical landing page (`arxiv.org/abs/...`, a publisher page, or the project repository). Not a PDF.
 - `date` — `YYYY-MM` of first public release; arXiv v1, not the newest revision.
+- `repo` — `owner/name` of the **official** code release, which becomes a live star badge in the table. Omit it when the work has no code, when the only repository is a third-party reimplementation, or when the link the paper promises is empty or 404. A paper-list or awesome-list companion repo does not count as code.
 - `category` — one of the ids in `data/categories.yaml`. Anything outside `foundations-theory` must be dated `2025-01` or later.
 - `tags` — two to four kebab-case tags. Reuse existing tags where one fits.
 - `landmark` — omit unless the work defined or redirected a line of research.

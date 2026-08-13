@@ -5,7 +5,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import {
   ROOT, loadPapers, loadCategories, groupByCategory, sortForDisplay,
-  stats, anchor, displayDate, CUTOFF,
+  stats, anchor, displayDate, starBadge, CUTOFF,
 } from './lib/catalog.mjs'
 
 const check = process.argv.includes('--check')
@@ -15,18 +15,21 @@ const STRINGS = {
     file: 'README.md',
     title: '# Awesome RSI',
     lede: 'A curated, evidence-first list of **recursive self-improvement (RSI)** research: AI systems that improve their own weights, prompts, memory, skills, tools, workflows, source code, or the improvement mechanism itself.',
-    total: 'Total entries', arxivLine: 'arXiv entries', window: 'Entries from 2025 onward (excluding foundations)',
+    total: 'Total entries', arxivLine: 'arXiv entries', repoLine: 'Entries with released code',
+    window: 'Entries from 2025 onward (excluding foundations)',
     cats: 'Categories', verified: 'Last verified', langLine: 'Language: [English](./README.md) | [中文](./README_zh.md)',
     featured: 'Featured RSI Readings', contents: 'Contents', overview: 'Category Overview',
     catalog: 'Catalog', catHead: 'Category', entHead: 'Entries',
-    cols: '| Paper | Link | Date | Tags | Summary |',
+    cols: '| Paper | Link | Stars | Date | Tags | Summary |',
+    sep: '| --- | --- | --- | --- | --- | --- |',
     notes: 'Notes:',
     noteList: [
       '`Date` is the first public release (arXiv v1 month for preprints).',
+      '`Stars` badges are live: they read the current count from GitHub on every page load, and clicking one opens the repository. A `-` means the work has no official code release.',
       'Entries are sorted by date (newest first) within each category.',
       'Only `Foundations & Theory` carries pre-2025 work; every other category starts at ' + CUTOFF + '.',
       '★ marks a landmark entry that defined or redirected a line of work.',
-      'Links were resolved against their source page during the last verification pass.',
+      'Links and repositories were resolved against their source pages during the last verification pass.',
     ],
     maint: 'Maintenance Notes',
     maintList: [
@@ -41,18 +44,21 @@ const STRINGS = {
     file: 'README_zh.md',
     title: '# Awesome RSI',
     lede: '一份以证据为先的**递归自我改进（RSI）**研究清单：能够改进自身权重、提示、记忆、技能、工具、工作流、源代码，乃至改进机制本身的 AI 系统。',
-    total: '条目总数', arxivLine: 'arXiv 条目', window: '2025 年及以后的条目（不含基础理论）',
+    total: '条目总数', arxivLine: 'arXiv 条目', repoLine: '已开源代码的条目',
+    window: '2025 年及以后的条目（不含基础理论）',
     cats: '分类数', verified: '最近校验', langLine: '语言: [English](./README.md) | [中文](./README_zh.md)',
     featured: '精选 RSI 读物', contents: '目录', overview: '分类概览',
     catalog: '编目', catHead: '分类', entHead: '条目数',
-    cols: '| 论文 | 链接 | 日期 | 标签 | 摘要 |',
+    cols: '| 论文 | 链接 | Stars | 日期 | 标签 | 摘要 |',
+    sep: '| --- | --- | --- | --- | --- | --- |',
     notes: '说明：',
     noteList: [
       '`日期` 为首次公开发布时间（预印本取 arXiv v1 月份）。',
+      '`Stars` 徽章为实时数据：每次加载页面时从 GitHub 读取当前星数，点击即可跳转到对应仓库。显示 `-` 表示该工作没有官方开源实现。',
       '每个分类内按日期倒序排列（最新在前）。',
       '仅 `基础与理论` 收录 2025 年之前的工作，其余分类均从 ' + CUTOFF + ' 起。',
       '★ 表示开创或改变了某条研究路线的里程碑工作。',
-      '所有链接均在最近一次校验中回源核对。',
+      '所有链接与仓库均在最近一次校验中回源核对。',
     ],
     maint: '维护说明',
     maintList: [
@@ -132,6 +138,7 @@ function render(lang, papers, categories, verifiedOn) {
   out.push(T.title, '', T.lede, '')
   out.push(`- ${T.total}: **${s.total}**`)
   out.push(`- ${T.arxivLine}: **${s.arxiv} (${s.arxivPct}%)**`)
+  out.push(`- ${T.repoLine}: **${s.withRepo} (${s.repoPct}%)**`)
   out.push(`- ${T.window}: **${s.inWindow}/${s.modern} (${s.windowPct}%)**`)
   out.push(`- ${T.cats}: **${s.categories}**`)
   out.push(`- ${T.verified}: **${verifiedOn}**`)
@@ -167,13 +174,14 @@ function render(lang, papers, categories, verifiedOn) {
     out.push(`<a id="${anchor(c.name)}"></a>`)
     out.push(`### ${nameOf(c)}`, '')
     out.push(descOf(c), '')
-    out.push(T.cols, '| --- | --- | --- | --- | --- |')
+    out.push(T.cols, T.sep)
     for (const p of rows) {
       const title = escapeCell(p.title) + (p.landmark ? ' ★' : '')
       const link = `[${p.link_label}](${encodeUrl(p.url)})`
+      const stars = p.repo ? starBadge(p.repo) : '-'
       const summary = escapeCell(lang === 'zh' && p.summary_zh ? p.summary_zh : p.summary)
       const tags = (p.tags || []).join(', ')
-      out.push(`| ${title} | ${link} | ${displayDate(p.date)} | ${tags} | ${summary} |`)
+      out.push(`| ${title} | ${link} | ${stars} | ${displayDate(p.date)} | ${tags} | ${summary} |`)
     }
     out.push('')
   }

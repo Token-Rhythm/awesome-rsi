@@ -17,6 +17,11 @@ Every candidate is resolved against its source page before it enters `data/paper
 - `date` is taken from the v1 submission date on arXiv, or the publication date for journal and conference records — not the date of the latest revision.
 - `venue` records the peer-reviewed venue when one exists; otherwise the preprint or software host.
 - The summary is written after reading the paper's method and results, not from the abstract alone.
+- `repo` is accepted only after loading the repository and confirming that its README or description corresponds to that specific paper. Several papers promise a URL that is still empty or returns 404; those are recorded as having no code rather than linked optimistically. Third-party reimplementations and companion paper-lists are not accepted as code releases.
+
+## Star counts
+
+Star badges are rendered from shields.io's live GitHub endpoint, so the number in the table is read from GitHub when the page loads rather than baked into a snapshot that silently ages. The trade-off is that a badge depends on shields.io being reachable, and a renamed or deleted repository shows as an error badge instead of a stale number — `verify_catalog.mjs --repos` catches that case by looking for a "repo not found" response.
 
 ## Automated checks
 

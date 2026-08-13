@@ -16,6 +16,7 @@
   date: 2026-08
   venue: arXiv
   authors: Zhou et al.
+  repo: Prism-Shadow/GDPevo
   category: benchmarks-infrastructure
   tags: [benchmark, experience-reuse, skill-library]
   summary: "Benchmarks whether enterprise agents truly learn from experience by scattering atomic decision rules across training tasks and recombining them in held-out tests; the best self-evolution regime reaches 67% against a 91.6% informed-oracle ceiling."
@@ -27,6 +28,7 @@
   date: 2026-08
   venue: arXiv
   authors: Shao et al.
+  repo: DeepExperience/Harness-R1
   category: self-modifying-agents
   tags: [self-modifying-code, meta-agent, reinforcement-learning]
   summary: "Trains a 9B harness engineer with GRPO to convert a frozen agent's failure trajectories into validated runtime patches, rewarded by measured before-and-after performance, lifting a Qwen3.5-9B target from 44.3% to 53.6% across three benchmarks."
@@ -38,6 +40,7 @@
   date: 2026-08
   venue: arXiv
   authors: Xue et al.
+  repo: Gen-Verse/PAST-Bench
   category: benchmarks-infrastructure
   tags: [benchmark, memory, continual-learning]
   summary: "Isolates an agent's persistence layer with matched persistence-on versus persistence-off runs over 204 episodes, pairing the self-evolution gap with mechanism-evidence scores; gains span +0.13 to +0.24 and one framework regresses."
@@ -49,6 +52,7 @@
   date: 2026-08
   venue: arXiv
   authors: Yang et al.
+  repo: YOUNG-fnxm/RoMeRL
   category: memory-experience-agents
   tags: [memory, experience-reuse, reinforcement-learning]
   summary: "Replaces per-trajectory memory utilities with a fixed 2x2 per-task state factored by outcome polarity and memory dynamics, concentrating sparse feedback and escaping the memory-reward trap: 0.753 versus 0.724 average with an 84% smaller pool."
@@ -71,6 +75,7 @@
   date: 2026-08
   venue: arXiv
   authors: Ren et al.
+  repo: rrrsj/SPEE
   category: self-improving-training
   tags: [self-distillation, experience-reuse, reinforcement-learning]
   summary: "Distills successful and failed rollouts into a validated shared experience pool, internalizes it into weights via privileged on-policy self-distillation, then runs GRPO, lifting Qwen3-8B math accuracy from 32.2 to 38.7 with roughly 28% fewer trajectories."
@@ -82,6 +87,7 @@
   date: 2026-08
   venue: arXiv
   authors: Ying et al.
+  repo: Tencent/AI-Infra-Guard
   category: safety-governance
   tags: [skill-library, safety-evaluation, memory]
   summary: "Poisons the skill-extraction stage of self-evolving agents with benignly worded trajectories, so distillation launders policy violations into durable skill artifacts: LLM-judge detection drops from 98.5% to 11.4% and 80% of attacks survive record deletion."
@@ -104,6 +110,7 @@
   date: 2026-07
   venue: arXiv
   authors: Yan et al.
+  repo: Jasper-Yan/AgentStream
   category: benchmarks-infrastructure
   tags: [benchmark, memory, continual-learning]
   summary: "Streams tasks from six benchmarks through five self-evolution methods under isolated, sequential, and interleaved regimes, showing positive-gain rates drop from 75.7% to 62.3% once domains mix and strong models regress."
@@ -115,6 +122,7 @@
   date: 2026-07
   venue: arXiv
   authors: Wu et al.
+  repo: autoLearnMem/AutoMem
   category: self-modifying-agents
   tags: [memory, self-modifying-code, meta-agent]
   summary: "Treats memory operations as first-class actions and runs two outer loops, a meta-LLM that rewrites the memory scaffold and LoRA training of a memory specialist, lifting Crafter progression from 25% to 51% for Qwen2.5-32B."
@@ -149,6 +157,7 @@
   date: 2026-07
   venue: arXiv
   authors: Hills et al.
+  repo: josh-hills/control-arena-persistent-state-eval
   category: safety-governance
   tags: [control-protocol, safety-evaluation, coding-agents]
   summary: "Introduces Iterative VibeCoding, where an untrusted coding agent spreads a covert side task across successive pull requests, evading diff monitors 87% of the time; a stateful cross-PR monitor cuts evasion to 54%."
@@ -160,6 +169,7 @@
   date: 2026-07
   venue: arXiv
   authors: Gao et al.
+  repo: EverMind-AI/EvoAgentBench
   category: benchmarks-infrastructure
   tags: [benchmark, experience-reuse, skill-library, memory]
   summary: "Isolates procedural ability transfer in self-evolving agents by extracting trace-grounded Ability cards into per-domain Ability Graphs, guaranteeing every test task has verified training-side support; curated skills help everywhere while Memento, ReasoningBank, and GEPA show negative transfer."
@@ -171,6 +181,7 @@
   date: 2026-07
   venue: arXiv
   authors: Wang et al.
+  repo: Linzwcs/EvoPolicyGym
   category: benchmarks-infrastructure
   tags: [benchmark, self-modifying-code, reinforcement-learning]
   summary: "Benchmarks autonomous policy evolution by having harness agents repeatedly rewrite executable Python control policies under a fixed 128-episode budget across 16 interactive environments with held-out cases hidden; GPT-5.5 leads at 0.891 rank score."
@@ -193,6 +204,7 @@
   date: 2026-07
   venue: arXiv
   authors: Yang et al.
+  repo: FrontisAI/OpenRSI
   category: automated-ai-research
   tags: [evolutionary-search, coding-agents, reinforcement-learning]
   summary: "Post-trains a 35B agent around four program-evolution operators (Draft, Improve, Debug, Crossover) with execution-grounded SFT plus RL, then couples it to evolutionary search, raising MLE-Bench Lite medal average from 39.4% to 71.2%."
@@ -204,6 +216,7 @@
   date: 2026-07
   venue: arXiv
   authors: Gumma et al.
+  repo: declare-lab/IDEAgent
   category: automated-ai-research
   tags: [quality-diversity, evolutionary-search, scientific-discovery, multi-agent]
   summary: "Evolves research ideas as a quality-diversity search with lineage archives, specialized judge agents, and one-shot repair or refinement of near-miss ideas, scoring 3.89x the best baseline on a maximum-clique Yield metric of mutually distinct ideas."
@@ -248,6 +261,7 @@
   date: 2026-07
   venue: arXiv
   authors: Yan et al.
+  repo: areal-project/AReaL
   category: surveys-position
   tags: [position-paper, reinforcement-learning, infrastructure, continual-learning]
   summary: "Argues that enterprise self-evolving agents are bottlenecked by online-RL infrastructure rather than algorithms, proposing a step-level trajectory protocol, a governed production-data proxy, and an evolution control plane, instantiated as AReaL2.0, a drop-in inference backend capturing trajectories."
@@ -281,6 +295,7 @@
   date: 2026-07
   venue: arXiv
   authors: Wang et al.
+  repo: rethinking-harness-evolution/code
   category: limits-failure-modes
   tags: [meta-agent, self-modifying-code, benchmark]
   summary: "Attributes reported harness-evolution gains to protocol flaws, namely searching and evaluating on the same benchmark without budget-matched baselines, showing evolved harnesses trail plain parallel sampling and transfer only 0.6 points to held-out tasks."
@@ -292,6 +307,7 @@
   date: 2026-07
   venue: arXiv
   authors: Meng et al.
+  repo: evolvent-ai/RSIBench-Data
   category: benchmarks-infrastructure
   tags: [benchmark, synthetic-data, coding-agents]
   summary: "Freezes model, trainer, and budget so a research agent's only lever is proposing training-data recipes, revealing a discovery-reliability gap where 78% of continued searches end below their own peak score."
@@ -325,6 +341,7 @@
   date: 2026-07
   venue: arXiv
   authors: Fu et al.
+  repo: Zenghuang-Fu/SESA-Self-Evolving-Search-Agents
   category: self-play-zero-data
   tags: [self-play, proposer-solver, skill-library, search-agents]
   summary: "Pairs an asymmetric challenger that poses retrieval questions tuned to about 50% solver success with a GRPO-trained solver and a bank of skills distilled from failed rollouts, beating the SSP self-play baseline by 1.2-3.2 points."
@@ -347,6 +364,7 @@
   date: 2026-07
   venue: arXiv
   authors: Huang et al.
+  repo: Qwen-Applications/skill-self-play
   category: self-play-zero-data
   tags: [self-play, proposer-solver, skill-library, verifier]
   summary: "Makes skills the unit of self-play: a proposer generates tasks from an evolving skill library with executable validators while GRPO trains the solver, gaining 12 points on ZebraLogic for Qwen3-4B."
@@ -369,6 +387,7 @@
   date: 2026-07
   venue: arXiv
   authors: Zhang et al.
+  repo: amazon-science/Self-Evolving-Agents-Double-Ratchet
   category: self-modifying-agents
   tags: [verifier, evolutionary-search, skill-library, reward-hacking]
   summary: "Evolves the grader itself, searching compositions of drawback detectors scored against a ten-item anchor set, so skill evolution runs without ground truth and retains 88-110% of supervised gains; ablation shows task score cannot validate a self-evolved evaluator."
@@ -380,6 +399,7 @@
   date: 2026-06
   venue: arXiv
   authors: Zhang et al.
+  repo: yunx-z/AdaMEM
   category: memory-experience-agents
   tags: [memory, experience-reuse, test-time-training]
   summary: "AdaMEM pairs an offline trajectory memory with a short-term strategy the agent regenerates mid-episode on its own refresh decision, plus step-level rejection-sampling SFT, lifting ALFWorld unseen to 58.2% and scaling monotonically with retrieval budget."
@@ -468,6 +488,7 @@
   date: 2026-06
   venue: arXiv
   authors: Antoniades et al.
+  repo: a-antoniades/Heuresis
   category: automated-ai-research
   tags: [algorithm-discovery, quality-diversity, archive-search, reward-hacking]
   summary: "Heuresis decomposes the autonomous research loop into swappable primitives and benchmarks six quality-diversity search strategies over 3,222 real GPU runs, finding that strategies shift where ideas land but never rate a single idea as original."
@@ -501,6 +522,7 @@
   date: 2026-06
   venue: arXiv
   authors: Bai et al.
+  repo: juyangbai/MAS-PromptBench
   category: benchmarks-infrastructure
   tags: [benchmark, prompt-optimization, multi-agent, agent-topology]
   summary: "Factorially varies tasks, topologies, protocols and team sizes to test whether prompt optimization transfers to multi-agent systems, finding gains shrink from +4.2 points single-agent to +0.5-2.3 multi-agent and turn negative (-2.1) at ten agents."
@@ -523,6 +545,7 @@
   date: 2026-06
   venue: arXiv
   authors: Du et al.
+  repo: InternScience/MLEvolve
   category: automated-ai-research
   tags: [algorithm-discovery, memory, experience-reuse, multi-agent]
   summary: "Replaces MCTS with a graph search whose reference edges let branches borrow and merge solutions, paired with retrospective memory of past plans and outcomes, reaching a 65.3% MLE-Bench medal rate in half the usual runtime."
@@ -567,6 +590,7 @@
   date: 2026-06
   venue: arXiv
   authors: Chen et al.
+  repo: RUCBM/ExpInternalization
   category: limits-failure-modes
   tags: [capability-erosion, experience-reuse, self-distillation, continual-learning]
   summary: "Controlled study of converting agent experience into weights across self-evolution rounds reveals progressive capability collapse, and shows principle-level, step-wise, off-policy distillation avoids it, sustaining gains over three iterations where global injection decays to 12.8%."
@@ -578,6 +602,7 @@
   date: 2026-06
   venue: arXiv
   authors: Wang et al.
+  repo: AMAP-ML/roleagent
   category: self-improving-training
   tags: [process-reward, world-models, curriculum, reinforcement-learning]
   summary: "Role-Agent has a single LLM serve as both policy and environment model, turning next-state prediction accuracy into a multiplicative process reward and self-diagnosed failure modes into a retrained curriculum, beating GiGPO by over 4% on average."
@@ -611,6 +636,7 @@
   date: 2026-06
   venue: ICML 2026
   authors: Zhang et al.
+  repo: QEvolve/q-evolve
   category: self-improving-training
   tags: [process-reward, reinforcement-learning, self-rewarding]
   summary: "Q-Evolve trains an in-distribution critic with weighted Implicit Q-Learning on expert plus self-generated trajectories, converts it into step-wise process rewards, and updates the policy on the same data, averaging 79.4 across ALFWorld, WebShop and ScienceWorld."
@@ -622,6 +648,7 @@
   date: 2026-06
   venue: arXiv
   authors: Zhang et al.
+  repo: qzzqzzb/Self-Harness
   category: self-modifying-agents
   tags: [self-modifying-code, coding-agents, verifier]
   summary: "Mines execution-trace failures into verifier-grounded signatures, proposes minimal edits to an agent's own harness (instructions, tools, memory, state management), and accepts only non-regressive ones, lifting held-out Terminal-Bench 2.0 pass rates from 40.5% to 61.9%."
@@ -633,6 +660,7 @@
   date: 2026-06
   venue: arXiv
   authors: Lin et al.
+  repo: linhh29/Skill_MAS
   category: multi-agent-evolution
   tags: [multi-agent, meta-agent, workflow-search, context-engineering]
   summary: "Skill-MAS evolves an explicit natural-language Meta-Skill covering task decomposition, agent design, and workflow orchestration through hierarchical contrastive reflection over high-uncertainty validation tasks, outperforming AFlow and other multi-agent baselines by 6-15 points."
@@ -655,6 +683,7 @@
   date: 2026-06
   venue: arXiv
   authors: Lu et al.
+  repo: ant-research/meta-agent-challenge
   category: benchmarks-infrastructure
   tags: [benchmark, meta-agent, sandbox, coding-agents]
   summary: "Recasts agent evaluation as building the solver: a code-based meta-agent gets a sandboxed workspace, evaluation API, and 12-24h budget to design agents for held-out tasks, with only 55 of 309 configurations beating a human-engineered baseline."
@@ -688,6 +717,7 @@
   date: 2026-05
   venue: arXiv
   authors: Xu et al.
+  repo: Tianshi-Xu/Life-Harness
   category: self-modifying-agents
   tags: [skill-library, experience-reuse, context-engineering, tool-synthesis]
   summary: "Mines recurring failures from trajectories into a fixed four-layer runtime harness — tool contracts, retrieved skills, action validation, and stagnation recovery — improving 116 of 126 frozen model-environment settings by 88.5% on average."
@@ -710,6 +740,7 @@
   date: 2026-05
   venue: ICML 2026 Workshop
   authors: Hwang et al.
+  repo: HYUNMIN-HWANG/AgentPSO
   category: context-prompt-workflow
   tags: [prompt-optimization, evolutionary-search, multi-agent, reasoning]
   summary: "AgentPSO casts particle swarm optimization in natural language, evolving each agent's textual reasoning skill from personal-best, global-best, and peer-reflective directions, averaging 71.56% across five reasoning benchmarks versus 68.10% for single-agent GEPA."
@@ -721,6 +752,7 @@
   date: 2026-05
   venue: arXiv
   authors: Li et al.
+  repo: liushiliushi/APEX1
   category: memory-experience-agents
   tags: [memory, experience-reuse, open-endedness]
   summary: "Materializes an agent's implicit strategy space as an explicit DAG of natural-language milestones, selecting frontier goals by Thompson sampling and mining unexplored forks from past trajectories, winning all nine Jericho games and five WebArena categories."
@@ -732,6 +764,7 @@
   date: 2026-05
   venue: arXiv
   authors: Huang et al.
+  repo: Alab-NII/BenchTrace
   category: benchmarks-infrastructure
   tags: [benchmark, self-correction, experience-reuse, forgetting]
   summary: "BenchTrace splits self-evolution evaluation into reflection (detect, localize, diagnose failures) and controlled evolution (failure-avoidance rate after replaying a prior failing episode) over 1,821 annotated episodes, exposing sub-30% end-to-end reflection pass rates."
@@ -743,6 +776,7 @@
   date: 2026-05
   venue: arXiv
   authors: Qi et al.
+  repo: mira-ai-lab/awesome-mas-life
   category: surveys-position
   tags: [survey, multi-agent, taxonomy, co-evolution]
   summary: "Unifies single-agent capability, multi-agent collaboration, failure attribution, and self-evolution under a four-stage LIFE progression, arguing tighter coordination amplifies error propagation and that attribution must feed evolution to close the self-improvement loop."
@@ -754,6 +788,7 @@
   date: 2026-05
   venue: arXiv
   authors: Hu et al.
+  repo: sanae-ai/CosPlay
   category: self-play-zero-data
   tags: [self-play, verifier, zero-data, coding-agents]
   summary: "Co-evolves a pool of candidate programs and self-generated unit tests at test time, using pass-count signals and output-consensus tie-breaking to pick answers without ground truth, lifting Best-of-N from 22.1% to 33.2% on competitive-programming benchmarks."
@@ -776,6 +811,7 @@
   date: 2026-05
   venue: arXiv
   authors: Li et al.
+  repo: aisa-group/decomposing-eval-awareness
   category: safety-governance
   tags: [safety-evaluation, scheming, benchmark]
   summary: "Decomposes evaluation awareness into environment recognizability, model recognition capability, and behavioral propensity across eight togglable trigger factors, showing recognition is model-by-environment specific and rarely changes behavior in roughly 20% of recognized cases."
@@ -842,6 +878,7 @@
   date: 2026-05
   venue: arXiv
   authors: Fan et al.
+  repo: Fanzy27/Evolving-RL
   category: self-improving-training
   tags: [experience-reuse, reinforcement-learning, skill-library]
   summary: "Co-trains one policy as both skill extractor and solver under a joint GRPO objective, rewarding extracted textual skills by the downstream success they produce, lifting ALFWorld unseen-task success from 44.6% to 88.6%."
@@ -853,6 +890,7 @@
   date: 2026-05
   venue: arXiv
   authors: Luo et al.
+  repo: FeishuLuo/Evolving-LLM-Agent-Memory-Survey
   category: surveys-position
   tags: [survey, memory, experience-reuse, taxonomy]
   summary: "Traces LLM agent memory through three stages, Storage of raw trajectories, Reflection into refined units, and Experience via cross-trajectory abstraction into reusable rules, arguing the Experience stage is where memory stops being a log and becomes policy."
@@ -864,6 +902,7 @@
   date: 2026-05
   venue: arXiv
   authors: Huang et al.
+  repo: Chengsong-Huang/G-Zero
   category: self-play-zero-data
   tags: [self-play, zero-data, proposer-solver, co-evolution]
   summary: "Extends zero-data self-play to non-verifiable open-ended tasks by rewarding a Proposer with Hint-delta, the log-likelihood gain a self-generated hint gives the Generator's answer, and training the Generator by DPO on hint-conditioned pairs."
@@ -875,6 +914,7 @@
   date: 2026-05
   venue: arXiv
   authors: Roth et al.
+  repo: MajoRoth/hack-verifiable-environments
   category: benchmarks-infrastructure
   tags: [benchmark, reward-hacking, sandbox, safety-evaluation]
   summary: "Wrapping TextArena games in a mock filesystem that plants four verifiable exploits — hidden solutions, logical bugs, leaked opponent prompts, editable observations — makes reward hacking deterministically detectable, exposing hack rates up to 60% across five frontier models."
@@ -919,6 +959,7 @@
   date: 2026-05
   venue: arXiv
   authors: Zhang et al.
+  repo: amazon-science/Self-Evolving-Agents-Ratchet
   category: limits-failure-modes
   tags: [skill-library, tool-synthesis, coding-agents]
   summary: "Diagnoses library drift, unbounded skill accumulation that poisons retrieval and stalls gains, and fixes it with Ratchet governance of outcome-driven retirement, a 50-skill cap, and an authoring prior, lifting MBPP+ hard-100 accuracy from 0.258 to 0.584."
@@ -941,6 +982,7 @@
   date: 2026-05
   venue: arXiv
   authors: Gaddipati et al.
+  repo: gsasikiran/MLReplicate-benchmarking
   category: benchmarks-infrastructure
   tags: [benchmark, scientific-discovery]
   summary: "MLReplicate turns ICML 2025 outstanding papers into ground-truth specifications and runs six autonomous research systems against them, finding 59% of automatically accepted manuscripts contain fabricated claims and that compute spend does not predict quality."
@@ -952,6 +994,7 @@
   date: 2026-05
   venue: arXiv
   authors: Cai et al.
+  repo: hkgai-official/Moss
   category: self-modifying-agents
   tags: [self-modifying-code, coding-agents, sandbox]
   summary: "Rewrites the agent's own harness source (routing, hooks, tool dispatch) from mined production failures, validating candidates by container replay through a seven-stage pipeline that raises claweval compliance-audit scores from 0.25 to 0.61 in one cycle."
@@ -996,6 +1039,7 @@
   date: 2026-05
   venue: arXiv
   authors: Li et al.
+  repo: OliverLeeXZ/OPT-BENCH
   category: benchmarks-infrastructure
   tags: [benchmark, self-correction, experience-reuse]
   summary: "OPT-BENCH pairs 20 Kaggle ML tasks with 10 NP-hard problems and an agent that iteratively refines solutions from scored history and error logs, revealing that only stronger models exploit feedback while all stay below human experts."
@@ -1051,6 +1095,7 @@
   date: 2026-05
   venue: arXiv
   authors: Zhang et al.
+  repo: MiliLab/Seirenes
   category: self-play-zero-data
   tags: [self-play, reasoning, reinforcement-learning, curriculum]
   summary: "Trains one prompt-conditioned policy in three roles - clean reasoner, adversary writing misleading hints, and hinted reasoner - rewarding the adversary by the accuracy gap it induces, lifting seven math benchmarks by 7-10 points."
@@ -1084,6 +1129,7 @@
   date: 2026-05
   venue: arXiv
   authors: "O'Connor"
+  repo: lukejoconnor/spell
   category: self-modifying-agents
   tags: [self-modifying-code, coding-agents, meta-agent]
   summary: "Replaces the fixed agent harness with the model's own completion as the orchestrator program, using a Lisp (Spell) whose quoted effectful expressions stay inert on replay, letting frontier models improvise orchestration zero-shot."
@@ -1095,6 +1141,7 @@
   date: 2026-05
   venue: arXiv
   authors: Wu et al.
+  repo: ar-forum/stv
   category: self-improving-training
   tags: [verifier, self-distillation, self-correction, reinforcement-learning]
   summary: "Exploits the fact that a model judges answers far better when shown a reference solution, distilling that reference-conditioned verifier into a reference-free student whose guidance lifts Qwen3-8B hard-math pass@1 from 20.6% to 27.4%."
@@ -1106,6 +1153,7 @@
   date: 2026-05
   venue: arXiv
   authors: Hebbar et al.
+  repo: hexo-ai/sia
   category: self-improving-training
   tags: [self-modifying-code, reinforcement-learning, meta-agent]
   summary: "Alternates harness rewriting and RL weight updates in one loop, with a Feedback-Agent reading execution trajectories to pick the lever and the RL algorithm each iteration, lifting LawBench accuracy from 50.0% harness-only to 70.1%."
@@ -1128,6 +1176,7 @@
   date: 2026-05
   venue: arXiv
   authors: Ma et al.
+  repo: yccm/SkillGen
   category: memory-experience-agents
   tags: [skill-library, verifier, experience-reuse]
   summary: "Induces human-readable agent skills by contrasting failed against successful trajectories, then gates each one as a causal intervention measured on held-out inputs, activating only skills whose repairs outweigh regressions across nine benchmarks and eight base models."
@@ -1150,6 +1199,7 @@
   date: 2026-05
   venue: arXiv
   authors: Yang et al.
+  repo: microsoft/SkillOpt
   category: context-prompt-workflow
   tags: [prompt-optimization, skill-library, context-engineering]
   summary: "Treats an agent's skill document as trainable text: a frozen model rolls out scored trajectories while an optimizer model proposes budgeted edits accepted only on validation improvement, lifting GPT-5.5 from 58.8% to 82.3% across six benchmarks."
@@ -1183,6 +1233,7 @@
   date: 2026-05
   venue: arXiv
   authors: Pu et al.
+  repo: SophiaPx/survive-or-collapse
   category: limits-failure-modes
   tags: [self-play, model-collapse, verifier, formal-analysis]
   summary: "Isolates data gating from reward design in self-play RL and shows the executability gate alone determines survival: validation accuracy holds near 0.7 under every reward variant but collapses to ~0.005 once the gate leaks."
@@ -1205,6 +1256,7 @@
   date: 2026-04
   venue: arXiv
   authors: Dai et al.
+  repo: SakanaAI/AC-DC
   category: open-ended-evolution
   tags: [co-evolution, quality-diversity, evolutionary-search, synthetic-data]
   summary: "AC/DC coevolves a population of LLMs, merged by task-vector interpolation and SVD mutation, against an archive of synthetic tasks proposed by a scientist LLM, lifting capability coverage 2-10% and letting 21B ensembles beat a 72B baseline."
@@ -1216,6 +1268,7 @@
   date: 2026-04
   venue: arXiv
   authors: Berdica et al.
+  repo: arberzela/pbt-nca
   category: open-ended-evolution
   tags: [open-endedness, evolutionary-search, co-evolution]
   summary: "PBT-NCA wraps population-based training around competing Petri dish neural cellular automata, selecting worlds by archived behavioral novelty plus DINOv2 visual diversity, sustaining edge-of-chaos complexity and emergent spirals, gliders and trail-following where fixed hyperparameters collapse into noise."
@@ -1238,6 +1291,7 @@
   date: 2026-04
   venue: arXiv
   authors: Sherwood et al.
+  repo: jsherwood00/C4AI
   category: benchmarks-infrastructure
   tags: [benchmark, coding-agents, self-play, sandbox]
   summary: "Benchmarks AI-building-AI by having coding agents build an AlphaZero self-play pipeline for Connect Four inside a 3-hour sandbox; Claude Opus 4.7 reaches near-solver strength on a task near-impossible months earlier."
@@ -1249,6 +1303,7 @@
   date: 2026-04
   venue: arXiv
   authors: Chi et al.
+  repo: EinsiaLab/Frontier-Engineering
   category: benchmarks-infrastructure
   tags: [benchmark, verifier, sandbox]
   summary: "Scores agents by the best feasible design they reach within a fixed budget across 47 simulator-backed engineering tasks with sandboxed verifiers, revealing a dual power-law decay where self-improvement returns approach zero after roughly 50-100 iterations."
@@ -1260,6 +1315,7 @@
   date: 2026-04
   venue: GECCO 2026
   authors: Earle et al.
+  repo: smearle/picbreeder-vlm
   category: open-ended-evolution
   tags: [open-endedness, evolutionary-search, model-collapse, multimodal]
   summary: "Replaces Picbreeder's human curators with frontier VLMs that select and branch CPPN-evolved images, finding severe mode collapse and lower phylogenetic branching diversity (J1 0.235 vs 0.363) than humans, with epsilon-greedy noise and single-step memory partially restoring exploration."
@@ -1337,6 +1393,7 @@
   date: 2026-04
   venue: arXiv
   authors: Yu et al.
+  repo: yyy195/CSRS
   category: self-improving-training
   tags: [label-free-rl, multimodal, model-collapse]
   summary: "Replaces binary majority-vote rewards in label-free multimodal RL with a frequency-calibrated continuous reward plus mid-trajectory re-inference and image noise, curbing self-reinforcing collapse and raising Qwen2.5-VL-7B's math-reasoning average from 51.6 to 53.4."
@@ -1381,6 +1438,7 @@
   date: 2026-03
   venue: arXiv
   authors: Zhang et al.
+  repo: zzatpku/AgentFactory
   category: self-modifying-agents
   tags: [meta-agent, tool-synthesis, skill-library, coding-agents]
   summary: "Synthesizes each subtask into a standalone Python subagent with its own SKILL.md and tool subset, then accumulates, retrieves, and repairs that library across tasks, cutting orchestration tokens up to 64% versus from-scratch ReAct."
@@ -1425,6 +1483,7 @@
   date: 2026-03
   venue: arXiv
   authors: Alzubi et al.
+  repo: sentient-agi/EvoSkill
   category: memory-experience-agents
   tags: [skill-library, experience-reuse, archive-search, coding-agents]
   summary: "An Executor-Proposer-Skill-Builder loop diagnoses capability gaps from execution traces and writes new skill folders into a Pareto-filtered library, lifting a frozen Claude Code agent by 7.3 points on OfficeQA and 12.1 on SealQA."
@@ -1447,6 +1506,7 @@
   date: 2026-03
   venue: ICLR 2026
   authors: He et al.
+  repo: PRIME-RL/TTRL
   category: limits-failure-modes
   tags: [label-free-rl, model-collapse, reward-hacking, theory]
   summary: "Unifies unsupervised RLVR under one theory showing KL-regularized intrinsic rewards converge geometrically to sharpening the base model's initial majority answer, with all five variants collapsing near 1,000 steps and flipping correctness on only ~12% of problems."
@@ -1458,6 +1518,7 @@
   date: 2026-03
   venue: arXiv
   authors: Zhang et al.
+  repo: facebookresearch/HyperAgents
   category: self-modifying-agents
   tags: [self-modifying-code, meta-agent, archive-search, open-endedness]
   landmark: true
@@ -1481,6 +1542,7 @@
   date: 2026-03
   venue: arXiv
   authors: Chen et al.
+  repo: chenyn66/learning-to-self-evolve
   category: context-prompt-workflow
   tags: [context-engineering, prompt-optimization, reinforcement-learning]
   summary: "Trains a dedicated evolution policy with single-step RL rewarded by the improvement delta of its context edits, then applies UCB tree search at test time, beating GPT-5-driven self-evolution loops on BIRD Text-to-SQL (67.3%)."
@@ -1503,6 +1565,7 @@
   date: 2026-03
   venue: arXiv
   authors: Zhou et al.
+  repo: Memento-Teams/Memento-Skills
   category: memory-experience-agents
   tags: [skill-library, experience-reuse, tool-synthesis]
   summary: "Keeps model weights frozen and externalizes learning into a library of markdown skills bundling code with prompts, with a read-write loop that attributes failures to a skill and rewrites it, reaching 66.0% on GAIA."
@@ -1514,6 +1577,7 @@
   date: 2026-03
   venue: arXiv
   authors: Lee et al.
+  repo: stanford-iris-lab/meta-harness
   category: self-modifying-agents
   tags: [meta-agent, self-modifying-code, context-engineering, coding-agents]
   summary: "Treating the agent's harness code as the search target, an agentic proposer reads prior candidates' source, scores, and full execution traces to rewrite it, reaching 76.4% on TerminalBench-2 and beating context optimizers by 7.7 points."
@@ -1525,6 +1589,7 @@
   date: 2026-03
   venue: arXiv
   authors: Li et al.
+  repo: zli12321/MM-Zero
   category: self-play-zero-data
   tags: [proposer-solver, zero-data, self-play, multimodal]
   summary: "Three roles cloned from one base VLM — a Proposer inventing tasks, a Coder rendering images as executable code, and a Solver — train with GRPO, lifting Qwen3-VL-8B from 50.7% to 54.1% across ten multimodal benchmarks without any external data."
@@ -1547,6 +1612,7 @@
   date: 2026-03
   venue: arXiv
   authors: Liao et al.
+  repo: mayhugotong/T3RL
   category: self-improving-training
   tags: [test-time-training, label-free-rl, verifier]
   summary: "Diagnoses false-popular mode collapse in test-time RL and counters it by rewriting each rollout's reasoning into executable Python, then weighting majority votes by execution-verified validity, lifting AIME 2024 accuracy 31.6% relative over TTRL."
@@ -1558,6 +1624,7 @@
   date: 2026-03
   venue: arXiv
   authors: Xia et al.
+  repo: Tool-Genesis/Tool-Genesis
   category: benchmarks-infrastructure
   tags: [benchmark, tool-synthesis, self-correction]
   summary: "Withholding interface specifications, this benchmark asks agents to author reusable MCP tools from task descriptions alone and grades them on a four-level ladder, exposing a utility-conversion bottleneck where GPT-5.1 scores 0.826 compliance but only 0.372 success."
@@ -1569,6 +1636,7 @@
   date: 2026-03
   venue: ACL 2026
   authors: Yan et al.
+  repo: Jasper-Yan/SCRL
   category: self-improving-training
   tags: [test-time-training, label-free-rl, self-rewarding]
   summary: "Replaces test-time RL's naive majority vote with two gates, granting positive pseudo-labels only above a confidence-and-margin threshold and adding entropy-gated negative labels for rare uncertain answers, worth 10.1 points on AIME25 for Qwen2.5-Math-7B."
@@ -1580,6 +1648,7 @@
   date: 2026-02
   venue: ICML 2026
   authors: Wang et al.
+  repo: Snowflake-Labs/agent-world-model
   category: self-improving-training
   tags: [synthetic-data, verifier, reinforcement-learning, sandbox]
   summary: "Synthesizes 1,000 executable agent environments, each backed by a generated SQLite database and ~35 tools, so RL reward comes from diffing database state, lifting Qwen3-8B on BFCLv3 from 53.8 to 65.9."
@@ -1613,6 +1682,7 @@
   date: 2026-02
   venue: arXiv
   authors: Wang et al.
+  repo: hong-niu/generative-recursive-training
   category: foundations-theory
   tags: [theory, formal-analysis, model-collapse, synthetic-data]
   summary: "Proves recursive training on synthetic data still converges to the true distribution whenever a constant fraction of fresh real data is mixed in, with a phase transition between data-limited and model-limited rates."
@@ -1624,6 +1694,7 @@
   date: 2026-02
   venue: arXiv
   authors: Dai et al.
+  repo: BytedTsinghua-SIA/CUDA-Agent
   category: automated-ai-research
   tags: [kernel-optimization, reinforcement-learning, synthetic-data, coding-agents]
   summary: "Trains an LLM with large-scale agentic RL on ~6,000 self-synthesized fused-operator problems, using discretized correctness-and-speed rewards plus rejection fine-tuning and critic pretraining to stabilize long-horizon rollouts, beating torch.compile on 92% of KernelBench Level-3 tasks."
@@ -1646,6 +1717,7 @@
   date: 2026-02
   venue: arXiv
   authors: Hu et al.
+  repo: amazon-science/EvoMAS
   category: multi-agent-evolution
   tags: [multi-agent, agent-topology, evolutionary-search, experience-reuse]
   summary: "Evolves multi-agent systems as structured genomes of communication graph plus per-agent model, prompt and tools, using feedback-conditioned mutation and crossover to reach 79.1% on SWE-bench Verified with above-96% executability."
@@ -1657,6 +1729,7 @@
   date: 2026-02
   venue: arXiv
   authors: Liu et al.
+  repo: skydiscover-ai/skydiscover
   category: open-ended-evolution
   tags: [evolutionary-search, algorithm-discovery, open-endedness]
   summary: "Makes the search strategy itself an evolvable Python program: an LLM rewrites parent selection, variation operators, and inspiration sets whenever progress stagnates, outperforming OpenEvolve, ShinkaEvolve and GEPA on roughly 96% of ~200 math and systems benchmarks."
@@ -1690,6 +1763,7 @@
   date: 2026-02
   venue: arXiv
   authors: Garikaparthi et al.
+  repo: Anikethh/ResearchGym
   category: benchmarks-infrastructure
   tags: [benchmark, sandbox, scientific-discovery, coding-agents]
   summary: "Turns five award-winning 2025 ML papers into containerized research environments with 39 gradable sub-tasks; a GPT-5 agent beats the provided baseline in just 1 of 15 evaluations under a 12-hour budget."
@@ -1723,6 +1797,7 @@
   date: 2026-02
   venue: arXiv
   authors: Acikgoz et al.
+  repo: emrecanacikgoz/Tool-R0
   category: self-play-zero-data
   tags: [zero-data, proposer-solver, curriculum, reinforcement-learning]
   summary: "Co-evolves a Generator that invents tool-use tasks and a separately-parameterized Solver via GRPO, with a band-pass difficulty reward targeting ~50% success, lifting Qwen-2.5-1.5B from 24.9% to 47.8% across five tool benchmarks without curated data."
@@ -1745,6 +1820,7 @@
   date: 2026-01
   venue: arXiv
   authors: Li et al.
+  repo: Cocobalt/SEAM
   category: memory-experience-agents
   tags: [memory, experience-reuse, context-engineering, reinforcement-learning]
   summary: "SEAM trains a small adapter with GRPO to generate an instance-tailored structured experience entry — analysis, highlights, and a reference plan — prepended to a frozen executor's prompt, beating retrieval memory baselines at a quarter of their latency."
@@ -1756,6 +1832,7 @@
   date: 2026-01
   venue: COLM 2026
   authors: Yue et al.
+  repo: facebookresearch/drzero
   category: self-play-zero-data
   tags: [proposer-solver, zero-data, search-agents, curriculum]
   summary: "Co-evolves a question proposer and search solver from one base model with only a live search engine, rewarding questions at the solvability frontier, so the data-free agent matches supervised search agents across seven QA suites."
@@ -1778,6 +1855,7 @@
   date: 2026-01
   venue: ICML 2026
   authors: Zhao et al.
+  repo: Dreamcatcher0622/Faithfulness
   category: limits-failure-modes
   tags: [memory, experience-reuse, faithfulness]
   summary: "Causally tests whether self-evolving agents actually use their memories by emptying, corrupting, or replacing them, finding agents depend on raw trajectories but score nearly identically under corrupted, irrelevant, or filler condensed experience."
@@ -1789,6 +1867,7 @@
   date: 2026-01
   venue: arXiv
   authors: Ye et al.
+  repo: metaevo-ai/meta-context-engineering
   category: context-prompt-workflow
   tags: [context-engineering, skill-library, evolutionary-search, meta-agent]
   summary: "MCE evolves the context-engineering procedure itself — reusable skill folders of methodologies, scripts and templates — through agentic crossover under a (1+1)-ES, gaining 16.9% mean relative improvement over ACE-style baselines with 4.8x fewer rollouts."
@@ -1822,6 +1901,7 @@
   date: 2026-01
   venue: arXiv
   authors: Cheong et al.
+  repo: cheongalc/search-self-edit-strategies
   category: self-improving-training
   tags: [weight-editing, synthetic-data, archive-search, model-collapse]
   summary: "Searches over SEAL-style self-edits by proposing paired data-creation instructions and finetuning hyperparameters, scoring each by post-update QA accuracy in a ReSTEM loop, yet archives accelerate mode collapse and still trail hand-designed templates."
@@ -1911,6 +1991,7 @@
   date: 2025-12
   venue: arXiv
   authors: Wilf et al.
+  repo: abwilf/psv
   category: self-play-zero-data
   tags: [self-play, proposer-solver, verifier, zero-data]
   summary: "PSV runs a proposer/solver self-play loop where a formal verifier (Verus over Rust) supplies unhackable reward and pass-rate-bucketed difficulty tiers drive the curriculum, lifting pass@1 up to 9.6x over baselines with no human data."
@@ -1922,6 +2003,7 @@
   date: 2025-12
   venue: arXiv
   authors: Azarbal et al.
+  repo: arianaazarbal/recontextualization
   category: safety-governance
   tags: [reward-hacking, reinforcement-learning, safety-evaluation]
   summary: "Decouples the data-generation prompt from the training prompt during on-policy RL, so completions sampled under misbehavior-discouraging prompts are updated against permissive ones, cutting specification gaming across four settings while preserving capability."
@@ -1944,6 +2026,7 @@
   date: 2025-11
   venue: arXiv
   authors: Xia et al.
+  repo: aiming-lab/Agent0
   category: self-play-zero-data
   tags: [self-play, zero-data, proposer-solver, curriculum]
   summary: "Co-evolves a task-proposing curriculum agent and a code-executing solver from one base model with no external data, rewarding tasks at the solver's uncertainty frontier and lifting Qwen3-8B math reasoning 18% and general reasoning 24%."
@@ -1955,6 +2038,7 @@
   date: 2025-11
   venue: arXiv
   authors: Jaglan et al.
+  repo: Arc-Computer/atlas-sdk
   category: memory-experience-agents
   tags: [memory, experience-reuse, continual-learning, context-engineering]
   summary: "ATLAS keeps a GPT-5 Teacher's distilled pamphlets of principles and action schemas in a persistent memory that a frozen GPT-5-mini Student retrieves per task, lifting cyber-investigation success from 33.7% to 54.1% with no gradient updates."
@@ -1988,6 +2072,7 @@
   date: 2025-11
   venue: arXiv
   authors: Xia et al.
+  repo: OpenAutoCoder/live-swe-agent
   category: self-modifying-agents
   tags: [self-modifying-code, tool-synthesis, coding-agents]
   summary: "Evolves its own tooling at inference time, letting a bash-only scaffold synthesize editors, search utilities, and analyzers while solving each GitHub issue, resolving 77.4% of SWE-bench Verified with no offline evolution run."
@@ -2010,6 +2095,7 @@
   date: 2025-11
   venue: arXiv
   authors: Liu et al.
+  repo: genglinliu/WebCoach
   category: memory-experience-agents
   tags: [memory, experience-reuse, search-agents]
   summary: "Bolts cross-session memory onto an unmodified browsing agent through a trajectory condenser, a FAISS episode store, and an 8B coach that injects advice only when failure looms, raising WebVoyager success from 47.3% to 61.4% without retraining."
@@ -2032,6 +2118,7 @@
   date: 2025-10
   venue: ICLR 2026
   authors: Zhang et al.
+  repo: ace-agent/ace
   category: context-prompt-workflow
   tags: [context-engineering, prompt-optimization, memory]
   summary: "ACE evolves an agent's context rather than its weights, with Generator, Reflector and Curator roles appending itemized delta bullets to a growing playbook, lifting AppWorld accuracy 17 points while avoiding brevity bias and context collapse."
@@ -2054,6 +2141,7 @@
   date: 2025-10
   venue: arXiv
   authors: "Assumpção et al."
+  repo: inter-co/science-codeevolve
   category: open-ended-evolution
   tags: [evolutionary-search, quality-diversity, algorithm-discovery, coding-agents]
   summary: "Combines island-based evolutionary search over diff edits with inspiration-based crossover and per-island CVT-MAP-Elites archives, matching or beating AlphaEvolve on 5 of 9 benchmark problems using an open-weight 30B model at roughly $6 per run."
@@ -2065,6 +2153,7 @@
   date: 2025-10
   venue: ICLR 2026
   authors: Xue et al.
+  repo: xxyQwQ/CoMAS
   category: self-improving-training
   tags: [self-rewarding, multi-agent, co-evolution, reinforcement-learning]
   summary: "CoMAS derives intrinsic rewards from multi-agent discussion, an LLM judge scoring solver versus evaluator roles as a zero-sum game, to update each agent decentrally with REINFORCE++, lifting Qwen2.5-3B by about 19.8% collaboratively without any ground-truth verifier."
@@ -2076,6 +2165,7 @@
   date: 2025-10
   venue: Nature
   authors: Oh et al.
+  repo: google-deepmind/disco_rl
   category: automated-ai-research
   tags: [algorithm-discovery, reinforcement-learning, meta-learning]
   landmark: true
@@ -2088,6 +2178,7 @@
   date: 2025-10
   venue: arXiv
   authors: Yi et al.
+  repo: liuqiyuanhhh/Verified-Synthetic-Data
   category: foundations-theory
   tags: [theory, model-collapse, verifier, synthetic-data]
   summary: "Proves in a linear-regression setting that one round of verifier-filtered synthetic retraining lowers MSE, but indefinite iteration converges to the verifier's own knowledge center, so biased verifiers cap self-improvement, matching a MNIST VAE plateau after roughly 15 rounds."
@@ -2110,6 +2201,7 @@
   date: 2025-10
   venue: ICML 2026
   authors: Wu et al.
+  repo: KnowledgeXLab/EvolveR
   category: self-improving-training
   tags: [self-distillation, experience-reuse, reinforcement-learning, search-agents]
   summary: "Compresses an agent's own rollouts into success-scored strategic principles that it later retrieves mid-task, with GRPO training on the resulting trajectories, lifting seven-benchmark average EM from 0.325 to 0.382 at 3B."
@@ -2121,6 +2213,7 @@
   date: 2025-10
   venue: arXiv
   authors: Wang et al.
+  repo: metauto-ai/HGM
   category: self-modifying-agents
   tags: [self-modifying-code, coding-agents, archive-search, meta-agent]
   landmark: true
@@ -2144,6 +2237,7 @@
   date: 2025-10
   venue: arXiv
   authors: Chen et al.
+  repo: ulab-uiuc/Multi-agent-Evolve
   category: self-play-zero-data
   tags: [self-play, proposer-solver, co-evolution, verifier]
   summary: "MAE drops the need for grounded verifiers by co-evolving Proposer, Solver and Judge roles from one backbone with Task-Relative REINFORCE++, raising Qwen2.5-3B's average across 20 benchmarks from 55.33% to 59.87%."
@@ -2155,6 +2249,7 @@
   date: 2025-10
   venue: arXiv
   authors: Liu et al.
+  repo: liugangcode/deepevolve
   category: automated-ai-research
   tags: [algorithm-discovery, scientific-discovery, evolutionary-search, deep-research]
   summary: "Couples a deep-research pipeline that retrieves literature and drafts algorithm proposals with island-based evolutionary code search, debugging agents, and reflection checks, improving seed algorithms on nine scientific benchmarks by 0.39% to 666%."
@@ -2199,6 +2294,7 @@
   date: 2025-10
   venue: arXiv
   authors: Wu et al.
+  repo: gravitywavelet/sgm-anon
   category: foundations-theory
   tags: [theory, formal-analysis, self-modifying-code, verifier]
   summary: "Replaces the Godel machine's unattainable proof of improvement with anytime-valid e-value and confidence-bound certificates over paired-seed evaluations, bounding the probability of ever accepting a harmful self-edit across unbounded rewrite sequences."
@@ -2221,6 +2317,7 @@
   date: 2025-10
   venue: arXiv
   authors: Li et al.
+  repo: baidubce/FM-Agent
   category: automated-ai-research
   tags: [evolutionary-search, multi-agent, kernel-optimization, algorithm-discovery]
   summary: "Pairs cold-start generative seeding with island-model evolutionary search and a distributed asynchronous runtime, delivering a 43.56% medal rate on MLE-Bench, 1976.3 on ALE-Bench, and up to 20.77x kernel speedups over torch.compile."
@@ -2232,6 +2329,7 @@
   date: 2025-10
   venue: arXiv
   authors: Yue et al.
+  repo: SalesforceAIResearch/ToolLibGen
   category: self-modifying-agents
   tags: [tool-synthesis, skill-library, coding-agents]
   summary: "Mines self-validated Python tools from an LLM's own reasoning traces, then hierarchically clusters and refactors them through paired coding and reviewing agents, compressing 48k fragmented tools to 3.1k while lifting reasoning accuracy 5-10%."
@@ -2287,6 +2385,7 @@
   date: 2025-09
   venue: arXiv
   authors: Zhou et al.
+  repo: YujunZhou/EVOL-RL
   category: self-improving-training
   tags: [label-free-rl, model-collapse, reinforcement-learning]
   summary: "Keeps majority voting as the label-free selection signal but adds a novelty reward over reasoning-trace embeddings plus entropy regularization to stop collapse, raising Qwen3-4B AIME25 pass@1 from 4.6% to 16.4% over TTRL."
@@ -2320,6 +2419,7 @@
   date: 2025-09
   venue: ICLR 2026
   authors: Ouyang et al.
+  repo: google-research/reasoning-bank
   category: memory-experience-agents
   tags: [memory, experience-reuse, case-based, self-correction]
   landmark: true
@@ -2332,6 +2432,7 @@
   date: 2025-09
   venue: arXiv
   authors: Lange et al.
+  repo: SakanaAI/ShinkaEvolve
   category: open-ended-evolution
   tags: [evolutionary-search, algorithm-discovery, open-endedness, archive-search]
   summary: "Evolves programs with novelty-aware parent sampling, embedding-based rejection of near-duplicate candidates, and a bandit over LLM mutators, reaching state-of-the-art circle packing in roughly 150 evaluations and also evolving agent scaffolds and training losses."
@@ -2343,6 +2444,7 @@
   date: 2025-09
   venue: arXiv
   authors: Wang et al.
+  repo: Frostlinx/Socratic-Zero
   category: self-play-zero-data
   tags: [proposer-solver, zero-data, curriculum, co-evolution]
   summary: "Three co-evolving agents — Solver, Teacher, Generator — bootstrap math reasoning from 100 seed questions via DPO on self-sampled solutions and difficulty-targeted question synthesis, gaining 20.2 points over prior data-synthesis methods across seven benchmarks."
@@ -2365,6 +2467,7 @@
   date: 2025-09
   venue: arXiv
   authors: Lange et al.
+  repo: SakanaAI/robust-kbench
   category: automated-ai-research
   tags: [kernel-optimization, evolutionary-search, verifier, benchmark]
   summary: "Pairs an evolutionary LLM pipeline that translates PyTorch modules into CUDA kernels with robust-kbench, a six-check harness closing benchmark loopholes, so verified kernels still beat torch on forward and backward passes under torch.compile."
@@ -2376,6 +2479,7 @@
   date: 2025-09
   venue: ICLR 2026
   authors: Wang et al.
+  repo: wangqinsi1/Vision-Zero
   category: self-play-zero-data
   tags: [self-play, zero-data, multimodal, reinforcement-learning]
   summary: "Auto-generated \"Who Is the Spy\" games over edited image pairs give VLMs label-free self-play rewards, and Iterative-SPO alternates zero-sum clue rounds with verifiable decision rounds to lift reasoning without domain-specific data."
@@ -2387,6 +2491,7 @@
   date: 2025-09
   venue: ICLR 2026
   authors: Shao et al.
+  repo: ShaoShuai0605/Misevolution
   category: safety-governance
   tags: [safety-evaluation, reward-hacking, tool-synthesis, memory]
   summary: "Names and measures misevolution — safety decay arising from an agent's own self-evolution with no attacker present — across model, memory, tool and workflow pathways, with refusal rates on frontier backbones dropping roughly 45% after memory-driven cycles."
@@ -2398,6 +2503,7 @@
   date: 2025-08
   venue: arXiv
   authors: Fang et al.
+  repo: EvoAgentX/Awesome-Self-Evolving-Agents
   category: surveys-position
   tags: [survey, taxonomy, multi-agent]
   summary: "Frames self-evolving agents as an optimisation loop over inputs, agent system, environment, and optimisers, taxonomising what evolves — weights, prompts, memory, tools, workflows, topologies — and proposes three laws: Endure, Excel, Evolve."
@@ -2409,6 +2515,7 @@
   date: 2025-08
   venue: arXiv
   authors: Cai et al.
+  repo: ECNU-ICALK/ELL-StuLife
   category: benchmarks-infrastructure
   tags: [benchmark, lifelong-learning, memory, continual-learning]
   summary: "Frames self-evolving agents around experience, memory, skill learning, and internalization, then tests them in StuLife, a stateful college-life simulation of 1,284 tasks where the best model, GPT-5, scores 17.9/100."
@@ -2420,6 +2527,7 @@
   date: 2025-08
   venue: arXiv
   authors: Zhou et al.
+  repo: Agent-on-the-Fly/Memento
   category: memory-experience-agents
   tags: [memory, case-based, experience-reuse, deep-research]
   summary: "Adapts a frozen LLM agent by writing and retrieving (state, action, reward) cases from a growing episodic bank via a learned Q-based selector, reaching 87.9% Pass@3 on GAIA validation without gradient updates."
@@ -2431,6 +2539,7 @@
   date: 2025-08
   venue: arXiv
   authors: Fang et al.
+  repo: zjunlp/MemP
   category: memory-experience-agents
   tags: [memory, experience-reuse, skill-library]
   summary: "Distills agent trajectories into a procedural memory bank of verbatim steps and script-like abstractions with a build-retrieve-update loop, lifting ALFWorld success from 39% to 87% and transferring to weaker models."
@@ -2453,6 +2562,7 @@
   date: 2025-08
   venue: ICLR 2026
   authors: Huang et al.
+  repo: Chengsong-Huang/R-Zero
   category: self-play-zero-data
   tags: [self-play, proposer-solver, zero-data, label-free-rl]
   landmark: true
@@ -2465,6 +2575,7 @@
   date: 2025-08
   venue: arXiv
   authors: Chen et al.
+  repo: lili-chen/self-questioning-lm
   category: self-play-zero-data
   tags: [self-play, proposer-solver, curriculum, zero-data]
   summary: "Trains a proposer to invent problems from just a topic prompt and a solver to answer them, rewarding intermediate difficulty and supervising via majority vote or generated unit tests, raising Codeforces accuracy from 0.32 to 0.39."
@@ -2476,6 +2587,7 @@
   date: 2025-07
   venue: TMLR 2026
   authors: Gao et al.
+  repo: CharlesQ9/Self-Evolving-Agents
   category: surveys-position
   tags: [survey, taxonomy, lifelong-learning]
   summary: "Organizes self-evolving agents along what, when, how, and where to evolve—weights, context, tools, topology; intra- versus inter-test-time; reward, imitation, population-based—and consolidates evaluation around adaptivity, retention, generalization, efficiency, and safety."
@@ -2487,6 +2599,7 @@
   date: 2025-07
   venue: arXiv
   authors: Toledo et al.
+  repo: facebookresearch/aira-dojo
   category: automated-ai-research
   tags: [coding-agents, evolutionary-search, benchmark]
   summary: "Decomposes ML-engineering agents into search policy and operator set, showing operators dominate: AIRA operators with MCTS reach 47.7% any-medal on MLE-bench Lite, while validation-metric overfitting, not search capacity, caps performance."
@@ -2498,6 +2611,7 @@
   date: 2025-07
   venue: arXiv
   authors: Liu et al.
+  repo: GAIR-NLP/ASI-Arch
   category: automated-ai-research
   tags: [architecture-search, scientific-discovery, multi-agent, algorithm-discovery]
   landmark: true
@@ -2510,6 +2624,7 @@
   date: 2025-07
   venue: EMNLP 2025
   authors: Wang et al.
+  repo: EvoAgentX/EvoAgentX
   category: benchmarks-infrastructure
   tags: [workflow-search, prompt-optimization, multi-agent]
   summary: "Open-source platform that compiles a natural-language goal into a multi-agent workflow graph, then evolves it with pluggable prompt and topology optimizers (TextGrad, MIPRO, AFlow) under automatic evaluation, adding roughly ten points on MBPP and MATH."
@@ -2521,6 +2636,7 @@
   date: 2025-07
   venue: RLC 2025
   authors: Dharna et al.
+  repo: aadharna/FMSP
   category: open-ended-evolution
   tags: [self-play, quality-diversity, evolutionary-search, open-endedness]
   summary: "Replaces gradient policy updates in self-play with a foundation model that writes and rewrites code policies, adding novelty and dimensionless MAP-Elites archives whose behavior dimensions the model itself invents, rediscovering Kalman filters and MCTS."
@@ -2532,6 +2648,7 @@
   date: 2025-07
   venue: ICLR 2026
   authors: Agrawal et al.
+  repo: gepa-ai/gepa
   category: context-prompt-workflow
   tags: [prompt-optimization, evolutionary-search, workflow-search]
   summary: "Evolves prompts for compound LLM systems by reflecting in natural language over full execution traces and keeping a Pareto frontier of candidates, beating GRPO by 6% on average with up to 35x fewer rollouts."
@@ -2554,6 +2671,7 @@
   date: 2025-06
   venue: arXiv
   authors: Novikov et al.
+  repo: google-deepmind/alphaevolve_results
   category: automated-ai-research
   tags: [evolutionary-search, algorithm-discovery, kernel-optimization, coding-agents]
   landmark: true
@@ -2577,6 +2695,7 @@
   date: 2025-06
   venue: NeurIPS 2025
   authors: Zhang et al.
+  repo: bingreeky/GMemory
   category: multi-agent-evolution
   tags: [memory, multi-agent, experience-reuse]
   summary: "Stores multi-agent history as linked interaction, query, and insight graphs, then traverses them bi-directionally to give each agent role-specific memory, lifting embodied task success up to 20.89% across three MAS frameworks without retraining."
@@ -2588,6 +2707,7 @@
   date: 2025-06
   venue: NeurIPS 2025
   authors: Zweiger et al.
+  repo: Continual-Intelligence/SEAL
   category: self-improving-training
   tags: [weight-editing, synthetic-data, reinforcement-learning, test-time-training]
   landmark: true
@@ -2611,6 +2731,7 @@
   date: 2025-06
   venue: arXiv
   authors: Kutasov et al.
+  repo: safety-research/SHADE-Arena
   category: safety-governance
   tags: [safety-evaluation, benchmark, scheming, control-protocol]
   summary: "Pairs benign agentic tasks with hidden sabotage side tasks across 17 environments and scores an LLM monitor on full transcripts; the best saboteur succeeds 27% of the time, and removing its hidden scratchpad sharply cuts sabotage."
@@ -2622,6 +2743,7 @@
   date: 2025-06
   venue: arXiv
   authors: Liu et al.
+  repo: spiral-rl/spiral
   category: self-play-zero-data
   tags: [self-play, zero-data, reinforcement-learning, reasoning]
   summary: "Trains one shared policy through multi-turn zero-sum language games against its own past copies, with role-conditioned advantage baselines preventing reasoning collapse, transferring to math and lifting Qwen3-4B-Base from 34.0% to 44.5% across eight benchmarks."
@@ -2633,6 +2755,7 @@
   date: 2025-06
   venue: EMNLP 2025
   authors: Zhang et al.
+  repo: yaoz720/SwarmAgenticCode
   category: multi-agent-evolution
   tags: [multi-agent, agent-topology, workflow-search, meta-agent]
   summary: "Generates whole multi-agent systems from a task description by encoding agent roles and collaboration schedules as text particles updated with failure-aware LLM edits in a language-space particle swarm, reaching 32.2% on TravelPlanner versus ADAS's 8.9%."
@@ -2666,6 +2789,7 @@
   date: 2025-05
   venue: NeurIPS 2025
   authors: Zhao et al.
+  repo: LeapLabTHU/Absolute-Zero-Reasoner
   category: self-play-zero-data
   tags: [self-play, zero-data, proposer-solver, verifier]
   landmark: true
@@ -2678,6 +2802,7 @@
   date: 2025-05
   venue: arXiv
   authors: Tang et al.
+  repo: HKUDS/AI-Researcher
   category: automated-ai-research
   tags: [scientific-discovery, coding-agents, multi-agent, benchmark]
   summary: "Runs the full research pipeline, literature review, algorithm implementation, and manuscript writing, through specialized agents in a code-then-critique loop, and releases Scientist-Bench, where LLM judges rate up to 79% of its papers comparable to human originals."
@@ -2689,6 +2814,7 @@
   date: 2025-05
   venue: arXiv
   authors: Qiu et al.
+  repo: CharlesQ9/Alita
   category: self-modifying-agents
   tags: [tool-synthesis, skill-library, coding-agents]
   summary: "Ships almost no predefined tools and instead autonomously writes, refines, and caches Model Context Protocol tools synthesized from open source into a reusable MCP Box, reaching 75.15% pass@1 on GAIA validation with a minimal scaffold."
@@ -2711,6 +2837,7 @@
   date: 2025-05
   venue: arXiv
   authors: Shafayat et al.
+  repo: tajwarfahim/srt
   category: limits-failure-modes
   tags: [self-rewarding, label-free-rl, reward-hacking, reinforcement-learning]
   summary: "Self-Rewarded Training replaces labels with majority-vote agreement among a model's own rollouts, matching label-supervised RL early on before the policy hacks its own reward, emitting a constant boxed answer, and collapses on every base model tested."
@@ -2722,6 +2849,7 @@
   date: 2025-05
   venue: arXiv
   authors: Zhang et al.
+  repo: jennyzzt/dgm
   category: self-modifying-agents
   tags: [self-modifying-code, archive-search, coding-agents, open-endedness]
   landmark: true
@@ -2745,6 +2873,7 @@
   date: 2025-05
   venue: arXiv
   authors: Zhao et al.
+  repo: sunblaze-ucb/Intuitor
   category: self-improving-training
   tags: [label-free-rl, self-rewarding, reinforcement-learning, reasoning]
   summary: "Replaces GRPO's external verifier with the model's own self-certainty, the KL divergence from a uniform token distribution, as the only reward, matching verifier-based RL in-domain while nearly doubling LiveCodeBench transfer when the reward stays online."
@@ -2756,6 +2885,7 @@
   date: 2025-05
   venue: arXiv
   authors: Zheng et al.
+  repo: caixd-220529/LifelongAgentBench
   category: benchmarks-infrastructure
   tags: [benchmark, lifelong-learning, experience-reuse]
   summary: "Benchmarks lifelong learning over interdependent Database, OS and Knowledge Graph skills, showing experience replay lifts Llama-3.1-8B from 19% to 78% on SQL yet saturates elsewhere until group self-consistency voting restores accuracy."
@@ -2767,6 +2897,7 @@
   date: 2025-05
   venue: NeurIPS 2025
   authors: Nam et al.
+  repo: jaehyun513/MLE-STAR
   category: automated-ai-research
   tags: [coding-agents, search-agents, algorithm-discovery]
   summary: "MLE-STAR web-searches for task-appropriate models, then refines solutions block by block through ablation-guided nested loops plus a learned ensembling stage, reaching a 63.6% medal rate on MLE-bench Lite."
@@ -2778,6 +2909,7 @@
   date: 2025-05
   venue: GitHub
   authors: Sharma
+  repo: algorithmicsuperintelligence/openevolve
   category: benchmarks-infrastructure
   tags: [evolutionary-search, quality-diversity, algorithm-discovery, coding-agents]
   summary: "Open-source AlphaEvolve reimplementation where an LLM ensemble rewrites whole programs under evaluator feedback, with MAP-Elites archives, island populations, and an error side-channel; it reproduces the 2.635 circle-packing result and evolves 2-3x faster GPU kernels."
@@ -2800,6 +2932,7 @@
   date: 2025-05
   venue: NeurIPS 2025
   authors: Agarwal et al.
+  repo: shivamag125/EM_PT
   category: self-improving-training
   tags: [label-free-rl, reinforcement-learning, test-time-training, reasoning]
   summary: "Three entropy-minimization recipes, fine-tuning on self-generated outputs, RL with negative entropy as sole reward, and inference-time logit descent, lift reasoning without labels or verifiers, matching labeled RL trained on 60K examples across math and code."
@@ -2811,6 +2944,7 @@
   date: 2025-04
   venue: arXiv
   authors: Robeyns et al.
+  repo: MaximeRobeyns/self_improving_coding_agent
   category: self-modifying-agents
   tags: [self-modifying-code, coding-agents, tool-synthesis]
   summary: "SICA drops the separate meta-agent, letting the best-scoring agent so far edit its own codebase each round under a utility mixing accuracy, cost, and runtime, lifting a SWE-bench Verified subset from 17% to 53% without gradient updates."
@@ -2833,6 +2967,7 @@
   date: 2025-04
   venue: AI Futures Project
   authors: Kokotajlo et al.
+  repo: uvafan/timelines-takeoff-ai-2027
   category: foundations-theory
   tags: [takeoff, position-paper, governance]
   summary: "Month-by-month scenario in which labs point AI at AI research itself, quantifying the loop with R&D speedup multipliers from 4x at superhuman coder to ~2000x at ASI, then branching into race-to-extinction and slowdown endings."
@@ -2855,6 +2990,7 @@
   date: 2025-04
   venue: arXiv
   authors: Suzgun et al.
+  repo: suzgunmirac/dynamic-cheatsheet
   category: memory-experience-agents
   tags: [memory, experience-reuse, skill-library]
   summary: "Dynamic Cheatsheet gives a frozen LM a self-curated memory of reusable strategies and code snippets, updated label-free after each query, lifting Claude 3.5 Sonnet on AIME 2024 from 23% to 50%."
@@ -2866,6 +3002,7 @@
   date: 2025-04
   venue: arXiv
   authors: Chhikara et al.
+  repo: mem0ai/mem0
   category: memory-experience-agents
   tags: [memory, experience-reuse, continual-learning]
   summary: "Mem0 runs an extract-then-update pipeline that lets an LLM decide ADD/UPDATE/DELETE/NOOP over a consolidated memory store, raising LOCOMO judge accuracy to 66.9% while cutting p95 latency 91% and tokens over 90% versus full context."
@@ -2888,6 +3025,7 @@
   date: 2025-04
   venue: arXiv
   authors: Zheng et al.
+  repo: OSU-NLP-Group/SkillWeaver
   category: memory-experience-agents
   tags: [skill-library, tool-synthesis, experience-reuse]
   summary: "SkillWeaver has a web agent explore unfamiliar sites under an LLM curriculum, distill successful trajectories into reusable Playwright APIs, then stress-test and patch them, giving 31.8% relative gains on WebArena without weight updates."
@@ -2899,6 +3037,7 @@
   date: 2025-04
   venue: arXiv
   authors: Yamada et al.
+  repo: SakanaAI/AI-Scientist-v2
   category: automated-ai-research
   tags: [scientific-discovery, tree-search, coding-agents]
   landmark: true
@@ -2911,6 +3050,7 @@
   date: 2025-04
   venue: NeurIPS 2025
   authors: Zuo et al.
+  repo: PRIME-RL/TTRL
   category: self-improving-training
   tags: [label-free-rl, test-time-training, self-rewarding]
   landmark: true
@@ -2934,6 +3074,7 @@
   date: 2025-03
   venue: arXiv
   authors: Simonds et al.
+  repo: Tufalabs/LADDER
   category: self-improving-training
   tags: [curriculum, verifier, label-free-rl, test-time-training]
   summary: "Bootstraps its own curriculum by recursively generating easier variants of hard integrals, checking them with a numerical verifier, and training via GRPO, lifting Llama 3.2 3B from 1% to 82% pass@1."
@@ -2945,6 +3086,7 @@
   date: 2025-03
   venue: NeurIPS 2025
   authors: Kwa et al.
+  repo: METR/eval-analysis-public
   category: benchmarks-infrastructure
   tags: [benchmark, takeoff, coding-agents]
   landmark: true
@@ -2957,6 +3099,7 @@
   date: 2025-03
   venue: arXiv
   authors: Zhang et al.
+  repo: Shimao-Zhang/Process-Self-Rewarding
   category: self-improving-training
   tags: [self-rewarding, process-reward, reasoning]
   summary: "Moves self-rewarding from whole answers down to individual reasoning steps: step-level search plus pairwise LLM-as-judge comparison mines step preferences for iterative step-wise DPO, raising a 72B model's AIME2024 score from 13.3 to 23.3."
@@ -2968,6 +3111,7 @@
   date: 2025-03
   venue: ICML 2025
   authors: Sancaktar et al.
+  repo: martius-lab/sensei
   category: open-ended-evolution
   tags: [open-endedness, world-models, reinforcement-learning]
   summary: "Distills a VLM's pairwise \"which is more interesting\" judgments into a dense semantic reward that a DreamerV3 world model predicts alongside epistemic uncertainty, driving task-free exploration that reaches Pokemon Red's first Gym."
@@ -2979,6 +3123,7 @@
   date: 2025-02
   venue: NeurIPS 2025
   authors: Xu et al.
+  repo: WujiangXu/A-mem
   category: memory-experience-agents
   tags: [memory, experience-reuse, continual-learning]
   summary: "Stores each interaction as a Zettelkasten-style note whose LLM-generated links and contextual descriptions get rewritten as new notes arrive, lifting LoCoMo temporal-reasoning F1 to 45.9 versus MemGPT's 25.5 at far fewer tokens."
@@ -2990,6 +3135,7 @@
   date: 2025-02
   venue: arXiv
   authors: Jiang et al.
+  repo: WecoAI/aideml
   category: automated-ai-research
   tags: [coding-agents, algorithm-discovery, archive-search]
   landmark: true
@@ -3002,6 +3148,7 @@
   date: 2025-02
   venue: arXiv
   authors: Lu et al.
+  repo: conglu1997/ACD
   category: benchmarks-infrastructure
   tags: [benchmark, open-endedness, archive-search]
   summary: "Casts one foundation model as a scientist that invents novel task families with automatic scoring, filtered against a growing archive, and runs them on a subject model to surface thousands of unknown capabilities and surprising failures."
@@ -3024,6 +3171,7 @@
   date: 2025-02
   venue: ICML 2025
   authors: Gaven et al.
+  repo: flowersteam/MAGELLAN
   category: open-ended-evolution
   tags: [curriculum, open-endedness, reinforcement-learning]
   summary: "Adds a LoRA-based metacognitive head that predicts an LLM agent's per-goal competence, so absolute learning progress generalizes across semantically related goals and drives automatic curriculum sampling over 25k goals without costly periodic evaluation."
@@ -3035,6 +3183,7 @@
   date: 2025-02
   venue: arXiv
   authors: Nathani et al.
+  repo: facebookresearch/MLGym
   category: benchmarks-infrastructure
   tags: [benchmark, sandbox, coding-agents]
   summary: "Offers a Gymnasium-compatible environment and 13-task benchmark scoring LLM research agents in Docker sandboxes with literature-search and memory tools; frontier models improve baselines mostly by hyperparameter tuning, never inventing new algorithms."
@@ -3046,6 +3195,7 @@
   date: 2025-02
   venue: ICML 2025
   authors: Zhang et al.
+  repo: bingreeky/MaAS
   category: multi-agent-evolution
   tags: [multi-agent, agent-topology, workflow-search]
   summary: "Replaces one-size-fits-all multi-agent workflows with a probabilistic supernet over operator DAGs that samples a query-specific sub-network, beating AFlow and ADAS across six benchmarks at 6-45% of their inference cost."
@@ -3090,6 +3240,7 @@
   date: 2025-01
   venue: arXiv
   authors: Guan et al.
+  repo: microsoft/rStar
   category: self-improving-training
   tags: [process-reward, verifier, synthetic-data, reasoning]
   landmark: true
@@ -3147,6 +3298,7 @@
   date: 2023-01
   venue: Open Philanthropy
   authors: Davidson
+  repo: epoch-research/ftm
   category: foundations-theory
   tags: [takeoff, theory, formal-analysis]
   summary: "Models takeoff as continuous scaling of effective training compute plus progressive AI automation of AI R&D, yielding a conditional median of roughly three years from 20% to 100% task automation without any capability discontinuity."
@@ -3158,6 +3310,7 @@
   date: 2022-02
   venue: ICML 2022
   authors: Irie et al.
+  repo: IDSIA/modern-srwm
   category: foundations-theory
   tags: [weight-editing, test-time-training, theory]
   landmark: true
@@ -3293,6 +3446,7 @@
   date: 2013-12
   venue: arXiv
   authors: Nivel et al.
+  repo: IIIM-IS/AERA
   category: foundations-theory
   tags: [self-modifying-code, world-models, continual-learning]
   summary: "Presents AERA, a seed architecture that synthesizes, evaluates, and retires executable models of both its environment and its own execution traces under fixed mission constraints; its S1 prototype learns multimodal interview dialogue from about 20 hours of observation."

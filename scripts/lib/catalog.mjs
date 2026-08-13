@@ -11,7 +11,7 @@ export const TAXONOMY_FILE = path.join(ROOT, 'data', 'categories.yaml')
 
 export const FIELD_ORDER = [
   'id', 'title', 'url', 'link_label', 'date', 'venue', 'authors',
-  'category', 'tags', 'landmark', 'summary', 'summary_zh',
+  'repo', 'category', 'tags', 'landmark', 'summary', 'summary_zh',
 ]
 
 export const REQUIRED = ['id', 'title', 'url', 'link_label', 'date', 'category', 'tags', 'summary']
@@ -52,8 +52,15 @@ export function groupByCategory(papers, categories) {
   return map
 }
 
+// Live star badge; clicking it opens the repository.
+export function starBadge(repo) {
+  const src = `https://img.shields.io/github/stars/${repo}?style=flat-square&label=star&color=f4b400`
+  return `[![star](${src})](https://github.com/${repo})`
+}
+
 export function stats(papers, categories) {
   const arxiv = papers.filter(p => /arxiv\.org/i.test(p.url)).length
+  const withRepo = papers.filter(p => p.repo).length
   const modern = papers.filter(p => p.category !== LEGACY_CATEGORY)
   const inWindow = modern.filter(p => String(p.date) >= CUTOFF).length
   const pct = n => (papers.length ? (100 * n / papers.length).toFixed(1) : '0.0')
@@ -61,6 +68,8 @@ export function stats(papers, categories) {
     total: papers.length,
     arxiv,
     arxivPct: pct(arxiv),
+    withRepo,
+    repoPct: pct(withRepo),
     modern: modern.length,
     inWindow,
     windowPct: modern.length ? (100 * inWindow / modern.length).toFixed(1) : '100.0',
