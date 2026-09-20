@@ -2,10 +2,10 @@
 
 一份以证据为先的**递归自我改进（RSI）**研究清单：能够改进自身权重、提示、记忆、技能、工具、工作流、源代码，乃至改进机制本身的 AI 系统。
 
-- 条目总数: **315**
-- arXiv 条目: **288 (91.4%)**
-- 已开源代码的条目: **154 (48.9%)**
-- 2025 年及以后的条目（不含基础理论）: **265/265 (100.0%)**
+- 条目总数: **316**
+- arXiv 条目: **288 (91.1%)**
+- 已开源代码的条目: **155 (49.1%)**
+- 2025 年及以后的条目（不含基础理论）: **266/266 (100.0%)**
 - 分类数: **13**
 - 最近校验: **2026-08-13**
 - 语言: [English](./README.md) | [中文](./README_zh.md)
@@ -58,7 +58,7 @@
 | 综述与立场论文 | 19 |
 | 极限与失效模式 | 22 |
 | 安全、管控与治理 | 26 |
-| 基准与基础设施 | 28 |
+| 基准与基础设施 | 29 |
 
 <a id="catalog"></a>
 ## 编目
@@ -461,6 +461,7 @@
 
 | 论文 | 链接 | Stars | 日期 | 标签 | 摘要 |
 | --- | --- | --- | --- | --- | --- |
+| Gear | [GitHub](https://github.com/rsi-gear/gear) | [![star](https://img.shields.io/github/stars/rsi-gear/gear?style=flat-square&label=star&color=f4b400)](https://github.com/rsi-gear/gear) | 2026.09 | evolutionary-search, coding-agents, meta-agent | 利用执行轨迹与基准评测反馈迭代优化智能体的提示词、工具和工作流，将选中的外壳版本保留供后续轮次使用。 |
 | GDPevo: Evaluating Agent Self-Evolution on Real Business Tasks | [arXiv](https://arxiv.org/abs/2608.03764) | [![star](https://img.shields.io/github/stars/Prism-Shadow/GDPevo?style=flat-square&label=star&color=f4b400)](https://github.com/Prism-Shadow/GDPevo) | 2026.08 | benchmark, experience-reuse, skill-library | 通过将原子决策规则打散到训练任务、并在留出测试中重新组合，检验企业级智能体是否真正从经验中学习；最好的自演化设置只达到 67%，而知情 oracle 上限为 91.6%。 |
 | PAST-Bench: Benchmarking the Foundations of Recursive Self-Improvement in Personal Agents | [arXiv](https://arxiv.org/abs/2608.04003) | [![star](https://img.shields.io/github/stars/Gen-Verse/PAST-Bench?style=flat-square&label=star&color=f4b400)](https://github.com/Gen-Verse/PAST-Bench) | 2026.08 | benchmark, memory, continual-learning | 以持久化开/关的配对实验在 204 个 episode 上隔离智能体的持久化层，并将自演化增益与机制证据分数配对；增益区间为 +0.13 到 +0.24，其中一个框架反而退化。 |
 | AgentStream: How Well Do Self-Evolving LLM Agents Perform Under Streaming Tasks? | [arXiv](https://arxiv.org/abs/2608.00155) | [![star](https://img.shields.io/github/stars/Jasper-Yan/AgentStream?style=flat-square&label=star&color=f4b400)](https://github.com/Jasper-Yan/AgentStream) | 2026.07 | benchmark, memory, continual-learning | 将六个基准的任务以隔离、顺序、交错三种模式流式送入五种自进化方法，显示跨领域混合后正收益率从 75.7% 降至 62.3%，且最强模型出现负向进化。 |

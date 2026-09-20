@@ -3642,3 +3642,16 @@
   landmark: true
   summary: "Since designing machines is itself an intellectual activity, an ultraintelligent machine would design still better ones, yielding an intelligence explosion — the last invention humanity need make, provided the first machine stays docile enough to remain controllable."
   summary_zh: "由于设计机器本身就是一项智力活动，超智能机器会设计出更强的机器，从而引发智能爆炸——这是人类需要做出的最后一项发明，前提是第一台机器足够温顺、仍可被控制。"
+
+- id: gear
+  title: Gear
+  url: https://github.com/rsi-gear/gear
+  link_label: GitHub
+  date: 2026-09
+  venue: GitHub
+  authors: rsi-gear
+  repo: rsi-gear/gear
+  category: benchmarks-infrastructure
+  tags: [evolutionary-search, coding-agents, meta-agent]
+  summary: "Uses execution traces and benchmark feedback to iteratively optimize agent prompts, tools, and workflows, retaining versioned harness candidates for later rounds."
+  summary_zh: "利用执行轨迹与基准评测反馈迭代优化智能体的提示词、工具和工作流，将选中的外壳版本保留供后续轮次使用。"
