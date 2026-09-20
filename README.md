@@ -2,10 +2,10 @@
 
 A curated, evidence-first list of **recursive self-improvement (RSI)** research: AI systems that improve their own weights, prompts, memory, skills, tools, workflows, source code, or the improvement mechanism itself.
 
-- Total entries: **315**
-- arXiv entries: **288 (91.4%)**
-- Entries with released code: **154 (48.9%)**
-- Entries from 2025 onward (excluding foundations): **265/265 (100.0%)**
+- Total entries: **316**
+- arXiv entries: **288 (91.1%)**
+- Entries with released code: **155 (49.1%)**
+- Entries from 2025 onward (excluding foundations): **266/266 (100.0%)**
 - Categories: **13**
 - Last verified: **2026-08-13**
 - Language: [English](./README.md) | [中文](./README_zh.md)
@@ -58,7 +58,7 @@ A curated, evidence-first list of **recursive self-improvement (RSI)** research:
 | Surveys & Position Papers | 19 |
 | Limits & Failure Modes | 22 |
 | Safety, Control & Governance | 26 |
-| Benchmarks & Infrastructure | 28 |
+| Benchmarks & Infrastructure | 29 |
 
 <a id="catalog"></a>
 ## Catalog
@@ -461,6 +461,7 @@ What the field measures itself against and builds on: AI R&D and self-evolution 
 
 | Paper | Link | Stars | Date | Tags | Summary |
 | --- | --- | --- | --- | --- | --- |
+| Gear | [GitHub](https://github.com/rsi-gear/gear) | [![star](https://img.shields.io/github/stars/rsi-gear/gear?style=flat-square&label=star&color=f4b400)](https://github.com/rsi-gear/gear) | 2026.09 | evolutionary-search, coding-agents, meta-agent | Uses execution traces and benchmark feedback to iteratively optimize agent prompts, tools, and workflows, retaining versioned harness candidates for later rounds. |
 | GDPevo: Evaluating Agent Self-Evolution on Real Business Tasks | [arXiv](https://arxiv.org/abs/2608.03764) | [![star](https://img.shields.io/github/stars/Prism-Shadow/GDPevo?style=flat-square&label=star&color=f4b400)](https://github.com/Prism-Shadow/GDPevo) | 2026.08 | benchmark, experience-reuse, skill-library | Benchmarks whether enterprise agents truly learn from experience by scattering atomic decision rules across training tasks and recombining them in held-out tests; the best self-evolution regime reaches 67% against a 91.6% informed-oracle ceiling. |
 | PAST-Bench: Benchmarking the Foundations of Recursive Self-Improvement in Personal Agents | [arXiv](https://arxiv.org/abs/2608.04003) | [![star](https://img.shields.io/github/stars/Gen-Verse/PAST-Bench?style=flat-square&label=star&color=f4b400)](https://github.com/Gen-Verse/PAST-Bench) | 2026.08 | benchmark, memory, continual-learning | Isolates an agent's persistence layer with matched persistence-on versus persistence-off runs over 204 episodes, pairing the self-evolution gap with mechanism-evidence scores; gains span +0.13 to +0.24 and one framework regresses. |
 | AgentStream: How Well Do Self-Evolving LLM Agents Perform Under Streaming Tasks? | [arXiv](https://arxiv.org/abs/2608.00155) | [![star](https://img.shields.io/github/stars/Jasper-Yan/AgentStream?style=flat-square&label=star&color=f4b400)](https://github.com/Jasper-Yan/AgentStream) | 2026.07 | benchmark, memory, continual-learning | Streams tasks from six benchmarks through five self-evolution methods under isolated, sequential, and interleaved regimes, showing positive-gain rates drop from 75.7% to 62.3% once domains mix and strong models regress. |
