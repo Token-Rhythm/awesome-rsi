@@ -2,10 +2,10 @@
 
 A curated, evidence-first list of **recursive self-improvement (RSI)** research: AI systems that improve their own weights, prompts, memory, skills, tools, workflows, source code, or the improvement mechanism itself.
 
-- Total entries: **315**
-- arXiv entries: **288 (91.4%)**
-- Entries with released code: **154 (48.9%)**
-- Entries from 2025 onward (excluding foundations): **265/265 (100.0%)**
+- Total entries: **316**
+- arXiv entries: **288 (91.1%)**
+- Entries with released code: **155 (49.1%)**
+- Entries from 2025 onward (excluding foundations): **266/266 (100.0%)**
 - Categories: **13**
 - Last verified: **2026-08-13**
 - Language: [English](./README.md) | [中文](./README_zh.md)
@@ -49,7 +49,7 @@ A curated, evidence-first list of **recursive self-improvement (RSI)** research:
 | Foundations & Theory | 50 |
 | Self-Improving Training | 34 |
 | Self-Play & Zero-Data Reasoning | 26 |
-| Memory, Experience & Skills | 22 |
+| Memory, Experience & Skills | 23 |
 | Self-Modifying Agents & Scaffolds | 25 |
 | Context, Prompt & Workflow Optimization | 14 |
 | Multi-Agent Co-Evolution | 11 |
@@ -216,6 +216,7 @@ Agents that improve with frozen weights by accumulating what they have done: cas
 | AdaMEM: Test-Time Adaptive Memory for Language Agents | [arXiv](https://arxiv.org/abs/2606.05684) | [![star](https://img.shields.io/github/stars/yunx-z/AdaMEM?style=flat-square&label=star&color=f4b400)](https://github.com/yunx-z/AdaMEM) | 2026.06 | memory, experience-reuse, test-time-training | AdaMEM pairs an offline trajectory memory with a short-term strategy the agent regenerates mid-episode on its own refresh decision, plus step-level rejection-sampling SFT, lifting ALFWorld unseen to 58.2% and scaling monotonically with retrieval budget. |
 | Forget to Improve: On-Device LLM-Agent Continual Learning via Budget-Curated Memory | [arXiv](https://arxiv.org/abs/2606.25115) | - | 2026.06 | memory, experience-reuse, continual-learning, forgetting | Scores each memory entry by net value per byte to drive eviction, peer sharing, and provenance-gated admission, so on-device agents improve from curated experience alone: 0.605 vs 0.528 accuracy at 2.7x less memory. |
 | Marginal Advantage Accumulation for Memory-Driven Agent Self-Evolution | [arXiv](https://arxiv.org/abs/2606.20475) | - | 2026.06 | memory, experience-reuse, credit-assignment | Accumulates signed, side-by-side advantage estimates for each memory operation across batches via bias-corrected EMA, separating stably useful edits from lucky ones; as a drop-in layer it wins 14 of 16 settings while cutting optimization tokens roughly 75%. |
+| agent-qa | [Project](https://vostride.com) | [![star](https://img.shields.io/github/stars/vostride/agent-qa?style=flat-square&label=star&color=f4b400)](https://github.com/vostride/agent-qa) | 2026.05 | memory, experience-reuse, verifier | Curates verified QA-step evidence into persistent app facts, cautions, and procedures in memidex; subsequent runs retrieve this knowledge, while later outcomes update trust and CI runs only propose candidates. |
 | APEX: Autonomous Policy Exploration for Self-Evolving LLM Agents | [arXiv](https://arxiv.org/abs/2605.21240) | [![star](https://img.shields.io/github/stars/liushiliushi/APEX1?style=flat-square&label=star&color=f4b400)](https://github.com/liushiliushi/APEX1) | 2026.05 | memory, experience-reuse, open-endedness | Materializes an agent's implicit strategy space as an explicit DAG of natural-language milestones, selecting frontier goals by Thompson sampling and mining unexplored forks from past trajectories, winning all nine Jericho games and five WebArena categories. |
 | MAGE: Multi-Agent Self-Evolution with Co-Evolutionary Knowledge Graphs | [arXiv](https://arxiv.org/abs/2605.10064) | - | 2026.05 | memory, experience-reuse, co-evolution, multi-agent | Externalizes agent knowledge into four co-evolving subgraphs - capability, task, experience, environment - written by a strong guidance model and read by a frozen 8B executor, lifting nine benchmarks while routing only 2% of calls to the teacher. |
 | MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation | [arXiv](https://arxiv.org/abs/2605.27366) | - | 2026.05 | skill-library, tool-synthesis, experience-reuse, coding-agents | Manages agent skills as portable directories of instructions, scripts, and gating unit tests through a create-remember-curate-evaluate lifecycle with automatic patching on test failure, where self-created skills reach 87.94% on SkillsBench, beating human-authored ones. |

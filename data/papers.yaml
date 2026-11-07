@@ -3642,3 +3642,15 @@
   landmark: true
   summary: "Since designing machines is itself an intellectual activity, an ultraintelligent machine would design still better ones, yielding an intelligence explosion — the last invention humanity need make, provided the first machine stays docile enough to remain controllable."
   summary_zh: "由于设计机器本身就是一项智力活动，超智能机器会设计出更强的机器，从而引发智能爆炸——这是人类需要做出的最后一项发明，前提是第一台机器足够温顺、仍可被控制。"
+
+- id: agent-qa
+  title: agent-qa
+  url: https://vostride.com
+  link_label: Project
+  date: 2026-05
+  venue: Software
+  repo: vostride/agent-qa
+  category: memory-experience-agents
+  tags: [memory, experience-reuse, verifier]
+  summary: "Curates verified QA-step evidence into persistent app facts, cautions, and procedures in memidex; subsequent runs retrieve this knowledge, while later outcomes update trust and CI runs only propose candidates."
+  summary_zh: "将已验证的 QA 步骤证据提炼为 memidex 中持久保存的应用事实、注意事项和操作流程；后续运行检索这些知识，并根据新的结果更新信任度，CI 运行则只提出候选记录。"
