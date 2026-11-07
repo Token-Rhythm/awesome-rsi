@@ -2,10 +2,10 @@
 
 一份以证据为先的**递归自我改进（RSI）**研究清单：能够改进自身权重、提示、记忆、技能、工具、工作流、源代码，乃至改进机制本身的 AI 系统。
 
-- 条目总数: **315**
-- arXiv 条目: **288 (91.4%)**
-- 已开源代码的条目: **154 (48.9%)**
-- 2025 年及以后的条目（不含基础理论）: **265/265 (100.0%)**
+- 条目总数: **316**
+- arXiv 条目: **288 (91.1%)**
+- 已开源代码的条目: **155 (49.1%)**
+- 2025 年及以后的条目（不含基础理论）: **266/266 (100.0%)**
 - 分类数: **13**
 - 最近校验: **2026-08-13**
 - 语言: [English](./README.md) | [中文](./README_zh.md)
@@ -49,7 +49,7 @@
 | 基础与理论 | 50 |
 | 自我改进训练 | 34 |
 | 自博弈与零数据推理 | 26 |
-| 记忆、经验与技能 | 22 |
+| 记忆、经验与技能 | 23 |
 | 自修改智能体与脚手架 | 25 |
 | 上下文、提示与工作流优化 | 14 |
 | 多智能体协同进化 | 11 |
@@ -216,6 +216,7 @@
 | AdaMEM: Test-Time Adaptive Memory for Language Agents | [arXiv](https://arxiv.org/abs/2606.05684) | [![star](https://img.shields.io/github/stars/yunx-z/AdaMEM?style=flat-square&label=star&color=f4b400)](https://github.com/yunx-z/AdaMEM) | 2026.06 | memory, experience-reuse, test-time-training | AdaMEM 将离线轨迹记忆与由智能体自行决定何时刷新的短期策略记忆相结合，并加入步级拒绝采样 SFT，把 ALFWorld unseen 提升到 58.2%，且性能随检索预算单调提升。 |
 | Forget to Improve: On-Device LLM-Agent Continual Learning via Budget-Curated Memory | [arXiv](https://arxiv.org/abs/2606.25115) | - | 2026.06 | memory, experience-reuse, continual-learning, forgetting | 以每字节净价值这一单一评分驱动记忆条目的淘汰、对等共享与来源门控准入，使端侧智能体仅靠精选经验即可提升：准确率 0.605 对 0.528，峰值内存降低 2.7 倍。 |
 | Marginal Advantage Accumulation for Memory-Driven Agent Self-Evolution | [arXiv](https://arxiv.org/abs/2606.20475) | - | 2026.06 | memory, experience-reuse, credit-assignment | 以偏差校正的 EMA 跨批次累积每个记忆操作的带符号对照优势信号，把稳定有益的编辑与偶然侥幸的编辑区分开；作为即插即用的后处理层在 16 个基准-模型设置中赢下 14 个，同时将优化阶段 token 消耗削减约 75%。 |
+| agent-qa | [Project](https://vostride.com) | [![star](https://img.shields.io/github/stars/vostride/agent-qa?style=flat-square&label=star&color=f4b400)](https://github.com/vostride/agent-qa) | 2026.05 | memory, experience-reuse, verifier | 将已验证的 QA 步骤证据提炼为 memidex 中持久保存的应用事实、注意事项和操作流程；后续运行检索这些知识，并根据新的结果更新信任度，CI 运行则只提出候选记录。 |
 | APEX: Autonomous Policy Exploration for Self-Evolving LLM Agents | [arXiv](https://arxiv.org/abs/2605.21240) | [![star](https://img.shields.io/github/stars/liushiliushi/APEX1?style=flat-square&label=star&color=f4b400)](https://github.com/liushiliushi/APEX1) | 2026.05 | memory, experience-reuse, open-endedness | 将智能体隐式的策略空间显式化为自然语言里程碑构成的 DAG，用 Thompson 采样挑选前沿目标并从历史轨迹中挖掘未曾尝试的分支方向，在全部九个 Jericho 游戏和五类 WebArena 任务上均取得最佳成绩。 |
 | MAGE: Multi-Agent Self-Evolution with Co-Evolutionary Knowledge Graphs | [arXiv](https://arxiv.org/abs/2605.10064) | - | 2026.05 | memory, experience-reuse, co-evolution, multi-agent | 把智能体知识外化为能力、任务、经验、环境四个共演化子图，由强引导模型写入、冻结的 8B 执行模型读取，在九个基准上大幅提升，且只有约 2% 的调用路由给教师模型。 |
 | MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation | [arXiv](https://arxiv.org/abs/2605.27366) | - | 2026.05 | skill-library, tool-synthesis, experience-reuse, coding-agents | 以创建、记忆、管理、评估的闭环生命周期把技能维护成包含说明、脚本与准入单元测试的可移植目录，测试失败时自动修补；自创技能在 SkillsBench 上达到 87.94%，超过人工编写技能。 |
